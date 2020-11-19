@@ -11,7 +11,7 @@ acs18 <- load_variables(2018, "acs5", cache = TRUE)
 #view(acs18)
 #data(fips_codes)
 years <- lst(2013, 2018)
-counties <- c("dallas", "rockwall", "collin county", "denton", "tarrant", "kaufman", "ellis")
+counties <- c("dallas", "rockwall", "collin county", "denton", "tarrant", "kaufman", "ellis", "johnson")
 
 #setting up the geocodes for the areas of interest to be pulled from tidycensus
 zip <- import("Social-Mobility/Data/Geography/socmob_zcta.csv")
@@ -112,40 +112,24 @@ rm(socmob.place.2018)
 
 socmob.place <- inner_join(places, socmob.place)
 
-#tidycensus pull of census tract locations for 2013 and 2018 5-year acs Johnson County data
-socmob.tract <- map_dfr(
-  years,
-  ~get_acs(
-    geography = "tract", 
-    state = "TX",
-    county = "Johnson",
-    variables = socmob.var,
-    year = .x, 
-    survey = "acs5", 
-    output = "wide"),
-  .id = "year"
-)
+#tidycensus pull of census tract locations for 2013 and 2018 5-year acs Counties data
+socmob.tract.2013 <- get_acs(geography = "tract", variables = socmob.var,
+                             state = "TX", county = counties, year = 2013, survey = "acs5", output = "wide")
+  
+socmob.tract.2018 <- get_acs(geography = "tract", variables = socmob.var,
+                             state = "TX", county = counties, year = 2018, survey = "acs5", output = "wide")
 
-socmob.tract.2013 <- socmob.tract %>%
-  filter(year == 2013) %>%
+socmob.tract.2013 <- socmob.tract.2013 %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_13"))) %>%
-  rename(GEOID = GEOID_13,
-         NAME = NAME_13) %>%
-  select(-year) %>%
+  rename(NAME = NAME_13) %>%
   mutate(TYPE = "TRACT")
 
-socmob.tract.2018 <- socmob.tract %>%
-  filter(year == 2018) %>%
+socmob.tract.2018 <- socmob.tract.2018 %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_18"))) %>%
-  rename(GEOID = GEOID_18,
-         NAME = NAME_18) %>%
-  select(-year) %>%
+  rename(NAME = NAME_18) %>%
   mutate(TYPE = "TRACT")
 
 socmob.tract <- full_join(socmob.tract.2013, socmob.tract.2018)
-
-socmob.tract <- socmob.tract %>%
-  mutate(ADJ_med.inc_13 = med.incE_13*(251.233/233.049)) #Inflation rate 2018/2013
 
 rm(socmob.tract.2013)
 rm(socmob.tract.2018)
