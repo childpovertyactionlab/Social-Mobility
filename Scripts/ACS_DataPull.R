@@ -160,7 +160,122 @@ socmob.place <- socmob.calc %>%
 socmob.tract <- socmob.calc %>%
   filter(str_detect(TYPE, "TRACT"))
 
+#sdcut function which will divide dataset into 5 bins based on where in the standard deviation the value falls
+sdcut <- function(x) {
+  sd1p <- mean(x)+(sd(x)*0.40)
+  sd1n <- mean(x)-(sd(x)*0.40)
+  sd2p <- mean(x)+(sd(x)*0.85)
+  sd2n <- mean(x)-(sd(x)*0.85)
+  ifelse(x > sd2p, 4,
+         ifelse(x > sd1p & x < sd2p, 3,
+                ifelse(x > sd1n & x < sd1p, 2,
+                       ifelse(x > sd2n & x < sd1n, 1, 0))))
+}
+
+#standardize all variables to z scores using the scale function
+#second line of function omits the "SLN", "TEA", and "AreaSqMi" columns from being transformed with the 'scale' function
+names(socmob.zip)
+socmob.zip.l <- socmob.zip %>%
+  mutate(tot.popE_18 = log(tot.popE_18),
+         tot.popE_13 = log(tot.popE_13),
+         med.incE_18 = log(med.incE_18),
+         med.incE_13 = log(med.incE_13),
+         giniE_18 = log(giniE_18),
+         giniE_13 = log(giniE_13),
+         less.hsE_18 = log(less.hsE_18),
+         less.hsE_13 = log(less.hsE_13),
+         hs.degE_18 = log(hs.degE_18),
+         hs.degE_13 = log(hs.degE_13),
+         med.incE_18 = log(med.incE_18),
+         med.incE_13 = log(med.incE_13),
+         some.colE_18 = log(some.colE_18),
+         some.colE_13 = log(some.colE_13),
+         ba.degE_18 = log(ba.degE_18),
+         ba.degE_13 = log(ba.degE_13),
+         grad.degE_18 = log(grad.degE_18),
+         grad.degE_13 = log(grad.degE_13)) %>%
+  mutate_all(~replace(., is.na(.), 0)) %>%
+  filter_all(all_vars(!is.infinite(.)))
+
+
+socmob.zip.sd <- socmob.zip.l %>%
+  select(-(ends_with("M_13")), -(ends_with("M_18"))) %>%
+  select(GEOID:tot.degE_18, -(TYPE)) %>%
+  mutate_at(c(3:20), funs(c(sdcut(.)))) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
+  rename(NAME = NAME_sd)
+
+socmob.zip.upload <- left_join(socmob.zip.sd, socmob.zip)
+
+
+
+socmob.place.l <- socmob.place %>%
+  mutate(tot.popE_18 = log(tot.popE_18),
+         tot.popE_13 = log(tot.popE_13),
+         med.incE_18 = log(med.incE_18),
+         med.incE_13 = log(med.incE_13),
+         giniE_18 = log(giniE_18),
+         giniE_13 = log(giniE_13),
+         less.hsE_18 = log(less.hsE_18),
+         less.hsE_13 = log(less.hsE_13),
+         hs.degE_18 = log(hs.degE_18),
+         hs.degE_13 = log(hs.degE_13),
+         med.incE_18 = log(med.incE_18),
+         med.incE_13 = log(med.incE_13),
+         some.colE_18 = log(some.colE_18),
+         some.colE_13 = log(some.colE_13),
+         ba.degE_18 = log(ba.degE_18),
+         ba.degE_13 = log(ba.degE_13),
+         grad.degE_18 = log(grad.degE_18),
+         grad.degE_13 = log(grad.degE_13)) %>%
+  mutate_all(~replace(., is.na(.), 0)) %>%
+  filter_all(all_vars(!is.infinite(.)))
+
+
+socmob.place.sd <- socmob.place.l %>%
+  select(-(ends_with("M_13")), -(ends_with("M_18"))) %>%
+  select(GEOID:tot.degE_18, -(TYPE)) %>%
+  mutate_at(c(3:20), funs(c(sdcut(.)))) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
+  rename(NAME = NAME_sd)
+
+socmob.place.upload <- left_join(socmob.place.sd, socmob.place)
+
+
+socmob.tract.l <- socmob.tract %>%
+  mutate(tot.popE_18 = log(tot.popE_18),
+         tot.popE_13 = log(tot.popE_13),
+         med.incE_18 = log(med.incE_18),
+         med.incE_13 = log(med.incE_13),
+         giniE_18 = log(giniE_18),
+         giniE_13 = log(giniE_13),
+         less.hsE_18 = log(less.hsE_18),
+         less.hsE_13 = log(less.hsE_13),
+         hs.degE_18 = log(hs.degE_18),
+         hs.degE_13 = log(hs.degE_13),
+         med.incE_18 = log(med.incE_18),
+         med.incE_13 = log(med.incE_13),
+         some.colE_18 = log(some.colE_18),
+         some.colE_13 = log(some.colE_13),
+         ba.degE_18 = log(ba.degE_18),
+         ba.degE_13 = log(ba.degE_13),
+         grad.degE_18 = log(grad.degE_18),
+         grad.degE_13 = log(grad.degE_13)) %>%
+  mutate_all(~replace(., is.na(.), 0)) %>%
+  filter_all(all_vars(!is.infinite(.)))
+
+
+socmob.tract.sd <- socmob.tract.l %>%
+  select(-(ends_with("M_13")), -(ends_with("M_18"))) %>%
+  select(GEOID:tot.degE_18, -(TYPE)) %>%
+  mutate_at(c(3:20), funs(c(sdcut(.)))) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
+  rename(NAME = NAME_sd)
+
+socmob.tract.upload <- left_join(socmob.tract.sd, socmob.tract)
+
+
 #export of above locations into csv files
-export(socmob.zip, "Social-Mobility/Data/ACS/SocialMobility_Zip.csv")
-export(socmob.place, "Social-Mobility/Data/ACS/SocialMobility_Place.csv")
-export(socmob.tract, "Social-Mobility/Data/ACS/SocialMobility_Tract.csv")
+export(socmob.zip.upload, "Social-Mobility/Data/ACS/SocialMobility_Zip.csv")
+export(socmob.place.upload, "Social-Mobility/Data/ACS/SocialMobility_Place.csv")
+export(socmob.tract.upload, "Social-Mobility/Data/ACS/SocialMobility_Tract.csv")
