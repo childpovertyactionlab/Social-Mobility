@@ -1,47 +1,47 @@
-﻿Variable Name,Type,Description,Source,Years,Place
-GEOID,name,Census shape geoid,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-NAME,name,Name of census tract in geography,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.tot.pop,percentchange,Percent change in total population between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.med.inc,percentchange,Percent change in (adjusted) medium income between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.gini,percentchange,Percent change in gini coef between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.less.hs,percentchange,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.hs.deg,percentchange,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.some.col,percentchange,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.ba.deg,percentchange,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-per.grad.deg,percentchange,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place"
-tot.popE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-med.incE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-giniE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-less.hsE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-hs.degE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-some.colE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-ba.degE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-grad.degE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-tot.degE_13_sd,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place"
-tot.popE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-med.incE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-giniE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-less.hsE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-hs.degE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-some.colE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-ba.degE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-grad.degE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-tot.degE_18_sd,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place"
-tot.popE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-med.incE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-giniE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-less.hsE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-hs.degE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-some.colE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-ba.degE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-grad.degE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-tot.degE_13,value,,ACS 5 Year,2013,"Zip, Tract, Place"
-tot.popE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-med.incE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-giniE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-less.hsE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-hs.degE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-some.colE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-ba.degE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-grad.degE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
-tot.degE_18,value,,ACS 5 Year,2018,"Zip, Tract, Place"
+﻿Variable Name,,Type,Description,Source,Years,Place,Min,Max
+GEOID,,name,Census shape geoid,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+NAME,,name,Name of census tract in geography,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.tot.pop,,percentchange,Percent change in total population between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.med.inc,,percentchange,Percent change in (adjusted) medium income between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.gini,,percentchange,Percent change in gini coef between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.less.hs,,percentchange,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.hs.deg,,percentchange,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.some.col,,percentchange,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.ba.deg,,percentchange,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+per.grad.deg,,percentchange,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,
+tot.popE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+med.incE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+giniE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+less.hsE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+hs.degE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+some.colE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+ba.degE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+grad.degE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+tot.degE_13_sd,,sdcut,,CPAL and ACS,2013,"Zip, Tract, Place",,
+tot.popE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+med.incE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+giniE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+less.hsE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+hs.degE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+some.colE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+ba.degE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+grad.degE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+tot.degE_18_sd,,sdcut,,CPAL and ACS,2018,"Zip, Tract, Place",,
+tot.popE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+med.incE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+giniE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+less.hsE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+hs.degE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+some.colE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+ba.degE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+grad.degE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+tot.degE_13,,value,,ACS 5 Year,2013,"Zip, Tract, Place",,
+tot.popE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+med.incE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+giniE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+less.hsE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+hs.degE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+some.colE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+ba.degE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+grad.degE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
+tot.degE_18,,value,,ACS 5 Year,2018,"Zip, Tract, Place",,
