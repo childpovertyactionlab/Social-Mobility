@@ -30,20 +30,20 @@ places <- places %>%
 
 #list of the necessary variables to pull
 socmob.var <- c(
-  tot.pop = "B01003_001", 
-  med.inc = "B19013_001",
+  tot_pop = "B01003_001", 
+  med_inc = "B19013_001",
   gini = "B19083_001",
-  less.hs = "B06009_002",
-  hs.deg = "B06009_003",
-  some.col = "B06009_004",
-  ba.deg = "B06009_005",
-  grad.deg = "B06009_006",
-  tot.deg = "B06009_001",
-  his.pop = "B03003_003",
-  wh.pop = "B02001_002",
-  bl.pop = "B02001_003",
-  ai.pop = "B02001_004",
-  as.pop = "B02001_005"
+  less_hs = "B06009_002",
+  hs_deg = "B06009_003",
+  some_col = "B06009_004",
+  ba_deg = "B06009_005",
+  grad_deg = "B06009_006",
+  tot_deg = "B06009_001",
+  his_pop = "B03002_012", #hispanic
+  wh_pop = "B03002_003", #white
+  bl_pop = "B03002_004", #black
+  ai_pop = "B02001_005", #american indian
+  as_pop = "B03002_006" #asian
 )
 
 #tidycensus pull of zip locations for 2013 and 2018 5-year acs zcta data
@@ -146,20 +146,20 @@ socmob.combine <- full_join(full_join(socmob.zip, socmob.place), socmob.tract)
 names(socmob.combine)
 
 socmob.calc <- socmob.combine %>%
-  mutate(ADJ_med.inc_13 = med.incE_13*(251.233/233.049),                    #Inflation rate 2018/2013
-         per.tot.pop = ((tot.popE_18 - tot.popE_13)/tot.popE_13),
-         per.med.inc = ((med.incE_18 - ADJ_med.inc_13)/ADJ_med.inc_13),
-         per.gini = ((giniE_18 - giniE_13)/giniE_13),
-         per.less.hs = (less.hsE_18/tot.degE_18) - (less.hsE_13/tot.degE_13),
-         per.hs.deg = (hs.degE_18/tot.degE_18) - (hs.degE_13/tot.degE_13),
-         per.some.col = (some.colE_18/tot.degE_18) - (some.colE_13/tot.degE_13),
-         per.ba.deg = (ba.degE_18/tot.degE_18) - (ba.degE_13/tot.degE_13),
-         per.grad.deg = (grad.degE_18/tot.degE_18) - (grad.degE_13/tot.degE_13),
-         per.wh = (wh.popE_18/tot.popE_18) - (wh.popE_13/tot.popE_13),
-         per.bl = (bl.popE_18/tot.popE_18) - (bl.popE_13/tot.popE_13),
-         per.as = (as.popE_18/tot.popE_18) - (as.popE_13/tot.popE_13),
-         per.ai = (ai.popE_18/tot.popE_18) - (ai.popE_13/tot.popE_13),
-         per.his = (his.popE_18/tot.popE_18) - (his.popE_13/tot.popE_13))
+  mutate(adj_med_inc_13 = med_incE_13*(251.233/233.049),                    #Inflation rate 2018/2013
+         per_tot_pop = ((tot_popE_18 - tot_popE_13)/tot_popE_13),
+         per_med_inc = ((med_incE_18 - adj_med_inc_13)/adj_med_inc_13),
+         per_gini = ((giniE_18 - giniE_13)/giniE_13),
+         per_less_hs = (less_hsE_18/tot_degE_18) - (less_hsE_13/tot_degE_13),
+         per_hs_deg = (hs_degE_18/tot_degE_18) - (hs_degE_13/tot_degE_13),
+         per_some_col = (some_colE_18/tot_degE_18) - (some_colE_13/tot_degE_13),
+         per_ba_deg = (ba_degE_18/tot_degE_18) - (ba_degE_13/tot_degE_13),
+         per_grad_deg = (grad_degE_18/tot_degE_18) - (grad_degE_13/tot_degE_13),
+         per_wh = (wh_popE_18/tot_popE_18) - (wh_popE_13/tot_popE_13),
+         per_bl = (bl_popE_18/tot_popE_18) - (bl_popE_13/tot_popE_13),
+         per_as = (as_popE_18/tot_popE_18) - (as_popE_13/tot_popE_13),
+         per_ai = (ai_popE_18/tot_popE_18) - (ai_popE_13/tot_popE_13),
+         per_his = (his_popE_18/tot_popE_18) - (his_popE_13/tot_popE_13))
 
 socmob.zip <- socmob.calc %>%
   filter(str_detect(TYPE, "ZIP"))
@@ -188,35 +188,35 @@ names(socmob.zip)
 
 socmob.zip.sd <- socmob.zip %>%
   select(-(ends_with("M_13")), -(ends_with("M_18"))) %>%
-  select(GEOID:as.popE_18, -(TYPE)) %>%
-  mutate(tot.popE_13 = log(tot.popE_13),
-         med.incE_13 = log(med.incE_13),
+  select(GEOID:as_popE_18, -(TYPE)) %>%
+  mutate(tot_popE_13 = log(tot_popE_13),
+         med_incE_13 = log(med_incE_13),
          giniE_13 = log(giniE_13),
-         less.hsE_13 = log(less.hsE_13),
-         hs.degE_13 = log(hs.degE_13),
-         some.colE_13 = log(some.colE_13),
-         ba.degE_13 = log(ba.degE_13),
-         grad.degE_13 = log(grad.degE_13),
-         tot.degE_13 = log(tot.degE_13),
-         wh.popE_13 = log(wh.popE_13),
-         bl.popE_13 = log(bl.popE_13),
-         as.popE_13 = log(as.popE_13),
-         ai.popE_13 = log(ai.popE_13),
-         his.popE_13 = log(his.popE_13),
-         tot.popE_18 = log(tot.popE_18),
-         med.incE_18 = log(med.incE_18),
+         less_hsE_13 = log(less_hsE_13),
+         hs_degE_13 = log(hs_degE_13),
+         some_colE_13 = log(some_colE_13),
+         ba_degE_13 = log(ba_degE_13),
+         grad_degE_13 = log(grad_degE_13),
+         tot_degE_13 = log(tot_degE_13),
+         wh_popE_13 = log(wh_popE_13),
+         bl_popE_13 = log(bl_popE_13),
+         as_popE_13 = log(as_popE_13),
+         ai_popE_13 = log(ai_popE_13),
+         his_popE_13 = log(his_popE_13),
+         tot_popE_18 = log(tot_popE_18),
+         med_incE_18 = log(med_incE_18),
          giniE_18 = log(giniE_18),
-         less.hsE_18 = log(less.hsE_18),
-         hs.degE_18 = log(hs.degE_18),
-         some.colE_18 = log(some.colE_18),
-         ba.degE_18 = log(ba.degE_18),
-         grad.degE_18 = log(grad.degE_18),
-         tot.degE_18 = log(tot.degE_18),
-         wh.popE_18 = log(wh.popE_18),
-         bl.popE_18 = log(bl.popE_18),
-         as.popE_18 = log(as.popE_18),
-         ai.popE_18 = log(ai.popE_18),
-         his.popE_18 = log(his.popE_18)) %>%
+         less_hsE_18 = log(less_hsE_18),
+         hs_degE_18 = log(hs_degE_18),
+         some_colE_18 = log(some_colE_18),
+         ba_degE_18 = log(ba_degE_18),
+         grad_degE_18 = log(grad_degE_18),
+         tot_degE_18 = log(tot_degE_18),
+         wh_popE_18 = log(wh_popE_18),
+         bl_popE_18 = log(bl_popE_18),
+         as_popE_18 = log(as_popE_18),
+         ai_popE_18 = log(ai_popE_18),
+         his_popE_18 = log(his_popE_18)) %>%
   drop_na() %>%
   mutate_all(function(x) ifelse(is.infinite(x), 0, x)) %>%
   mutate_at(c(3:30), funs(c(sdcut(.)))) %>%
@@ -227,35 +227,35 @@ socmob.zip.upload <- left_join(socmob.zip.sd, socmob.zip)
 
 socmob.place.sd <- socmob.place %>%
   select(-(ends_with("M_13")), -(ends_with("M_18"))) %>%
-  select(GEOID:as.popE_18, -(TYPE)) %>%
-  mutate(tot.popE_13 = log(tot.popE_13),
-         med.incE_13 = log(med.incE_13),
+  select(GEOID:as_popE_18, -(TYPE)) %>%
+  mutate(tot_popE_13 = log(tot_popE_13),
+         med_incE_13 = log(med_incE_13),
          giniE_13 = log(giniE_13),
-         less.hsE_13 = log(less.hsE_13),
-         hs.degE_13 = log(hs.degE_13),
-         some.colE_13 = log(some.colE_13),
-         ba.degE_13 = log(ba.degE_13),
-         grad.degE_13 = log(grad.degE_13),
-         tot.degE_13 = log(tot.degE_13),
-         wh.popE_13 = log(wh.popE_13),
-         bl.popE_13 = log(bl.popE_13),
-         as.popE_13 = log(as.popE_13),
-         ai.popE_13 = log(ai.popE_13),
-         his.popE_13 = log(his.popE_13),
-         tot.popE_18 = log(tot.popE_18),
-         med.incE_18 = log(med.incE_18),
+         less_hsE_13 = log(less_hsE_13),
+         hs_degE_13 = log(hs_degE_13),
+         some_colE_13 = log(some_colE_13),
+         ba_degE_13 = log(ba_degE_13),
+         grad_degE_13 = log(grad_degE_13),
+         tot_degE_13 = log(tot_degE_13),
+         wh_popE_13 = log(wh_popE_13),
+         bl_popE_13 = log(bl_popE_13),
+         as_popE_13 = log(as_popE_13),
+         ai_popE_13 = log(ai_popE_13),
+         his_popE_13 = log(his_popE_13),
+         tot_popE_18 = log(tot_popE_18),
+         med_incE_18 = log(med_incE_18),
          giniE_18 = log(giniE_18),
-         less.hsE_18 = log(less.hsE_18),
-         hs.degE_18 = log(hs.degE_18),
-         some.colE_18 = log(some.colE_18),
-         ba.degE_18 = log(ba.degE_18),
-         grad.degE_18 = log(grad.degE_18),
-         tot.degE_18 = log(tot.degE_18),
-         wh.popE_18 = log(wh.popE_18),
-         bl.popE_18 = log(bl.popE_18),
-         as.popE_18 = log(as.popE_18),
-         ai.popE_18 = log(ai.popE_18),
-         his.popE_18 = log(his.popE_18)) %>%
+         less_hsE_18 = log(less_hsE_18),
+         hs_degE_18 = log(hs_degE_18),
+         some_colE_18 = log(some_colE_18),
+         ba_degE_18 = log(ba_degE_18),
+         grad_degE_18 = log(grad_degE_18),
+         tot_degE_18 = log(tot_degE_18),
+         wh_popE_18 = log(wh_popE_18),
+         bl_popE_18 = log(bl_popE_18),
+         as_popE_18 = log(as_popE_18),
+         ai_popE_18 = log(ai_popE_18),
+         his_popE_18 = log(his_popE_18)) %>%
   drop_na() %>%
   mutate_all(function(x) ifelse(is.infinite(x), 0, x)) %>%
   mutate_at(c(3:30), funs(c(sdcut(.)))) %>%
@@ -266,35 +266,35 @@ socmob.place.upload <- left_join(socmob.place.sd, socmob.place)
 
 socmob.tract.sd <- socmob.tract %>%
   select(-(ends_with("M_13")), -(ends_with("M_18"))) %>%
-  select(GEOID:as.popE_18, -(TYPE)) %>%
-  mutate(tot.popE_13 = log(tot.popE_13),
-         med.incE_13 = log(med.incE_13),
+  select(GEOID:as_popE_18, -(TYPE)) %>%
+  mutate(tot_popE_13 = log(tot_popE_13),
+         med_incE_13 = log(med_incE_13),
          giniE_13 = log(giniE_13),
-         less.hsE_13 = log(less.hsE_13),
-         hs.degE_13 = log(hs.degE_13),
-         some.colE_13 = log(some.colE_13),
-         ba.degE_13 = log(ba.degE_13),
-         grad.degE_13 = log(grad.degE_13),
-         tot.degE_13 = log(tot.degE_13),
-         wh.popE_13 = log(wh.popE_13),
-         bl.popE_13 = log(bl.popE_13),
-         as.popE_13 = log(as.popE_13),
-         ai.popE_13 = log(ai.popE_13),
-         his.popE_13 = log(his.popE_13),
-         tot.popE_18 = log(tot.popE_18),
-         med.incE_18 = log(med.incE_18),
+         less_hsE_13 = log(less_hsE_13),
+         hs_degE_13 = log(hs_degE_13),
+         some_colE_13 = log(some_colE_13),
+         ba_degE_13 = log(ba_degE_13),
+         grad_degE_13 = log(grad_degE_13),
+         tot_degE_13 = log(tot_degE_13),
+         wh_popE_13 = log(wh_popE_13),
+         bl_popE_13 = log(bl_popE_13),
+         as_popE_13 = log(as_popE_13),
+         ai_popE_13 = log(ai_popE_13),
+         his_popE_13 = log(his_popE_13),
+         tot_popE_18 = log(tot_popE_18),
+         med_incE_18 = log(med_incE_18),
          giniE_18 = log(giniE_18),
-         less.hsE_18 = log(less.hsE_18),
-         hs.degE_18 = log(hs.degE_18),
-         some.colE_18 = log(some.colE_18),
-         ba.degE_18 = log(ba.degE_18),
-         grad.degE_18 = log(grad.degE_18),
-         tot.degE_18 = log(tot.degE_18),
-         wh.popE_18 = log(wh.popE_18),
-         bl.popE_18 = log(bl.popE_18),
-         as.popE_18 = log(as.popE_18),
-         ai.popE_18 = log(ai.popE_18),
-         his.popE_18 = log(his.popE_18)) %>%
+         less_hsE_18 = log(less_hsE_18),
+         hs_degE_18 = log(hs_degE_18),
+         some_colE_18 = log(some_colE_18),
+         ba_degE_18 = log(ba_degE_18),
+         grad_degE_18 = log(grad_degE_18),
+         tot_degE_18 = log(tot_degE_18),
+         wh_popE_18 = log(wh_popE_18),
+         bl_popE_18 = log(bl_popE_18),
+         as_popE_18 = log(as_popE_18),
+         ai_popE_18 = log(ai_popE_18),
+         his_popE_18 = log(his_popE_18)) %>%
   drop_na() %>%
   mutate_all(function(x) ifelse(is.infinite(x), 0, x)) %>%
   mutate_at(c(3:30), funs(c(sdcut(.)))) %>%

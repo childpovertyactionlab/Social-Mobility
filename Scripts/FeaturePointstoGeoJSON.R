@@ -9,7 +9,7 @@ library(sf)
 library(lubridate)
 
 #import geography comparison shape file
-zip.sh <- st_read("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/shp/sm_zcta.shp")
+zip.sh <- st_read("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/Shapefiles/sm_zcta.shp")
 
 #import feature shape files
 snap.sh <- st_read("Data Library/USDA/GIS/SNAP_Store_Locations_TX_Dec2020.shp")
@@ -152,4 +152,4 @@ featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
                     snap.zip, banks.zip), comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), wic.zip), childcare.zip)
   
 #export to geojson
-st_write(featureset, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/geojson/sm_featureset.geojson")#, layer_options = 'OVERWRITE=YES', append = TRUE)
+st_write(featureset, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Testing/sm_featureset.geojson")#, layer_options = 'OVERWRITE=YES', append = TRUE)
