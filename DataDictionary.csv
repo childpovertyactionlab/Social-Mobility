@@ -1,57 +1,94 @@
-﻿variable,show,DisplayinTable,Feature,Type,Description,Source,Years,Place,highisgood,min,max,range,mean
-GEOID,,,,name,Census shape geoid,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-NAME,,,,name,Name of census tract in geography,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.tot.pop,,,,percentchange,Percent change in total population between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.med.inc,,,,percentchange,Percent change in (adjusted) medium income between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.gini,,,,percentchange,Percent change in gini coeffient between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.less.hs,,,,percentchange,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.hs.deg,,,,percentchange,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.some.col,,,,percentchange,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.ba.deg,,,,percentchange,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-per.grad.deg,,,,percentchange,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,ACS 5 Year,2013 and 2018,"Zip, Tract, Place",,,,,
-tot.popE_13_sd,,,,sdcut,"Standard deviation sorting of total population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-med.incE_13_sd,,,,sdcut,"Standard deviation sorting of median income in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-giniE_13_sd,,,,sdcut,"Standard deviation sorting of gini coefficient in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-less.hsE_13_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is less than high school population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-hs.degE_13_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is high school population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-some.colE_13_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is some college population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-ba.degE_13_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is bachelors population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-grad.degE_13_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is graduate population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-tot.degE_13_sd,,,,sdcut,"Standard deviation sorting of total degrees population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",,0,4,5,
-tot.popE_18_sd,,,,sdcut,"Standard deviation sorting of total population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-med.incE_18_sd,,,,sdcut,"Standard deviation sorting of median income in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-giniE_18_sd,,,,sdcut,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-less.hsE_18_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is less than high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-hs.degE_18_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-some.colE_18_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is some college population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-ba.degE_18_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is bachelors population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-grad.degE_18_sd,,,,sdcut,"Standard deviation sorting of highest degree earned is graduate population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-tot.degE_18_sd,,,,sdcut,"Standard deviation sorting of total degrees population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",,0,4,5,
-tot.popE_13,,,,value,Total population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-med.incE_13,,,,value,Median income in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-giniE_13,,,,value,Gini coefficient in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-less.hsE_13,,,,value,Total degrees less than high school in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-hs.degE_13,,,,value,Total high school degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-some.colE_13,,,,value,Total population with some college in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-ba.degE_13,,,,value,Total population with a bachelors degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-grad.degE_13,,,,value,Total population with a graduate degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-tot.degE_13,,,,value,Total degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-tot.popE_18,,,,value,Total population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-med.incE_18,,,,value,Median income in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-giniE_18,,,,value,Gini coefficient in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-less.hsE_18,,,,value,Total degrees less than high school in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-hs.degE_18,,,,value,Total high school degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-some.colE_18,,,,value,Total population with some college in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-ba.degE_18,,,,value,Total population with a bachelors degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-grad.degE_18,,,,value,Total population with a graduate degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-tot.degE_18,,,,value,Total degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-his.pop_13,,,,value,Total hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-wh.pop_13,,,,value,Total white non-hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-bl.pop_13,,,,value,Total black population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-ai.pop_13,,,,value,Total american indian and pacific islander population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-as.pop_13,,,,value,Total asian population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",,,,,
-his.pop_18,,,,value,Total hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-wh.pop_18,,,,value,Total white non-hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-bl.pop_18,,,,value,Total black population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-ai.pop_18,,,,value,Total american indian and pacific islander population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
-as.pop_18,,,,value,Total asian population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",,,,,
+﻿variable,display_name,display_variable,type,description,source,years,place,highisgood,min,max,range,mean
+NAME,,Yes,name,Name of census tract in geography,ACS 5 Year,NA,"Zip, Tract, Place",Yes,NA,NA,NA,NA
+GEOID,,No,name,Census shape geoid,ACS 5 Year,NA,"Zip, Tract, Place",Yes,NA,NA,NA,NA
+ai_popE_18,American Indian or Pacific Islander Population,Yes,estimate,Total american indian and pacific islander population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,58044,58044,828.3007563
+as_popE_18,Asian Population,Yes,estimate,Total asian population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,57825,57825,822.3472949
+ba_degE_18,Bachelors Degrees,Yes,estimate,Total population with a bachelors degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,173416,173416,1762.442118
+bl_popE_18,Black Population,Yes,estimate,Total black population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,315564,315564,1909.415358
+giniE_18,Gini Coefficient,Yes,estimate,Gini coefficient in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0.132,0.634,0.502,0.404891175
+grad_degE_18,Graduate Degrees,Yes,estimate,Total population with a graduate degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,101941,101941,933.5165794
+his_popE_18,Hispanic Population,Yes,estimate,Total hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,550394,550394,3522.468296
+hs_degE_18,High School Degrees,Yes,estimate,Total high school degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,184050,184050,1698.33566
+less_hsE_18,Less than High School,Yes,estimate,Total degrees less than high school in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,200327,200327,1157.089587
+med_incE_18,Median Income,Yes,estimate,Median income in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,13033,250001,236968,74068.93618
+some_colE_18,Some College,Yes,estimate,Total population with some college in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,192110,192110,2180.442118
+tot_degE_18,Total Degrees,Yes,estimate,Total degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,851844,851844,7731.826062
+tot_popE_18,Total Population,Yes,estimate,Total population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1318806,1318806,12034.29261
+wh_popE_18,White Non-Hispanic Population,Yes,estimate,Total white non-hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,382778,382778,5458.300175
+ai_popE_13,American Indian or Pacific Islander Population,No,estimate,Total american indian and pacific islander population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,48465,48465,627.6236184
+as_popE_13,Asian Population,No,estimate,Total asian population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,48322,48322,622.255381
+ba_degE_13,,No,estimate,Total population with a bachelors degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,144042,144042,1484.759162
+bl_popE_13,Black Population,No,estimate,Total black population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,296480,296480,1663.131472
+giniE_13,,No,estimate,Gini coefficient in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0.2206,0.697,0.4764,0.399621775
+grad_degE_13,,No,estimate,Total population with a graduate degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,84781,84781,731.4613147
+his_popE_13,Hispanic Population,No,estimate,Total hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,512077,512077,3081.022688
+hs_degE_13,,No,estimate,Total high school degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,172362,172362,1541.963933
+less_hsE_13,,No,estimate,Total degrees less than high school in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,200876,200876,1118.162885
+med_incE_13,,No,estimate,Median income in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,10046,250001,239955,64811.28329
+some_colE_13,,No,estimate,Total population with some college in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,175292,175292,1994.251309
+tot_degE_13,,No,estimate,Total degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,777353,777353,6870.598604
+tot_popE_13,,No,estimate,Total population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,1222167,1222167,10904.8726
+wh_popE_13,White Non-Hispanic Population,No,estimate,Total white non-hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,0,357744,357744,5281.866201
+adj_med_inc_13,Adjusted Median Income,No,estimate,Median income of 2013 adjusted to 2018 dollar,CPAL and ACS,2013,"Zip, Tract, Place",Yes,10829.85431,269507.7054,258677.8511,69868.2815
+ai_per_18,Percent American Indian or Pacific Islander Population,Yes,percent,Percent American Indian or Pacific Islander Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,0.708582834,0.708582834,0.059915084
+as_per_18,Percent Asian Population,Yes,percent,Percent Asian Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,0.703502087,0.703502087,0.059458024
+bl_per_18,Percent Black Population,Yes,percent,Percent Black Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,0.901773533,0.901773533,0.147075833
+his_per_18,Percent Hispanic Population,Yes,percent,Percent Hispanic Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,1,1,0.285800532
+wh_per_18,Percent White Non-Hispanic Population,Yes,percent,Percent White Non-Hispanic Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,1,1,0.481738721
+ai_per_13,,No,percent,Percent American Indian or Pacific Islander Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,0,0.702198953,0.702198953,0.05082396
+as_per_13,,No,percent,Percent Asian Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,0,0.702198953,0.702198953,0.050387178
+bl_per_13,,No,percent,Percent Black Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,0,0.993125,0.993125,0.14251251
+his_per_13,,No,percent,Percent Hispanic Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,0,0.985653354,0.985653354,0.267487835
+wh_per_13,,No,percent,Percent White Non-Hispanic Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,0,1,1,0.516198601
+per_ai,Change in American Indian and Pacific Islander population from 2013 to 2018,Yes,percentchange,Change in American Indian and Pacific Islander population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.200501625,0.30496524,0.505466864,0.00912608
+per_as,Change in Asian population from 2013 to 2018,Yes,percentchange,Change in Asian population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.200501625,0.30496524,0.505466864,0.009105535
+per_ba_deg,Change in bachelors degrees from 2013 to 2018,Yes,percentchange,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.266044134,0.284916201,0.550960335,0.009108396
+per_bl,Change in Black population from 2013 to 2018,Yes,percentchange,Change in Black population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.333250846,0.244492091,0.577742937,0.004649131
+per_gini,Change in gini coeffient from 2013 to 2018,Yes,percentchange,Percent change in gini coeffient between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.559706471,0.964432797,1.524139268,0.023970419
+per_grad_deg,Change in graduate degrees from 2013 to 2018,Yes,percentchange,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.167099059,0.208970057,0.376069116,0.011892035
+per_his,Change in Hispanic population from 2013 to 2018,Yes,percentchange,Change in Hispanic population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.316329577,0.698717949,1.015047526,0.017896011
+per_hs_deg,Change in High School degrees from 2013 to 2018,Yes,percentchange,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.763736264,0.381086142,1.144822406,-0.002558023
+per_less_hs,Change in less than High School from 2013 to 2018,Yes,percentchange,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.382220184,0.226186485,0.608406669,-0.010464006
+per_med_inc,Change in median income from 2013 to 2018,Yes,percentchange,Percent change in (adjusted) medium income between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.62922963,0.96270711,1.591936739,0.077398633
+per_some_col,Change in some college from 2013 to 2018,Yes,percentchange,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.246726529,0.763736264,1.010462792,-0.007978401
+per_tot_pop,Change in total population from 2013 to 2018,Yes,percentchange,Percent change in total population between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.884615385,Inf,Inf,Inf
+per_wh,Change in White population from 2013 to 2018,Yes,percentchange,Change in White population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.627954509,0.27665385,0.904608358,-0.034178819
+snap,SNAP Retailer,Yes,point,Locations of retailers which accept SNAP benefits,USDA SNAP Store Locations,,,,,,,
+bank,Bank,Yes,point,Locations of banks,,,,,,,,
+comcen,Community Center,Yes,point,Locations of community centers,NCTCOG,,,,,,,
+comhel,Community Health Clinic,Yes,point,Locations of community health clinics,,,,,,,,
+crunion,Credit Union,Yes,point,Locations of credit unions,CPAL/googleways,,,,,,,
+market,Supermarket,Yes,point,Locations of supermarkets,CPAL,,,,,,,
+pharm,Pharmacy,Yes,point,Locations of pharmacys,TSBP,,,,,,,
+lib,Library,Yes,point,Locations of librarys,City of Dallas,,,,,,,
+ihs,Independent High School,Yes,point,Locations of disd high schools,TEA,,,,,,,
+ims,Independent Middle School,Yes,point,Locations of disd middle schools,TEA,,,,,,,
+ies,Independent Elementary School,Yes,point,Locations of disd elementary schools,TEA,,,,,,,
+iss,Independent Elementary/Secondary School,Yes,point,Locations of disd independent elementary/secondary schools,TEA,,,,,,,
+ijhs,Independent Junior High School,Yes,point,Locations of disd junior high schools,TEA,,,,,,,
+chs,Charter High School,Yes,point,Locations of charter high schools,TEA,,,,,,,
+cms,Charter Middle School,Yes,point,Locations of charter middle schools,TEA,,,,,,,
+ces,Charter Elementary School,Yes,point,Locations of charter elementary schools,TEA,,,,,,,
+cesc,Charter Elementary/Secondary School,Yes,point,Locations of charter elementary/secondary schools,TEA,,,,,,,
+cjhs,Charter Junior High School,Yes,point,Locations of charter junior high schools,TEA,,,,,,,
+os,Other School,Yes,point,Locations of miscellaneous other schools including TJJ campuses,TEA,,,,,,,
+wic,WIC Clinic,Yes,point,Locations of retailers which accept WIC benefits,CPAL/googleways,,,,,,,
+scc,Subsidized Childcare Center,Yes,point,Locations of subsidized childcare centers,TDHPS,,,,,,,
+tot_popE_13_sd,,No,sd,"Standard deviation sorting of total population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+med_incE_13_sd,,No,sd,"Standard deviation sorting of median income in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+giniE_13_sd,,No,sd,"Standard deviation sorting of gini coefficient in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+less_hsE_13_sd,,No,sd,"Standard deviation sorting of highest degree earned is less than high school population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+hs_degE_13_sd,,No,sd,"Standard deviation sorting of highest degree earned is high school population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+some_colE_13_sd,,No,sd,"Standard deviation sorting of highest degree earned is some college population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+ba_degE_13_sd,,No,sd,"Standard deviation sorting of highest degree earned is bachelors population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+grad_degE_13_sd,,No,sd,"Standard deviation sorting of highest degree earned is graduate population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+tot_degE_13_sd,,No,sd,"Standard deviation sorting of total degrees population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,0,4,5,
+tot_popE_18_sd,,No,sd,"Standard deviation sorting of total population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+med_incE_18_sd,,No,sd,"Standard deviation sorting of median income in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+giniE_18_sd,,No,sd,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+less_hsE_18_sd,,No,sd,"Standard deviation sorting of highest degree earned is less than high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+hs_degE_18_sd,,No,sd,"Standard deviation sorting of highest degree earned is high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+some_colE_18_sd,,No,sd,"Standard deviation sorting of highest degree earned is some college population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+ba_degE_18_sd,,No,sd,"Standard deviation sorting of highest degree earned is bachelors population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+grad_degE_18_sd,,No,sd,"Standard deviation sorting of highest degree earned is graduate population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,
+tot_degE_18_sd,,No,sd,"Standard deviation sorting of total degrees population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,5,

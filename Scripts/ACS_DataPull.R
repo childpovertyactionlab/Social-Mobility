@@ -146,7 +146,17 @@ socmob.combine <- full_join(full_join(socmob.zip, socmob.place), socmob.tract)
 names(socmob.combine)
 
 socmob.calc <- socmob.combine %>%
-  mutate(adj_med_inc_13 = med_incE_13*(251.233/233.049),                    #Inflation rate 2018/2013
+  mutate(wh_per_18 = wh_popE_18/tot_popE_18,
+         bl_per_18 = bl_popE_18/tot_popE_18,
+         ai_per_18 = ai_popE_18/tot_popE_18,
+         as_per_18 = as_popE_18/tot_popE_18,
+         his_per_18 = his_popE_18/tot_popE_18,
+         wh_per_13 = wh_popE_13/tot_popE_13,
+         bl_per_13 = bl_popE_13/tot_popE_13,
+         ai_per_13 = ai_popE_13/tot_popE_13,
+         as_per_13 = as_popE_13/tot_popE_13,
+         his_per_13 = his_popE_13/tot_popE_13,
+         adj_med_inc_13 = med_incE_13*(251.233/233.049),                    #Inflation rate 2018/2013
          per_tot_pop = ((tot_popE_18 - tot_popE_13)/tot_popE_13),
          per_med_inc = ((med_incE_18 - adj_med_inc_13)/adj_med_inc_13),
          per_gini = ((giniE_18 - giniE_13)/giniE_13),
@@ -311,7 +321,12 @@ rm(socmob.zip.sd)
 rm(socmob.place.sd)
 rm(socmob.tract.sd)
 
+#descriptive stats for each dataframe
+var <-  c("nbr.val", "nbr.null", "nbr.na", "min", "max", "range", "sum", "median", "mean", "SE.mean", "CI.mean.0.95", "var", "std.dev", "coef.var")
+socmob.calc.d <- cbind(var, pastecs::stat.desc(socmob.calc))
+
 #export of above locations into csv files
+export(socmob.calc.d, "Social-Mobility/Data/ACS/SocialMobility_DescriptiveStats.csv")
 export(socmob.zip.upload, "Social-Mobility/Data/ACS/SocialMobility_Zip.csv")
 export(socmob.place.upload, "Social-Mobility/Data/ACS/SocialMobility_Place.csv")
 export(socmob.tract.upload, "Social-Mobility/Data/ACS/SocialMobility_Tract.csv")
