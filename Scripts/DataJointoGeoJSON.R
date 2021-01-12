@@ -39,8 +39,8 @@ socmob.place.csv <- socmob.place.csv %>%
 socmob.tract.csv <- socmob.tract.csv %>%
   mutate(GEOID2 = as.numeric(GEOID))
 
-#socmob.counties.csv <- socmob.counties.csv %>%
-#  mutate(GEOID2 = as.integer(GEOID))
+socmob.counties.csv <- socmob.counties.csv %>%
+  mutate(GEOID2 = as.integer(GEOID))
 
 
 #merge csv and shape files into shape file
@@ -51,6 +51,7 @@ place.merge <- left_join(place.shape, socmob.place.csv, by = "GEOID2")
 tract.merge <- left_join(tract.shape, socmob.tract.csv, by = "GEOID2")
 
 #counties.merge <- left_join(counties.shape, socmob.counties.csv, by = "GEOID2")
-st_write(zip.merge, "Social-Mobility/Testing/sm_zcta.geojson")#, layer_options = 'OVERWRITE=YES', append = TRUE)
-st_write(place.merge, "Social-Mobility/Testing/sm_places.geojson")#, layer_options = 'OVERWRITE=YES', append = TRUE)
-st_write(tract.merge, "Social-Mobility/Testing/sm_tracts.geojson")#, layer_options = 'OVERWRITE=YES', append = TRUE)
+geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
+geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/geojson/sm_places.geojson")
+geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/geojson/sm_tracts.geojson")
+geojsonio::geojson_write(county.merge, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
