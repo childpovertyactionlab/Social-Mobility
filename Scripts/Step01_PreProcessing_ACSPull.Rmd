@@ -1,0 +1,338 @@
+---
+title: "Social Mobility: Pre-Processing"
+subtitle: "Step 01: ACS Data Pull"
+author: "Michael Lopez"
+date: "`r format(Sys.Date(), '%B, %d, %Y'`"
+output: 
+  github_document: default
+    toc: true
+    number_sections: true
+    toc_float: true
+    theme: pagedown::architect
+    code_folding: show
+---
+
+Load necessary libraries to import ACS census data with the tidycensus package.
+```{r setup, include = FALSE, echo = FALSE}
+rm(list=ls(all=TRUE))
+knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub')
+#knitr::opts_knit$set(root.dir = 'C:/Users/OwenWilson-Chavez/CPAL Dropbox')
+getwd()
+library(tidycensus)
+library(tidyverse)
+library(rio)
+library(tigris)
+```
+
+
+```{r directory test}
+getwd()
+```
+
+Import necessary geocode files and transform data columns to merge with ACS dataset later in process. 
+```{r geographies of interest}
+getwd()
+#acs_b <- load_variables(2018, "acs5", cache = TRUE)
+#acs_s <- load_variables(2018, "acs5/subject", cache = TRUE)
+
+#fips <- tidycensus::fips_codes
+
+years <- c(2013, 2018)
+
+county_names <- c("Dallas County", 
+                  "Rockwall County", 
+                  "Collin County", 
+                  "Denton County", 
+                  "Tarrant County", 
+                  "Kaufman County", 
+                  "Ellis County", 
+                  "Johnson County")
+
+#counties <- fips %>%
+#  filter(state == "TX") %>%
+#  filter(county %in% county_names)
+
+zip <- import("Social-Mobility/Data/Reference Geographies/socmob_zcta.csv")
+places <- import("Social-Mobility/Data/Reference Geographies/socmob_place.csv")
+
+colnames(zip)
+colnames(places)
+
+zip <- zip %>%
+  mutate(GEOID = as.character(GEOID10)) %>%
+  select(GEOID)
+
+places <- places %>%
+  mutate(GEOID = as.character(GEOID)) %>%
+  select(GEOID)
+```
+
+Create dataframe of all variables to pull from census api
+Bug fixed with recent tidycensus update allowing S and B table variables to pull at the same time.
+```{r tidycensus variables}
+socmob.var <- c(
+  tot_pop = "B01003_001", #total population
+  pop_18t24 = "S1501_C01_001", #population 18 to 24
+  pop_u18 = "S0101_C01_022", #population under 18
+  pop_3t4 = "B09001_004", #population between 3 to 4
+  med_inc = "B19013_001", #median household income
+  gini = "B19083_001", #gini coefficient
+  less_hs = "B06009_002", #total population less than high school
+  hs_deg = "B06009_003", #total with high school degree
+  some_col = "B06009_004", #total with some college
+  ba_deg = "B06009_005", #total with 4 year bachelors degree
+  grad_deg = "B06009_006", #total with graduate degree
+  tot_deg = "B06009_001", #total population for degrees
+  his_pop = "B03002_012", #hispanic population
+  wh_pop = "B03002_003", #white population
+  bl_pop = "B03002_004", #black population
+  as_pop = "B03002_006", #asian population
+  hs_18t24 = "S1501_C01_002", #high school degrees between 18 and 24
+  emp_r25t29 = "S2301_C02_004", #employed population ratio 25 to 29
+  emp_r30t34 = "S2301_C02_005", #employed population ratio 30 to 34
+  emp_r35t44 = "S2301_C02_006", #employed population ratio 35 to 44
+  emp_r45t54 = "S2301_C02_007", #employed population ratio 45 to 54
+  es_3t4 = "B14003_004", #enrolled in school 3 to 4
+  emp = "S0802_C01_001", #employed over 16
+  emp_pubtr = "S0802_C04_001", #employed over 16 and take public transportation to work
+  pop_bp = "S1701_C02_001", #population below poverty
+  bp_u18 = "S1701_C02_002" #population under 18 below poverty
+)
+```
+
+Tidycensus pull of all zip codes of interest.
+```{r zip pull}
+socmob.zip <- map(
+  years,
+  ~get_acs(
+    geography = "zcta", 
+    variables = socmob.var,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years, ~mutate(.x, year = .y))
+
+socmob.zip <- reduce(socmob.zip, rbind)
+
+socmob.zip.2013 <- socmob.zip %>%
+  filter(year == 2013) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_13"))) %>%
+  rename(NAME = NAME_13,
+         year = year_13) %>%
+  select(-year) %>%
+  mutate(TYPE = "ZIP")
+
+socmob.zip.2018 <- socmob.zip %>%
+  filter(year == 2018) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_18"))) %>%
+  rename(NAME = NAME_18,
+         year = year_18) %>%
+  select(-year) %>%
+  mutate(TYPE = "ZIP")
+
+socmob.zip <- full_join(socmob.zip.2013, socmob.zip.2018)
+
+rm(socmob.zip.2013)
+rm(socmob.zip.2018)
+
+socmob.zip <- inner_join(zip, socmob.zip)
+
+rm(zip)
+```
+
+Tidycensus pull of all place geographies of interest.
+```{r place pull}
+socmob.place <- map(
+  years,
+  ~get_acs(
+    geography = "place", 
+    state = "TX",
+    variables = socmob.var,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years, ~mutate(.x, year = .y))
+
+socmob.place <- reduce(socmob.place, rbind)
+
+socmob.place.2013 <- socmob.place %>%
+  filter(year == 2013) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_13"))) %>%
+  rename(NAME = NAME_13,
+         year = year_13) %>%
+  select(-year) %>%
+  mutate(TYPE = "PLACE")
+
+socmob.place.2018 <- socmob.place %>%
+  filter(year == 2018) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_18"))) %>%
+  rename(NAME = NAME_18,
+         year = year_18) %>%
+  select(-year) %>%
+  mutate(TYPE = "PLACE")
+
+socmob.place <- full_join(socmob.place.2013, socmob.place.2018)
+
+rm(socmob.place.2013)
+rm(socmob.place.2018)
+
+socmob.place <- inner_join(places, socmob.place)
+
+rm(places)
+```
+
+Tidycensus pull of all county geographies of interest.
+```{r county pull}
+socmob.counties <- map(
+  years,
+  ~get_acs(
+    geography = "county", 
+    state = "TX",
+    county = county_names,
+    variables = socmob.var,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years, ~mutate(.x, year = .y))
+
+socmob.counties <- reduce(socmob.counties, rbind)
+
+socmob.counties.2013 <- socmob.counties %>%
+  filter(year == 2013) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_13"))) %>%
+  rename(NAME = NAME_13,
+         year = year_13) %>%
+  select(-year) %>%
+  mutate(TYPE = "COUNTY")
+
+socmob.counties.2018 <- socmob.counties %>%
+  filter(year == 2018) %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_18"))) %>%
+  rename(NAME = NAME_18,
+         year = year_18) %>%
+  select(-year) %>%
+  mutate(TYPE = "COUNTY")
+
+socmob.counties <- full_join(socmob.counties.2013, socmob.counties.2018)
+
+rm(socmob.counties.2013)
+rm(socmob.counties.2018)
+```
+
+Tidycensus pull of all census tracts of interest.
+Not able to easily pull multiple census blocks with standard pull and instead it's necessary to run a loop with `purrr::map_dfr` for all counties of interest. Then run code chunk for each year of interest before merging multiple groups.
+```{r tract pull}
+socmob.tract.2013 <- map_dfr(
+  .x = county_names,
+  ~get_acs(
+    geography = "tract", 
+    year = 2013,
+    state = "TX",
+    county = .x,
+    variables = socmob.var,
+    survey = "acs5", 
+    output = "wide")
+  )
+
+socmob.tract.2018 <- map_dfr(
+  .x = county_names,
+  ~get_acs(
+    geography = "tract", 
+    year = 2018,
+    state = "TX",
+    county = .x,
+    variables = socmob.var,
+    survey = "acs5", 
+    output = "wide")
+  )
+
+socmob.tract.2013 <- socmob.tract.2013 %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_13"))) %>%
+  rename(NAME = NAME_13) %>%
+  mutate(TYPE = "TRACT")
+
+socmob.tract.2018 <- socmob.tract.2018 %>%
+  setNames(c(names(.)[1], paste0(names(.)[-1],"_18"))) %>%
+  rename(NAME = NAME_18) %>%
+  mutate(TYPE = "TRACT")
+
+socmob.tract <- full_join(socmob.tract.2013, socmob.tract.2018)
+
+rm(socmob.tract.2013)
+rm(socmob.tract.2018)
+```
+
+Combine all ACS geographies into one file in order to calculate percent change variables and percentage variables.
+Once new variables have been calculated split dataframe back into groups for each geography type.
+```{r variable calculations}
+socmob.combine <- full_join(full_join(full_join(socmob.zip, socmob.place), socmob.tract), socmob.counties)
+
+socmob.calc <- socmob.combine %>%
+  mutate(wh_per_18 = wh_popE_18/tot_popE_18,
+         bl_per_18 = bl_popE_18/tot_popE_18,
+         as_per_18 = as_popE_18/tot_popE_18,
+         his_per_18 = his_popE_18/tot_popE_18,
+         wh_per_13 = wh_popE_13/tot_popE_13,
+         bl_per_13 = bl_popE_13/tot_popE_13,
+         as_per_13 = as_popE_13/tot_popE_13,
+         his_per_13 = his_popE_13/tot_popE_13,
+         adj_med_inc_13 = med_incE_13*(251.233/233.049),                    #Inflation rate 2018/2013
+         emp_r_13 = (emp_r25t29E_13+emp_r30t34E_13+emp_r35t44E_13+emp_r45t54E_13)/4,
+         emp_r_18 = (emp_r25t29E_18+emp_r30t34E_18+emp_r35t44E_18+emp_r45t54E_18)/4,
+         hs_18t24_per_13 = hs_18t24E_13/pop_18t24E_13,
+         hs_18t24_per_18 = hs_18t24E_18/pop_18t24E_18,
+         es_3t4_per_13 = es_3t4E_13/pop_3t4E_13,
+         es_3t4_per_18 = es_3t4E_18/pop_3t4E_18,
+         emp_pubtr_per_13 = emp_pubtrE_13/empE_13,
+         emp_pubtr_per_18 = emp_pubtrE_18/empE_18,
+         bp_per_13 = pop_bpE_13/tot_popE_13,
+         bp_per_18 = pop_bpE_18/tot_popE_18,
+         cbp_per_13 = bp_u18E_13/pop_u18E_13,
+         cbp_per_18 = bp_u18E_18/pop_u18E_18,
+         per_tot_pop = ((tot_popE_18 - tot_popE_13)/tot_popE_13),
+         per_med_inc = ((med_incE_18 - adj_med_inc_13)/adj_med_inc_13),
+         per_gini = ((giniE_18 - giniE_13)/giniE_13),
+         per_less_hs = (less_hsE_18/tot_degE_18) - (less_hsE_13/tot_degE_13),
+         per_hs_deg = (hs_degE_18/tot_degE_18) - (hs_degE_13/tot_degE_13),
+         per_some_col = (some_colE_18/tot_degE_18) - (some_colE_13/tot_degE_13),
+         per_ba_deg = (ba_degE_18/tot_degE_18) - (ba_degE_13/tot_degE_13),
+         per_grad_deg = (grad_degE_18/tot_degE_18) - (grad_degE_13/tot_degE_13),
+         per_wh = (wh_popE_18/tot_popE_18) - (wh_popE_13/tot_popE_13),
+         per_bl = (bl_popE_18/tot_popE_18) - (bl_popE_13/tot_popE_13),
+         per_as = (as_popE_18/tot_popE_18) - (as_popE_13/tot_popE_13),
+         per_his = (his_popE_18/tot_popE_18) - (his_popE_13/tot_popE_13),
+         per_emp_r = emp_r_18-emp_r_13,
+         per_hs_18t24 = hs_18t24_per_18-hs_18t24_per_13,
+         per_es_3t4 = es_3t4_per_18 - es_3t4_per_13,
+         per_emp_pubtr = emp_pubtr_per_18 - emp_pubtr_per_13,
+         per_bp = bp_per_18 - bp_per_13,
+         per_cbp = cbp_per_18 - cbp_per_13) %>%
+  mutate_if(is.numeric, funs(replace_na(., 0))) %>%
+  select(-(ends_with("_13")), -(ends_with("M_18")))
+
+socmob.zip <- socmob.calc %>%
+  filter(str_detect(TYPE, "ZIP"))
+
+socmob.place <- socmob.calc %>%
+  filter(str_detect(TYPE, "PLACE"))
+
+socmob.counties <- socmob.calc %>%
+  filter(str_detect(TYPE, "COUNTY"))
+
+socmob.tract <- socmob.calc %>%
+  filter(str_detect(TYPE, "TRACT"))
+
+rm(socmob.combine)
+```
+
+Export to csv
+```{r}
+export(socmob.zip, "Social-Mobility/Data/ACS/SocialMobility_Zip.csv")
+export(socmob.place, "Social-Mobility/Data/ACS/SocialMobility_Place.csv")
+export(socmob.tract, "Social-Mobility/Data/ACS/SocialMobility_Tract.csv")
+export(socmob.counties, "Social-Mobility/Data/ACS/SocialMobility_County.csv")
+```
+

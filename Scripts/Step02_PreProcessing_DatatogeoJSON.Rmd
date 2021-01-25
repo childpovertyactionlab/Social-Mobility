@@ -1,0 +1,111 @@
+---
+title: "Social Mobility: Pre-Processing"
+subtitle: "Step 02: ACS Data to geoJSON"
+author: "Michael Lopez"
+date: "`r format(Sys.Date(), '%B, %d, %Y'`"
+output: 
+  github_document: default
+    toc: true
+    number_sections: true
+    toc_float: true
+    theme: pagedown::architect
+    code_folding: show
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+rm(list=ls(all=TRUE))
+knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub')
+#knitr::opts_knit$set(root.dir = 'C:/Users/OwenWilson-Chavez/CPAL Dropbox')
+getwd()
+library(tidyverse)
+library(rio)
+library(sf)
+```
+
+```{r directory test}
+getwd()
+```
+
+```{r import data}
+#import csv files of data
+socmob.zip.csv <- import("Social-Mobility/Data/ACS/SocialMobility_Zip.csv")
+socmob.place.csv <- import("Social-Mobility/Data/ACS/SocialMobility_Place.csv")
+socmob.tract.csv <- import("Social-Mobility/Data/ACS/SocialMobility_Tract.csv")
+socmob.county.csv <- import("Social-Mobility/Data/ACS/SocialMobility_County.csv")
+
+#import shape files
+zip.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_zcta.shp")
+place.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_places.shp")
+tract.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_tracts.shp")
+counties.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_counties.shp")
+```
+
+```{r transform and merge}
+#convert shape GEOID columns from factor to numeric to help merge
+zip.shape <- zip.shape %>%
+  mutate(GEOID = as.numeric(GEOID10))
+
+place.shape <- place.shape %>%
+  mutate(GEOID = as.numeric(GEOID))
+
+tract.shape <- tract.shape %>%
+  mutate(GEOID = as.numeric(GEOID))
+
+counties.shape <- counties.shape %>%
+  mutate(GEOID = as.numeric(GEOID))
+
+socmob.zip.csv <- socmob.zip.csv %>%
+  mutate(GEOID = as.numeric(GEOID))
+
+socmob.place.csv <- socmob.place.csv %>%
+  mutate(GEOID = as.numeric(GEOID))
+
+socmob.tract.csv <- socmob.tract.csv %>%
+  mutate(GEOID = as.numeric(GEOID))
+
+socmob.county.csv <- socmob.county.csv %>%
+  mutate(GEOID = as.integer(GEOID))
+
+
+#merge csv and shape files into shape file
+zip.merge <- left_join(zip.shape, socmob.zip.csv, by = "GEOID")
+
+place.merge <- left_join(place.shape, socmob.place.csv, by = "GEOID")
+
+tract.merge <- left_join(tract.shape, socmob.tract.csv, by = "GEOID")
+
+county.merge <- left_join(counties.shape, socmob.county.csv, by = "GEOID")
+
+#delete unnecessary columns
+names(zip.merge)
+zip.select <- zip.merge %>%
+  select(fid, GEOID, NAME, ALAND10, AWATER10, INTPTLAT10, INTPTLON10, tot_popE_18:geometry) %>%
+  rename(ALAND = ALAND10,
+         AWATER = AWATER10,
+         INTPTLAT = INTPTLAT10,
+         INTPTLON = INTPTLON10)
+
+names(place.merge)
+place.select <- place.merge %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  rename(NAME = NAME.x)
+
+names(tract.merge)
+tract.select <- tract.merge %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  rename(NAME = NAME.x)
+
+names(county.merge)
+county.select <- county.merge %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  rename(NAME = NAME.x)
+```
+
+
+```{r geojson export}
+geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
+geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/geojson/sm_places.geojson")
+geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/geojson/sm_tracts.geojson")
+geojsonio::geojson_write(county.merge, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
+```
+
