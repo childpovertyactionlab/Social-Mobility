@@ -42,10 +42,10 @@ getwd()
 
 ```{r import geography data}
 #import acs data
-sm_zcta <- st_read("Social-Mobility/Data/geojson/sm_zcta.geojson")
-sm_places <- st_read("Social-Mobility/Data/geojson/sm_places.geojson")
-sm_tracts <- st_read("Social-Mobility/Data/geojson/sm_tracts.geojson")
-sm_counties <- st_read("Social-Mobility/Data/geojson/sm_counties.geojson")
+sm_zcta <- st_read("Social-Mobility/Data/Intermediate/sm_zcta.geojson")
+sm_places <- st_read("Social-Mobility/Data/Intermediate/sm_places.geojson")
+sm_tracts <- st_read("Social-Mobility/Data/Intermediate/sm_tracts.geojson")
+sm_counties <- st_read("Social-Mobility/Data/Intermediate/sm_counties.geojson")
 
 #delete unnecessary columns
 names(sm_zcta)
@@ -168,10 +168,18 @@ vote2020 <- left_join(voter_precincts_2020, vote2020)
 ```
 
 ```{r join to each other}
-new_tract_var <- left_join(tract_rent,  as.data.frame(tract_housing))
-new_zip_var <- zip.select
-new_place_var <- place.select
-new_county.var <- county.select
+new_tract_var <- tract_rent %>%
+  left_join(.,  as.data.frame(tract_housing)) %>%
+  mutate(per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)))
+
+new_zip_var <- zip.select %>%
+  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)),
+         GEOID = as.integer(GEOID))
+
+new_place_var <- place.select 
+
+new_county_var <- county.select
+
 ```
 
 ```{r acs modifications}
@@ -211,10 +219,10 @@ Function which will group each variable into bins between 0 and 4 based on the s
 Cuts occur at +/- 0.5 standard deviations and +/- 1 standard deviation.
 ```{r sdcut function}
 sdcut <- function(x) {
-  sd1p <- mean(x)+(sd(x)*0.50)
-  sd1n <- mean(x)-(sd(x)*0.50)
-  sd2p <- mean(x)+(sd(x)*1)
-  sd2n <- mean(x)-(sd(x)*1)
+  sd1p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*0.50)
+  sd1n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*0.50)
+  sd2p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*1)
+  sd2n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*1)
   ifelse(x > sd2p, 4,
          ifelse(x > sd1p & x < sd2p, 3,
                 ifelse(x > sd1n & x < sd1p, 2,
@@ -227,8 +235,6 @@ Convert all estimate variables by `log()` in order to then apply sdcut function.
 #zip codes
 names(new_zip_var)
 socmob.zip.sd <- as.data.frame(new_zip_var) %>%
-  drop_na() %>%
-  filter_if(~is.numeric(.), all_vars(!is.infinite(.))) %>%
   mutate_at(c(8:61), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
@@ -243,8 +249,6 @@ socmob.zip.upload <- left_join(new_zip_var, socmob.zip.sd)
 
 #places
 socmob.place.sd <- as.data.frame(new_place_var) %>%
-  drop_na() %>%
-  filter_if(~is.numeric(.), all_vars(!is.infinite(.))) %>%
   mutate_at(c(8:61), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
@@ -259,8 +263,6 @@ socmob.place.upload <- left_join(new_place_var, socmob.place.sd)
 
 #tracts
 socmob.tract.sd <- as.data.frame(new_tract_var) %>%
-  drop_na() %>%
-  filter_if(~is.numeric(.), all_vars(!is.infinite(.))) %>%
   mutate_at(c(8:64), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
@@ -279,17 +281,31 @@ rm(socmob.tract.sd)
 ```
 
 ```{r descriptive stats}
+socmob.calc <- full_join(full_join(full_join(as.data.frame(socmob.tract.upload), as.data.frame(socmob.zip.upload)), as.data.frame(socmob.place.upload)),as.data.frame(new_county_var))
+
 var <-  c("nbr.val", "nbr.null", "nbr.na", "min", "max", "range", "sum", "median", "mean", "SE.mean", "CI.mean.0.95", "var", "std.dev", "coef.var")
 socmob.calc.d <- cbind(var, pastecs::stat.desc(socmob.calc))
 
-rm(socmob.calc)
-export(socmob.calc.d, "Social-Mobility/Data/ACS/SocialMobility_DescriptiveStats.csv")
+n <- socmob.calc.d$var
+
+# transpose all but the first column (name)
+socmob.calc.d <- as.data.frame(t(socmob.calc.d[,-1]))
+colnames(socmob.calc.d) <- n
+socmob.calc.d$variable <- factor(row.names(socmob.calc.d))
+socmob.calc.d <- socmob.calc.d %>%
+  select(variable, min, max, range, mean)
+
+datadic <- import("Social-Mobility/DataDictionary.csv")
+datadic_join <- datadic %>%
+  select(variable:highisgood) %>%
+  full_join(., socmob.calc.d)
 ```
 
 ```{r geojson export}
 setwd("C:/Users/Michael Lopez/Documents/GitHub")
-geojsonio::geojson_write(socmob.zip.upload, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
+export(datadic_join, "Social-Mobility/DataDictionary.csv")
+geojsonio::geojson_write(new_zip_var, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
 geojsonio::geojson_write(socmob.place.upload, file = "Social-Mobility/Data/geojson/sm_places.geojson")
 geojsonio::geojson_write(socmob.tract.upload, file = "Social-Mobility/Data/geojson/sm_tracts.geojson")
-geojsonio::geojson_write(new_county.var, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
+geojsonio::geojson_write(county.select, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
 ```

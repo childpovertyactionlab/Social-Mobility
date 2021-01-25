@@ -103,9 +103,10 @@ county.select <- county.merge %>%
 
 
 ```{r geojson export}
-geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
-geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/geojson/sm_places.geojson")
-geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/geojson/sm_tracts.geojson")
-geojsonio::geojson_write(county.merge, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
+getwd()
+geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/Intermediate/sm_zcta.geojson")
+geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/Intermediate/sm_places.geojson")
+geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/Intermediate/sm_tracts.geojson")
+geojsonio::geojson_write(county.merge, file = "Social-Mobility/Data/Intermediate/sm_counties.geojson")
 ```
 
