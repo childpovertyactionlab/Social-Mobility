@@ -85,10 +85,12 @@ setwd("E:/CPAL Dropbox") #Michael
 renter <- import("Data Library/Urban Institute/Rental Assistance Priority Index/housing_index_state_adj.csv")
 housing_vouchers <- st_read("Data Library/HUD/Housing Choice Vouchers/Housing_Choice_Vouchers_by_Tract-shp/HCV_BY_TRACT.shp")
 
+voter_precincts_2020 <- st_read("Data Library/Texas Elections/Dallas County Elections/Precinct Shapefiles/2020 Precincts/DallasCoSubPrecincts.shp")
 #voter_precincts_2018 <- st_read("Data Library/Dallas County Elections/Precinct Shapefiles/2018 Precincts/Subprecinct17A2.shp")
-#vote2016 <- import("Data Library/Dallas County Elections/Votes by Precinct/2016_Vote_byPrecinct_DallasCounty.csv")
 voter_precincts_2016 <- st_read("Data Library/Texas Elections/Dallas County Elections/Precinct Shapefiles/2016 Precincts/Subprecinct15.shp")
+vote2016 <- import("Data Library/Texas Elections/Dallas County Elections/Votes by Precinct/2016_Vote_byPrecinct_DallasCounty.csv")
 #vote2018 <- import("Data Library/Dallas County Elections/Votes by Precinct/2018_Vote_byPrecinct_DallasCounty.csv")
+vote2020 <- import("Data Library/Texas Elections/Dallas County Elections/Votes by Precinct/2020_Vote_byPrecinct_DallasCounty.csv")
 ```
 
 ```{r housing vouchers}
@@ -120,31 +122,57 @@ rm(renter)
 ```{r voter data Dallas County}
 #names(voter_precincts_2016)
 voter_precincts_2016 <- voter_precincts_2016 %>%
+  select(PCT_BALLOT, geometry) %>%
+  rename(precinct = PCT_BALLOT)
 
 #names(voter_precincts_2018)
+#voter_precincts_2018 <- voter_precincts_2018 %>%
+#  select(Pct_Ballot, geometry) %>%
+#  rename(precinct = Pct_Ballot)
 
 #names(voter_precincts_2020)
 voter_precincts_2020 <- voter_precincts_2020 %>%
+  select(Pct_Ballot, geometry) %>%
+  rename(precinct = Pct_Ballot)
 
 vote2016 <- vote2016 %>%
   drop_na() %>%
   filter(registered_voters != 0) %>%
+#  mutate(precinct = str_sub(precinct, 1, 7)) %>%
   select(precinct, total_ballots, registered_voters) %>%
   group_by(precinct) %>%
   summarise(total_ballots_2016 = sum(total_ballots),
             registered_voters_2016 = sum(registered_voters))
 
+#vote2018 <- vote2018 %>%
+#  drop_na() %>%
+#  filter(registered_voters != 0) %>%
+#  mutate(precinct = str_sub(precinct, 1, 7)) %>%
+#  select(precinct, total_ballots, registered_voters) %>%
+#  group_by(precinct) %>%
+#  summarise(total_ballots_2018 = sum(total_ballots),
+#            registered_voters_2018 = sum(registered_voters))
 
 vote2020 <- vote2020 %>%
   drop_na() %>%
   filter(registered_voters != 0) %>%
+#  mutate(precinct = str_sub(precinct, 1, 7)) %>%
   select(precinct, total_ballots, registered_voters) %>%
   group_by(precinct) %>%
   summarise(total_ballots_2020 = sum(total_ballots),
             registered_voters_2020 = sum(registered_voters))
 
+vote_change <- full_join(vote2020, vote2016)
+
 vote2016 <- left_join(voter_precincts_2016, vote2016)
+#vote2018 <- left_join(voter_precincts_2018, vote2018)
 vote2020 <- left_join(voter_precincts_2020, vote2020)
+
+vote_change <- vote_change %>%
+  mutate(vote_change = )
+
+geojsonio::geojson_write(vote2016, file = "Social-Mobility/Data/geojson/vote_2016.geojson")
+geojsonio::geojson_write(vote2020, file = "Social-Mobility/Data/geojson/vote_2020.geojson")
 ```
 
 ```{r join to each other}
@@ -283,4 +311,13 @@ datadic_join <- datadic %>%
 
 ```{r geojson export}
 setwd("C:/Users/Michael Lopez/Documents/GitHub")
+#export(datadic_join, "Social-Mobility/DataDictionary.csv")
+#geojsonio::geojson_write(new_zip_var, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
+#geojsonio::geojson_write(socmob.place.upload, file = "Social-Mobility/Data/geojson/sm_places.geojson")
+#geojsonio::geojson_write(socmob.tract.upload, file = "Social-Mobility/Data/geojson/sm_tracts.geojson")
+#geojsonio::geojson_write(county.select, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
+
+
+geojsonio::geojson_write(vote2016, file = "Social-Mobility/Data/geojson/vote_2016.geojson")
+geojsonio::geojson_write(vote2020, file = "Social-Mobility/Data/geojson/vote_2020.geojson")
 ```
