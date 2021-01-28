@@ -1,182 +1,149 @@
-variable,display_name,display_variable,type,category,subcategory,description,source,years,place,highisgood,min,max,range,mean
-adj_med_inc_13,Adjusted Median Income,No,estimate,,,Median income of 2013 adjusted to 2018 dollar,CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-ai_popE_13,American Indian or Pacific Islander Population,No,estimate,,,Total american indian and pacific islander population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-ai_popE_18,American Indian or Pacific Islander Population,Yes,estimate,,,Total american indian and pacific islander population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,,,,
-as_popE_13,Asian Population,No,estimate,,,Total asian population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-as_popE_18,Asian Population,Yes,estimate,,,Total asian population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,158780,158780,1092.596989
-ba_degE_13,,No,estimate,,,Total population with a bachelors degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-ba_degE_18,Population with a Bachelors Degrees,Yes,estimate,,,Total population with a bachelors degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,322294,322294,2341.012739
-bl_popE_13,Black or African American Population,No,estimate,,,Total black population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-bl_popE_18,Black or African American Population,Yes,estimate,,,Total black population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,572790,572790,2534.929357
-giniE_13,,No,estimate,,,Gini coefficient in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-giniE_18,Gini Coefficient,Yes,estimate,,,Gini coefficient in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,0.634,0.634,0.403149739
-grad_degE_13,,No,estimate,,,Total population with a graduate degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-grad_degE_18,Population with Graduate Degrees,Yes,estimate,,,Total population with a graduate degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,184260,184260,1240.12623
-his_popE_13,Hispanic or Latinx Population,No,estimate,,,Total hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-his_popE_18,Hispanic or Latinx Population,Yes,estimate,,,Total hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1033000,1033000,4679.387956
-hs_degE_13,,No,estimate,,,Total high school degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-hs_degE_18,Population with High School Degrees,Yes,estimate,,,Total high school degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,372587,372587,2253.341054
-less_hsE_13,,No,estimate,,,Total degrees less than high school in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-less_hsE_18,Population with less than a High School Degree,Yes,estimate,,,Total degrees less than high school in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,351441,351441,1535.520556
-med_incE_13,,No,estimate,,,Median income in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-med_incE_18,Median Household Income,Yes,estimate,,,Median income in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,250001,250001,73597.84308
-some_colE_13,,No,estimate,,,Total population with some college in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-some_colE_18,Population that has completed some college,Yes,estimate,,,Total population with some college in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,418128,418128,2893.220614
-tot_degE_13,,No,estimate,,,Total degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-tot_degE_18,Total Degrees,Yes,estimate,,,Total degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1648710,1648710,10263.22119
-tot_popE_13,,No,estimate,,,Total population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-tot_popE_18,Total Population,Yes,estimate,,,Total population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,2586552,2586552,15975.52982
-wh_popE_13,"White, Non-Hispanic Population",No,estimate,,,Total white non-hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-wh_popE_18,"White, Non-Hispanic Population",Yes,estimate,,,Total white non-hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,958302,958302,7241.827446
-GEOID,,No,name,,,Census shape geoid,ACS 5 Year,,"Zip, Tract, Place",Yes,48085,48439980000,48439931915,35258431864
-NAME,,Yes,name,,,Name of census tract in geography,ACS 5 Year,,"Zip, Tract, Place",Yes,,,,
-ai_per_13,,No,percent,,,Percent American Indian or Pacific Islander Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,,,,
-ai_per_18,Percent American Indian or Pacific Islander Population,Yes,percent,,,Percent American Indian or Pacific Islander Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,,,,
-as_per_13,,No,percent,,,Percent Asian Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,,,,
-as_per_18,Percent Asian Population,Yes,percent,,,Percent Asian Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,0.7035021,0.7035021,0.059271475
-bl_per_13,,No,percent,,,Percent Black Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,,,,
-bl_per_18,Percent Black Population,Yes,percent,,,Percent Black Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,0.9017735,0.9017735,0.146551239
-his_per_13,,No,percent,,,Percent Hispanic Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,,,,
-his_per_18,Percent Hispanic Population,Yes,percent,,,Percent Hispanic Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,1,1,0.284900508
-wh_per_13,,No,percent,,,Percent White Non-Hispanic Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,,,,
-wh_per_18,Percent White Non-Hispanic Population,Yes,percent,,,Percent White Non-Hispanic Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,1,1,0.481092443
-per_ai,Change in American Indian and Pacific Islander population from 2013 to 2018,Yes,percentchange,,,Change in American Indian and Pacific Islander population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,,,,
-per_as,Change in Asian population from 2013 to 2018,Yes,percentchange,,,Change in Asian population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.2005016,0.3049652,0.5054668,0.009075091
-per_ba_deg,Change in bachelors degrees from 2013 to 2018,Yes,percentchange,,,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.2660441,0.2849162,0.5509603,0.009094681
-per_bl,Change in Black population from 2013 to 2018,Yes,percentchange,,,Change in Black population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.3332508,0.2444921,0.5777429,0.004653984
-per_gini,Change in gini coeffient from 2013 to 2018,Yes,percentchange,,,Percent change in gini coeffient between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.5597065,0.9644328,1.5241393,0.023840925
-per_grad_deg,Change in graduate degrees from 2013 to 2018,Yes,percentchange,,,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.1670991,0.2089701,0.3760692,0.011872564
-per_his,Change in Hispanic population from 2013 to 2018,Yes,percentchange,,,Change in Hispanic population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.3163296,0.6987179,1.0150475,0.017832924
-per_hs_deg,Change in High School degrees from 2013 to 2018,Yes,percentchange,,,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.7637363,0.3810861,1.1448224,-0.002561219
-per_less_hs,Change in less than High School from 2013 to 2018,Yes,percentchange,,,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.3822202,0.2261865,0.6084067,-0.010452441
-per_med_inc,Change in median income from 2013 to 2018,Yes,percentchange,,,Percent change in (adjusted) medium income between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.6292296,0.9627071,1.5919367,0.076730652
-per_some_col,Change in some college from 2013 to 2018,Yes,percentchange,,,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.2467265,0.7637363,1.0104628,-0.007953587
-per_tot_pop,Change in total population from 2013 to 2018,Yes,percentchange,,,Percent change in total population between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.8846154,2.7961538,3.6807692,0.110078021
-per_wh,Change in White population from 2013 to 2018,Yes,percentchange,,,Change in White population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.6279545,0.2766538,0.9046083,-0.034078051
-,Childcare Center,,point,social_infrastructure,,,,,,,,,,
-,Afterschool Programs (Dallas only),,point,social_infrastructure,,,,,,,,,,
-public_health,Public Health,,point_category,,,,,,,,,,,
-social_infrastructure,Social Infrastructure,,point_category,,,,,,,,,,,
-,Recreation Center,,point,social_infrastructure,,,,,,,,,,
-commerce,Commerce,,point_category,,,,,,,,,,,
-school,Schools,,point_category,,,,,,,,,,,
-charter_school,Charter School,,point_subcategory,,,,,,,,,,,
-public_school,Public School,,point_subcategory,,,,,,,,,,,
-private_school,Private School,,point_subcategory,,,,,,,,,,,
-bank,Bank,Yes,point,commerce,,Locations of banks,,,,,,,,
-ces,Elementary School,Yes,point,school,charter_elementary_school,Locations of charter elementary schools,TEA,,,,,,,
-chs,High School,Yes,point,school,charter_high_school,Locations of charter high schools,TEA,,,,,,,
-cms,Middle School,Yes,point,school,charter_middle_school,Locations of charter middle schools,TEA,,,,,,,
-comcen,Community and Recreation Center,Yes,point,social_infrastructure,,Locations of community centers,NCTCOG,,,,,,,
-comhel,Community Health Clinic,Yes,point,public_health,,Locations of community health clinics,,,,,,,,
-crunion,Credit Union,Yes,point,commerce,,Locations of credit unions,CPAL/googleways,,,,,,,
-ies,Elementary School,Yes,point,school,public_elementary_school,Locations of disd elementary schools,TEA,,,,,,,
-his,High School,Yes,point,school,public_high_school,Locations of disd junior high schools,TEA,,,,,,,
-ims,Middle School,Yes,point,school,public_middle_school,Locations of disd independent elementary/secondary schools,TEA,,,,,,,
-lib,Library,Yes,point,social_infrastructure,,Locations of libraries,City of Dallas,,,,,,,
-market,Supermarket,Yes,point,commerce,,Locations of supermarkets,CPAL,,,,,,,
-os,Other School,Yes,point,REMOVE,,Locations of miscellaneous other schools including TJJ campuses,TEA,,,,,,,
-pharm,Pharmacy,Yes,point,public_health,,Locations of pharmacys,TSBP,,,,,,,
-scc,Subsidized Childcare Center,Yes,point,social_infrastructure,,Locations of subsidized childcare centers,TDHPS,,,,,,,
-snap,SNAP Retailer,Yes,point,commerce,,Locations of retailers which accept SNAP benefits,USDA SNAP Store Locations,,,,,,,
-wic,WIC Clinic,Yes,point,public_health,,Locations of retailers which accept WIC benefits,CPAL/googleways,,,,,,,
-ba_degE_13_sd,Bachelors Degrees,No,sd,,,"Standard deviation sorting of highest degree earned is bachelors population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-ba_degE_18_sd,Bachelors Degrees,Yes,sd,,,"Standard deviation sorting of highest degree earned is bachelors population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.940663176
-giniE_13_sd,Gini Coefficient,No,sd,,,"Standard deviation sorting of gini coefficient in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-giniE_18_sd,Gini Coefficient,Yes,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.991273997
-grad_degE_13_sd,Graduate Degrees,No,sd,,,"Standard deviation sorting of highest degree earned is graduate population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-grad_degE_18_sd,Graduate Degrees,Yes,sd,,,"Standard deviation sorting of highest degree earned is graduate population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,1,4,3,1.969168121
-hs_degE_13_sd,High School Degrees,No,sd,,,"Standard deviation sorting of highest degree earned is high school population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-hs_degE_18_sd,High School Degrees,Yes,sd,,,"Standard deviation sorting of highest degree earned is high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.917393834
-less_hsE_13_sd,Less than High School,No,sd,,,"Standard deviation sorting of highest degree earned is less than high school population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-less_hsE_18_sd,Less than High School,Yes,sd,,,"Standard deviation sorting of highest degree earned is less than high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.936009308
-med_incE_13_sd,Median Income,No,sd,,,"Standard deviation sorting of median income in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-med_incE_18_sd,Median Income,Yes,sd,,,"Standard deviation sorting of median income in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.92495637
-some_colE_13_sd,Some College,No,sd,,,"Standard deviation sorting of highest degree earned is some college population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-some_colE_18_sd,Some College,Yes,sd,,,"Standard deviation sorting of highest degree earned is some college population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.924374636
-tot_degE_13_sd,Total Degrees,No,sd,,,"Standard deviation sorting of total degrees population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-tot_degE_18_sd,Total Degrees,Yes,sd,,,"Standard deviation sorting of total degrees population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.934845841
-tot_popE_13_sd,Total Population,No,sd,,,"Standard deviation sorting of total population in 2013. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2013,"Zip, Tract, Place",Yes,,,,
-tot_popE_18_sd,Total Population,Yes,sd,,,"Standard deviation sorting of total population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.932518906
-es_3t4E_18,Enrolled Pre-K,,estimate,,,,,,,,0,11201,11201,56.83671106
-pop_18t24E_18,Total Population 18 to 24,,estimate,,,,,,,,0,250073,250073,1478.484655
-pop_u18E_18,Total Population Under 18,,estimate,,,,,,,,0,687769,687769,4233.823972
-hs_18t24E_18,Recent High School Graduates 18 to 24,,estimate,,,,,,,,0,42130,42130,219.731326
-emp_r25t29E_18,,No,estimate,,,,,,,,0,100,100,82.45327157
-emp_r30t34E_18,,No,estimate,,,,,,,,0,100,100,82.27058483
-emp_r35t44E_18,,No,estimate,,,,,,,,0,100,100,82.63173133
-emp_r45t54E_18,,No,estimate,,,,,,,,0,100,100,80.85141865
-empE_18,Population Employed,Yes,estimate,,,,,,,,0,1260913,1260913,7888.92762
-emp_pubtrE_18,Population Public Transportation to Work,Yes,estimate,,,,,,,,0,34940,34940,117.835553
-pop_bpE_18,Population Below Poverty,Yes,estimate,,,,,,,,0,423899,423899,2000.454545
-bp_u18E_18,Population Under 18 Below Poverty,Yes,estimate,,,,,,,,0,173086,173086,765.6682108
-rent_instability,Renter Instability Index,Yes,estimate,,,,,,,,-1.428617601,2.035712027,3.464329628,-0.016641275
-HCV_PUBLIC,Total Public Assistance Vouchers,Yes,estimate,,,,,,,,11,602,591,65.4220339
-HCV_PCT_RE,,Yes,estimate,,,,,,,,0.43000001,100,99.56999999,9.796813566
-fid,,No,,,,,,,,,1,1263,1262,493.4730747
-ALAND,,No,,,,,,,,,13392,2423342394,2423329002,36373747.37
-AWATER,,No,,,,,,,,,0,192588409,192588409,1556350.754
-INTPTLAT,,No,,,,,,,,,,,,
-INTPTLON,,No,,,,,,,,,,,,
-pop_3t4E_18,Population Between 3 to 4,Yes,estimate,,,,,,,,0,79241,79241,463.6641575
-emp_r_18,Ratio of Employed Population,Yes,estimate,,,,,,,,0,98.1,98.1,81.95212797
-hs_18t24_per_18,Percent High School Degree 18 to 24,Yes,percent,,,,,,,,0,1,1,0.155640156
-es_3t4_per_18,Percent Enrolled Pre-K,Yes,percent,,,,,,,,0,1,1,0.11923219
-emp_pubtr_per_18,Percent Public Transportation to Work,Yes,percent,,,,,,,,0,0.5618557,0.5618557,0.015601185
-bp_per_18,Percent Below Poverty,Yes,percent,,,,,,,,0,0.6772313,0.6772313,0.128132771
-cbp_per_18,Percent Children Below Poverty,No,percent,,,,,,,,0,0.818332,0.818332,0.17818158
-per_emp_r,,Yes,percentchange,,,,,,,,-36.675,40.6,77.275,16.64422409
-per_hs_18t24,Change in High School Degree from 2013 to 2018,Yes,percentchange,,,,,,,,-16.6666667,0.6898546,17.3565213,0.072350414
-per_es_3t4,Change in Pre-K from 2013 to 2018,Yes,percentchange,,,,,,,,-1,0.9444444,1.9444444,0.00532578
-per_emp_pubtr,Change in Public Transportation to Work from 2013 to 2018,Yes,percentchange,,,,,,,,-0.1950002,0.168413,0.3634132,-0.000441171
-per_bp,Change in Below Poverty from 2013 to 2018,Yes,percentchange,,,,,,,,-0.3111721,0.2847139,0.595886,-0.018228302
-per_cbp,Change in Children Below Poverty from 2013 to 2018,Yes,percentchange,,,,,,,,-19141.16248,0.6666667,19141.82915,-89.19411389
-geometry,,,,,,,,,,,-97.846529,33.916064,131.762593,-32.01735305
-pop_3t4E_18_sd,,,sd,,,,,,,,0,4,4,1.939499709
-his_popE_18_sd,,,sd,,,,,,,,0,4,4,1.948225713
-wh_popE_18_sd,,,sd,,,,,,,,0,4,4,1.938336242
-bl_popE_18_sd,,,sd,,,,,,,,1,4,3,1.947643979
-as_popE_18_sd,,,sd,,,,,,,,1,4,3,1.944735311
-es_3t4E_18_sd,,,sd,,,,,,,,1,4,3,1.940081443
-pop_18t24E_18_sd,,,sd,,,,,,,,0,4,4,1.940663176
-pop_u18E_18_sd,,,sd,,,,,,,,0,4,4,1.936009308
-hs_18t24E_18_sd,,,sd,,,,,,,,0,4,4,1.915066899
-emp_r25t29E_18_sd,,,sd,,,,,,,,0,4,4,2.095986038
-emp_r30t34E_18_sd,,,sd,,,,,,,,0,4,4,2.075625364
-emp_r35t44E_18_sd,,,sd,,,,,,,,0,4,4,2.059336824
-emp_r45t54E_18_sd,,,sd,,,,,,,,0,4,4,2.058173357
-empE_18_sd,,,sd,,,,,,,,0,4,4,1.922047702
-emp_pubtrE_18_sd,,,sd,,,,,,,,1,4,3,1.913903432
-pop_bpE_18_sd,,,sd,,,,,,,,0,4,4,1.93310064
-bp_u18E_18_sd,,,sd,,,,,,,,1,4,3,1.968004654
-wh_per_18_sd,,,sd,,,,,,,,0,4,4,2.004072135
-bl_per_18_sd,,,sd,,,,,,,,1,4,3,1.945898778
-as_per_18_sd,,,sd,,,,,,,,1,4,3,1.897614892
-his_per_18_sd,,,sd,,,,,,,,0,4,4,1.926701571
-emp_r_18_sd,,,sd,,,,,,,,0,4,4,2.057591623
-hs_18t24_per_18_sd,,,sd,,,,,,,,0,4,4,1.9168121
-es_3t4_per_18_sd,,,sd,,,,,,,,0,4,4,1.912158232
-emp_pubtr_per_18_sd,,,sd,,,,,,,,1,4,3,1.931355439
-bp_per_18_sd,,,sd,,,,,,,,0,4,4,1.914485166
-cbp_per_18_sd,,,sd,,,,,,,,0,4,4,1.896451425
-per_tot_pop_sd,,,sd,,,,,,,,0,4,4,1.960419092
-per_med_inc_sd,,,sd,,,,,,,,0,4,4,1.954624782
-per_gini_sd,,,sd,,,,,,,,0,4,4,1.958696917
-per_less_hs_sd,,,sd,,,,,,,,0,4,4,1.999418266
-per_hs_deg_sd,,,sd,,,,,,,,0,4,4,2.007562536
-per_some_col_sd,,,sd,,,,,,,,0,4,4,1.990692263
-per_ba_deg_sd,,,sd,,,,,,,,0,4,4,1.985456661
-per_grad_deg_sd,,,sd,,,,,,,,0,4,4,1.983129727
-per_wh_sd,,,sd,,,,,,,,0,4,4,1.991273997
-per_bl_sd,,,sd,,,,,,,,0,4,4,2.003490401
-per_as_sd,,,sd,,,,,,,,0,4,4,2.009889471
-per_his_sd,,,sd,,,,,,,,0,4,4,2.022105876
-per_emp_r_sd,,,sd,,,,,,,,0,4,4,2.036649215
-per_hs_18t24_sd,,,sd,,,,,,,,0,4,4,1.981384526
-per_es_3t4_sd,,,sd,,,,,,,,0,4,4,2.006399069
-per_emp_pubtr_sd,,,sd,,,,,,,,0,4,4,2.001163467
-per_bp_sd,,,sd,,,,,,,,0,4,4,2.013379872
-per_cbp_sd,,,sd,,,,,,,,0,3,3,2.010477299
-rent_instability_sd,,,sd,,,,,,,,0,4,4,1.998416469
-HCV_PUBLIC_sd,,,sd,,,,,,,,1,4,3,1.916949153
-HCV_PCT_RE_sd,,,sd,,,,,,,,1,4,3,1.96440678
+variable,display_name,display_variable,type,category,subcategory,value_type,description,source,years,place,highisgood,min,max,range,mean
+ALAND,Area Land (SqMi),No,,,,,,,,,,13392,2423342394,2423329002,36373747.37
+as_per_18,Percent Asian Population,Yes,percent,,,,Percent Asian Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,0.7035021,0.7035021,0.059271475
+as_per_18_sd,Percent Asian Population,,sd,,,,,,,,,1,4,3,1.897614892
+as_popE_18,Asian Population,Yes,estimate,,,,Total asian population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,158780,158780,1092.596989
+as_popE_18_sd,Asian Population,,sd,,,,,,,,,1,4,3,1.944735311
+AWATER,Area Water (SqMi),No,,,,,,,,,,0,192588409,192588409,1556350.754
+ba_degE_18,Population with a Bachelors Degrees,Yes,estimate,,,,Total population with a bachelors degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,322294,322294,2341.012739
+ba_degE_18_sd,Bachelors Degrees,Yes,sd,,,,"Standard deviation sorting of highest degree earned is bachelors population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.940663176
+bank,Bank,Yes,point,commerce,,,Locations of banks,,,,,,,,
+bl_per_18,Percent Black Population,Yes,percent,,,,Percent Black Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,0.9017735,0.9017735,0.146551239
+bl_per_18_sd,Percent Black Population,,sd,,,,,,,,,1,4,3,1.945898778
+bl_popE_18,Black Population,Yes,estimate,,,,Total black population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,572790,572790,2534.929357
+bl_popE_18_sd,Black Population,,sd,,,,,,,,,1,4,3,1.947643979
+bp_per_18,Poverty Rate,Yes,percent,,,,,,,,,0,0.6772313,0.6772313,0.128132771
+bp_per_18_sd,Poverty Rate,,sd,,,,,,,,,0,4,4,1.914485166
+bp_u18E_18,,Yes,estimate,,,,,,,,,0,173086,173086,765.6682108
+bp_u18E_18_sd,,,sd,,,,,,,,,1,4,3,1.968004654
+cbp_per_18,Child Poverty Rate,No,percent,,,,,,,,,0,0.818332,0.818332,0.17818158
+cbp_per_18_sd,Child Poverty Rate,,sd,,,,,,,,,0,4,4,1.896451425
+ces,Elementary School,Yes,point,school,charter_elementary_school,,Locations of charter elementary schools,TEA,,,,,,,
+charter_school,Charter School,,point_subcategory,,,,,,,,,,,,
+chs,High School,Yes,point,school,charter_high_school,,Locations of charter high schools,TEA,,,,,,,
+cms,Middle School,Yes,point,school,charter_middle_school,,Locations of charter middle schools,TEA,,,,,,,
+comcen,Community and Recreation Center,Yes,point,social_infrastructure,,,Locations of community centers,NCTCOG,,,,,,,
+comhel,Community Health Clinic,Yes,point,public_health,,,Locations of community health clinics,,,,,,,,
+commerce,Commerce,,point_category,,,,,,,,,,,,
+crunion,Credit Union,Yes,point,commerce,,,Locations of credit unions,CPAL/googleways,,,,,,,
+emp_pubtr_per_18,Percent Public Transportation to Work,Yes,percent,,,,,,,,,0,0.5618557,0.5618557,0.015601185
+emp_pubtr_per_18_sd,,,sd,,,,,,,,,1,4,3,1.931355439
+emp_pubtrE_18,Population Public Transportation to Work,Yes,estimate,,,,,,,,,0,34940,34940,117.835553
+emp_pubtrE_18_sd,,,sd,,,,,,,,,1,4,3,1.913903432
+emp_r_18,Ratio of Employed Population,Yes,estimate,,,,,,,,,0,98.1,98.1,81.95212797
+emp_r_18_sd,,,sd,,,,,,,,,0,4,4,2.057591623
+emp_r25t29E_18,,No,estimate,,,,,,,,,0,100,100,82.45327157
+emp_r25t29E_18_sd,,,sd,,,,,,,,,0,4,4,2.095986038
+emp_r30t34E_18,,No,estimate,,,,,,,,,0,100,100,82.27058483
+emp_r30t34E_18_sd,,,sd,,,,,,,,,0,4,4,2.075625364
+emp_r35t44E_18,,No,estimate,,,,,,,,,0,100,100,82.63173133
+emp_r35t44E_18_sd,,,sd,,,,,,,,,0,4,4,2.059336824
+emp_r45t54E_18,,No,estimate,,,,,,,,,0,100,100,80.85141865
+emp_r45t54E_18_sd,,,sd,,,,,,,,,0,4,4,2.058173357
+empE_18,Population Employed,Yes,estimate,,,,,,,,,0,1260913,1260913,7888.92762
+empE_18_sd,,,sd,,,,,,,,,0,4,4,1.922047702
+es_3t4_per_18,Percent Enrolled Pre-K,Yes,percent,,,,,,,,,0,1,1,0.11923219
+es_3t4_per_18_sd,,,sd,,,,,,,,,0,4,4,1.912158232
+es_3t4E_18,Enrolled Pre-K,,estimate,,,,,,,,,0,11201,11201,56.83671106
+es_3t4E_18_sd,,,sd,,,,,,,,,1,4,3,1.940081443
+fid,,No,,,,,,,,,,1,1263,1262,493.4730747
+GEOID,,No,name,,,,Census shape geoid,ACS 5 Year,,"Zip, Tract, Place",Yes,48085,48439980000,48439931915,35258431864
+geometry,,,,,,,,,,,,-97.846529,33.916064,131.762593,-32.01735305
+giniE_18,Gini Coefficient,Yes,estimate,,,,Gini coefficient in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,0.634,0.634,0.403149739
+giniE_18_sd,Gini Coefficient,Yes,sd,,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.991273997
+grad_degE_18,Population with Graduate Degrees,Yes,estimate,,,,Total population with a graduate degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,184260,184260,1240.12623
+grad_degE_18_sd,Graduate Degrees,Yes,sd,,,,"Standard deviation sorting of highest degree earned is graduate population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,1,4,3,1.969168121
+HCV_PCT_RE,,Yes,estimate,,,,,,,,,0.43000001,100,99.56999999,9.796813566
+HCV_PCT_RE_sd,,,sd,,,,,,,,,1,4,3,1.96440678
+HCV_PUBLIC,Total Public Assistance Vouchers,Yes,estimate,,,,,,,,,11,602,591,65.4220339
+HCV_PUBLIC_sd,,,sd,,,,,,,,,1,4,3,1.916949153
+his,High School,Yes,point,school,public_high_school,,Locations of disd junior high schools,TEA,,,,,,,
+his_per_18,Percent Hispanic Population,Yes,percent,,,,Percent Hispanic Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,1,1,0.284900508
+his_per_18_sd,,,sd,,,,,,,,,0,4,4,1.926701571
+his_popE_18,Hispanic or Latinx Population,Yes,estimate,,,,Total hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1033000,1033000,4679.387956
+his_popE_18_sd,,,sd,,,,,,,,,0,4,4,1.948225713
+hs_18t24_per_18,Percent High School Degree 18 to 24,Yes,percent,,,,,,,,,0,1,1,0.155640156
+hs_18t24_per_18_sd,,,sd,,,,,,,,,0,4,4,1.9168121
+hs_18t24E_18,Recent High School Graduates 18 to 24,,estimate,,,,,,,,,0,42130,42130,219.731326
+hs_18t24E_18_sd,,,sd,,,,,,,,,0,4,4,1.915066899
+hs_degE_18,Population with High School Degrees,Yes,estimate,,,,Total high school degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,372587,372587,2253.341054
+hs_degE_18_sd,High School Degrees,Yes,sd,,,,"Standard deviation sorting of highest degree earned is high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.917393834
+ies,Elementary School,Yes,point,school,public_elementary_school,,Locations of disd elementary schools,TEA,,,,,,,
+ims,Middle School,Yes,point,school,public_middle_school,,Locations of disd independent elementary/secondary schools,TEA,,,,,,,
+INTPTLAT,,No,,,,,,,,,,,,,
+INTPTLON,,No,,,,,,,,,,,,,
+less_hsE_18,Population with less than a High School Degree,Yes,estimate,,,,Total degrees less than high school in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,351441,351441,1535.520556
+less_hsE_18_sd,Less than High School,Yes,sd,,,,"Standard deviation sorting of highest degree earned is less than high school population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.936009308
+lib,Library,Yes,point,social_infrastructure,,,Locations of libraries,City of Dallas,,,,,,,
+market,Supermarket,Yes,point,commerce,,,Locations of supermarkets,CPAL,,,,,,,
+med_incE_18,Median Household Income,Yes,estimate,,,,Median income in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,250001,250001,73597.84308
+med_incE_18_sd,Median Income,Yes,sd,,,,"Standard deviation sorting of median income in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.92495637
+NAME,,Yes,name,,,,Name of census tract in geography,ACS 5 Year,,"Zip, Tract, Place",Yes,,,,
+per_as,Change in Asian population from 2013 to 2018,Yes,percentchange,,,,Change in Asian population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.2005016,0.3049652,0.5054668,0.009075091
+per_as_sd,,,sd,,,,,,,,,0,4,4,2.009889471
+per_ba_deg,Change in bachelors degrees from 2013 to 2018,Yes,percentchange,,,,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.2660441,0.2849162,0.5509603,0.009094681
+per_ba_deg_sd,,,sd,,,,,,,,,0,4,4,1.985456661
+per_bl,Change in Black population from 2013 to 2018,Yes,percentchange,,,,Change in Black population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.3332508,0.2444921,0.5777429,0.004653984
+per_bl_sd,,,sd,,,,,,,,,0,4,4,2.003490401
+per_bp,Change in Below Poverty from 2013 to 2018,Yes,percentchange,,,,,,,,,-0.3111721,0.2847139,0.595886,-0.018228302
+per_bp_sd,,,sd,,,,,,,,,0,4,4,2.013379872
+per_cbp,Change in Children Below Poverty from 2013 to 2018,Yes,percentchange,,,,,,,,,-19141.16248,0.6666667,19141.82915,-89.19411389
+per_cbp_sd,,,sd,,,,,,,,,0,3,3,2.010477299
+per_emp_pubtr,Change in Public Transportation to Work from 2013 to 2018,Yes,percentchange,,,,,,,,,-0.1950002,0.168413,0.3634132,-0.000441171
+per_emp_pubtr_sd,,,sd,,,,,,,,,0,4,4,2.001163467
+per_emp_r,,Yes,percentchange,,,,,,,,,-36.675,40.6,77.275,16.64422409
+per_emp_r_sd,,,sd,,,,,,,,,0,4,4,2.036649215
+per_es_3t4,Change in Pre-K from 2013 to 2018,Yes,percentchange,,,,,,,,,-1,0.9444444,1.9444444,0.00532578
+per_es_3t4_sd,,,sd,,,,,,,,,0,4,4,2.006399069
+per_gini,Change in gini coeffient from 2013 to 2018,Yes,percentchange,,,,Percent change in gini coeffient between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.5597065,0.9644328,1.5241393,0.023840925
+per_gini_sd,,,sd,,,,,,,,,0,4,4,1.958696917
+per_grad_deg,Change in graduate degrees from 2013 to 2018,Yes,percentchange,,,,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.1670991,0.2089701,0.3760692,0.011872564
+per_grad_deg_sd,,,sd,,,,,,,,,0,4,4,1.983129727
+per_his,Change in Hispanic population from 2013 to 2018,Yes,percentchange,,,,Change in Hispanic population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.3163296,0.6987179,1.0150475,0.017832924
+per_his_sd,,,sd,,,,,,,,,0,4,4,2.022105876
+per_hs_18t24,Change in High School Degree from 2013 to 2018,Yes,percentchange,,,,,,,,,-16.6666667,0.6898546,17.3565213,0.072350414
+per_hs_18t24_sd,,,sd,,,,,,,,,0,4,4,1.981384526
+per_hs_deg,Change in High School degrees from 2013 to 2018,Yes,percentchange,,,,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.7637363,0.3810861,1.1448224,-0.002561219
+per_hs_deg_sd,,,sd,,,,,,,,,0,4,4,2.007562536
+per_less_hs,Change in less than High School from 2013 to 2018,Yes,percentchange,,,,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.3822202,0.2261865,0.6084067,-0.010452441
+per_less_hs_sd,,,sd,,,,,,,,,0,4,4,1.999418266
+per_med_inc,Change in median income from 2013 to 2018,Yes,percentchange,,,,Percent change in (adjusted) medium income between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.6292296,0.9627071,1.5919367,0.076730652
+per_med_inc_sd,,,sd,,,,,,,,,0,4,4,1.954624782
+per_some_col,Change in some college from 2013 to 2018,Yes,percentchange,,,,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.2467265,0.7637363,1.0104628,-0.007953587
+per_some_col_sd,,,sd,,,,,,,,,0,4,4,1.990692263
+per_tot_pop,Change in total population from 2013 to 2018,Yes,percentchange,,,,Percent change in total population between 2018 and 2013,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.8846154,2.7961538,3.6807692,0.110078021
+per_tot_pop_sd,,,sd,,,,,,,,,0,4,4,1.960419092
+per_wh,Change in White population from 2013 to 2018,Yes,percentchange,,,,Change in White population from 2013 to 2018,CPAL/ACS,2013 and 2018,"Zip, Tract, Place",Yes,-0.6279545,0.2766538,0.9046083,-0.034078051
+per_wh_sd,,,sd,,,,,,,,,0,4,4,1.991273997
+pharm,Pharmacy,Yes,point,public_health,,,Locations of pharmacys,TSBP,,,,,,,
+pop_18t24E_18,Total Population 18 to 24,,estimate,,,,,,,,,0,250073,250073,1478.484655
+pop_18t24E_18_sd,,,sd,,,,,,,,,0,4,4,1.940663176
+pop_3t4E_18,Population Between 3 to 4,Yes,estimate,,,,,,,,,0,79241,79241,463.6641575
+pop_3t4E_18_sd,,,sd,,,,,,,,,0,4,4,1.939499709
+pop_bpE_18,Population Below Poverty,Yes,estimate,,,,,,,,,0,423899,423899,2000.454545
+pop_bpE_18_sd,,,sd,,,,,,,,,0,4,4,1.93310064
+pop_u18E_18,Total Population Under 18,,estimate,,,,,,,,,0,687769,687769,4233.823972
+pop_u18E_18_sd,,,sd,,,,,,,,,0,4,4,1.936009308
+private_school,Private School,,point_subcategory,,,,,,,,,,,,
+public_health,Public Health,,point_category,,,,,,,,,,,,
+public_school,Public School,,point_subcategory,,,,,,,,,,,,
+rent_instability,Renter Instability Index,Yes,estimate,,,,,,,,,-1.428617601,2.035712027,3.464329628,-0.016641275
+rent_instability_sd,,,sd,,,,,,,,,0,4,4,1.998416469
+scc,Subsidized Childcare Center,Yes,point,social_infrastructure,,,Locations of subsidized childcare centers,TDHPS,,,,,,,
+school,Schools,,point_category,,,,,,,,,,,,
+snap,SNAP Retailer,Yes,point,commerce,,,Locations of retailers which accept SNAP benefits,USDA SNAP Store Locations,,,,,,,
+social_infrastructure,Social Infrastructure,,point_category,,,,,,,,,,,,
+some_colE_18,Population that has completed some college,Yes,estimate,,,,Total population with some college in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,418128,418128,2893.220614
+some_colE_18_sd,Some College,Yes,sd,,,,"Standard deviation sorting of highest degree earned is some college population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.924374636
+tot_degE_18,Total Degrees,Yes,estimate,,,,Total degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1648710,1648710,10263.22119
+tot_degE_18_sd,Total Degrees,Yes,sd,,,,"Standard deviation sorting of total degrees population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.934845841
+tot_popE_18,Total Population,Yes,estimate,,,,Total population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,2586552,2586552,15975.52982
+tot_popE_18_sd,Total Population,Yes,sd,,,,"Standard deviation sorting of total population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",CPAL and ACS,2018,"Zip, Tract, Place",Yes,0,4,4,1.932518906
+wh_per_18,Percent White Non-Hispanic Population,Yes,percent,,,,Percent White Non-Hispanic Population in 2018,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,1,1,0.481092443
+wh_per_18_sd,,,sd,,,,,,,,,0,4,4,2.004072135
+wh_popE_18,"White, Non-Hispanic Population",Yes,estimate,,,,Total white non-hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,958302,958302,7241.827446
+wh_popE_18_sd,,,sd,,,,,,,,,0,4,4,1.938336242
+wic,WIC Clinic,Yes,point,public_health,,,Locations of retailers which accept WIC benefits,CPAL/googleways,,,,,,,
+ccc,Childcare Center,,point,social_infrastructure,,,,,,,,,,,
+asp,Afterschool Programs (Dallas only),,point,social_infrastructure,,,,,,,,,,,
+reccen,Recreation Center,,point,social_infrastructure,,,,,,,,,,,
