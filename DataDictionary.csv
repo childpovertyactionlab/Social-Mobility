@@ -5,29 +5,29 @@ ai_popE_18,American Indian or Pacific Islander Population,Yes,estimate,,,Total a
 as_popE_13,Asian Population,No,estimate,,,Total asian population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
 as_popE_18,Asian Population,Yes,estimate,,,Total asian population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,158780,158780,1092.596989
 ba_degE_13,,No,estimate,,,Total population with a bachelors degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-ba_degE_18,Bachelors Degrees,Yes,estimate,,,Total population with a bachelors degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,322294,322294,2341.012739
-bl_popE_13,Black Population,No,estimate,,,Total black population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-bl_popE_18,Black Population,Yes,estimate,,,Total black population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,572790,572790,2534.929357
+ba_degE_18,Population with a Bachelors Degrees,Yes,estimate,,,Total population with a bachelors degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,322294,322294,2341.012739
+bl_popE_13,Black or African American Population,No,estimate,,,Total black population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
+bl_popE_18,Black or African American Population,Yes,estimate,,,Total black population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,572790,572790,2534.929357
 giniE_13,,No,estimate,,,Gini coefficient in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
 giniE_18,Gini Coefficient,Yes,estimate,,,Gini coefficient in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,0.634,0.634,0.403149739
 grad_degE_13,,No,estimate,,,Total population with a graduate degree in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-grad_degE_18,Graduate Degrees,Yes,estimate,,,Total population with a graduate degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,184260,184260,1240.12623
-his_popE_13,Hispanic Population,No,estimate,,,Total hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-his_popE_18,Hispanic Population,Yes,estimate,,,Total hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1033000,1033000,4679.387956
+grad_degE_18,Population with Graduate Degrees,Yes,estimate,,,Total population with a graduate degree in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,184260,184260,1240.12623
+his_popE_13,Hispanic or Latinx Population,No,estimate,,,Total hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
+his_popE_18,Hispanic or Latinx Population,Yes,estimate,,,Total hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1033000,1033000,4679.387956
 hs_degE_13,,No,estimate,,,Total high school degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-hs_degE_18,High School Degrees,Yes,estimate,,,Total high school degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,372587,372587,2253.341054
+hs_degE_18,Population with High School Degrees,Yes,estimate,,,Total high school degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,372587,372587,2253.341054
 less_hsE_13,,No,estimate,,,Total degrees less than high school in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-less_hsE_18,Less than High School,Yes,estimate,,,Total degrees less than high school in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,351441,351441,1535.520556
+less_hsE_18,Population with less than a High School Degree,Yes,estimate,,,Total degrees less than high school in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,351441,351441,1535.520556
 med_incE_13,,No,estimate,,,Median income in each geography in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-med_incE_18,Median Income,Yes,estimate,,,Median income in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,250001,250001,73597.84308
+med_incE_18,Median Household Income,Yes,estimate,,,Median income in each geography in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,250001,250001,73597.84308
 some_colE_13,,No,estimate,,,Total population with some college in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-some_colE_18,Some College,Yes,estimate,,,Total population with some college in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,418128,418128,2893.220614
+some_colE_18,Population that has completed some college,Yes,estimate,,,Total population with some college in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,418128,418128,2893.220614
 tot_degE_13,,No,estimate,,,Total degrees in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
 tot_degE_18,Total Degrees,Yes,estimate,,,Total degrees in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,1648710,1648710,10263.22119
 tot_popE_13,,No,estimate,,,Total population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
 tot_popE_18,Total Population,Yes,estimate,,,Total population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,2586552,2586552,15975.52982
-wh_popE_13,White Non-Hispanic Population,No,estimate,,,Total white non-hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
-wh_popE_18,White Non-Hispanic Population,Yes,estimate,,,Total white non-hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,958302,958302,7241.827446
+wh_popE_13,"White, Non-Hispanic Population",No,estimate,,,Total white non-hispanic population in 2013,ACS 5 Year,2013,"Zip, Tract, Place",Yes,,,,
+wh_popE_18,"White, Non-Hispanic Population",Yes,estimate,,,Total white non-hispanic population in 2018,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,958302,958302,7241.827446
 GEOID,,No,name,,,Census shape geoid,ACS 5 Year,,"Zip, Tract, Place",Yes,48085,48439980000,48439931915,35258431864
 NAME,,Yes,name,,,Name of census tract in geography,ACS 5 Year,,"Zip, Tract, Place",Yes,,,,
 ai_per_13,,No,percent,,,Percent American Indian or Pacific Islander Population in 2018,CPAL/ACS,2013,"Zip, Tract, Place",Yes,,,,
