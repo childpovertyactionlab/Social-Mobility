@@ -34,14 +34,14 @@ emp_pubtrE_18,Population Public Transportation to Work,Yes,estimate,,,,,no,0,0,0
 emp_pubtrE_18_sd,Population Public Transportation to Work,Yes,sd,,,,,no,0,0,0,,,,Yes,1,4,3,1.913903432
 emp_r_18,Ratio of Employed Population,Yes,estimate,,,,,no,0,0,0,,,,Yes,0,98.1,98.1,81.95212797
 emp_r_18_sd,Ratio of Employed Population,Yes,sd,,,,,no,0,0,0,,,,Yes,0,4,4,2.057591623
-emp_r25t29E_18,,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.45327157
-emp_r25t29E_18_sd,,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.095986038
-emp_r30t34E_18,,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.27058483
-emp_r30t34E_18_sd,,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.075625364
-emp_r35t44E_18,,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.63173133
-emp_r35t44E_18_sd,,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.059336824
-emp_r45t54E_18,,No,estimate,,,,,no,0,0,0,,,,,0,100,100,80.85141865
-emp_r45t54E_18_sd,,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.058173357
+emp_r25t29E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.45327157
+emp_r25t29E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.095986038
+emp_r30t34E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.27058483
+emp_r30t34E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.075625364
+emp_r35t44E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.63173133
+emp_r35t44E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.059336824
+emp_r45t54E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,80.85141865
+emp_r45t54E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.058173357
 empE_18,Population Employed,Yes,estimate,,,,,no,0,0,0,,,,Yes,0,1260913,1260913,7888.92762
 empE_18_sd,Population Employed,Yes,sd,,,,,no,0,0,0,,,,Yes,0,4,4,1.922047702
 es_3t4_per_18,Percent Enrolled Pre-K,Yes,percent,,,,,no,0,0,0,,,,Yes,0,1,1,0.11923219
