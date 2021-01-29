@@ -55,10 +55,10 @@ giniE_18,Gini Coefficient,Yes,estimate,,,Gini coefficient in each geography in 2
 giniE_18_sd,Gini Coefficient,Yes,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",,no,0,0,0,CPAL and ACS,2018,"Zip, Tract, Place",No,0,4,4,1.991273997
 grad_degE_18,Population with Graduate Degrees,Yes,estimate,,,Total population with a graduate degree in 2018,,no,0,0,0,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,184260,184260,1240.12623
 grad_degE_18_sd,Graduate Degrees,Yes,sd,,,"Standard deviation sorting of highest degree earned is graduate population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",,no,0,0,0,CPAL and ACS,2018,"Zip, Tract, Place",Yes,1,4,3,1.969168121
-HCV_PCT_RE,Public Assistance Vouchers Percent,No,estimate,,,,,no,0,0,0,,,,No,0.43000001,100,99.56999999,9.796813566
-HCV_PCT_RE_sd,Public Assistance Vouchers Percent,No,sd,,,,,no,0,0,0,,,,No,1,4,3,1.96440678
+HCV_PCT_RE,Public Assistance Vouchers Percent,No,estimate,,,,,no,0,0,0,,,,No,,,,
+HCV_PCT_RE_sd,Public Assistance Vouchers Percent,No,sd,,,,,no,0,0,0,,,,No,,,,
 HCV_PUBLIC,Total Public Assistance Vouchers,Yes,estimate,,,,,no,0,0,0,,,,No,11,602,591,65.4220339
-HCV_PUBLIC_sd,Total Public Assistance Vouchers,Yes,sd,,,,,no,0,0,0,,,,No,1,4,3,1.916949153
+HCV_PUBLIC_sd,Total Public Assistance Vouchers,Yes,sd,,,,,no,0,0,0,,,,No,11,602,591,65.4220339
 his,High School,Yes,point,school,public_high_school,Locations of disd junior high schools,,no,0,0,0,TEA,,,,,,,
 his_per_18,Percent Hispanic Population,Yes,percent,,,Percent Hispanic Population in 2018,,no,0,0,0,CPAL/ACS,2018,"Zip, Tract, Place",Yes,0,1,1,0.284900508
 his_per_18_sd,Percent Hispanic Population,Yes,sd,,,,,no,0,0,0,,,,Yes,0,4,4,1.926701571
@@ -131,7 +131,7 @@ public_health,Public Health,Yes,point_category,,,,,no,0,0,0,,,,,,,,
 public_school,Public School,Yes,point_subcategory,school,,,,no,0,0,0,,,,,,,,
 recctr,Recreation Center,Yes,point,social_infrastructure,,,,no,0,0,0,,,,,,,,
 rent_instability,Renter Instability Index,Yes,estimate,,,,,no,0,0,0,,,,No,-1.428617601,2.035712027,3.464329628,-0.016641275
-rent_instability_sd,Renter Instability Index,Yes,sd,,,,,no,0,0,0,,,,No,0,4,4,1.998416469
+rent_instability_sd,Renter Instability Index,Yes,sd,,,,,no,0,0,0,,,,No,-1.428617601,2.035712027,3.464329628,-0.016641275
 scc,Subsidized Childcare Center,Yes,point,social_infrastructure,,Locations of subsidized childcare centers,,no,0,0,0,TDHPS,,,,,,,
 school,Schools,Yes,point_category,,,,,no,0,0,0,,,,,,,,
 snap,SNAP Retailer,Yes,point,commerce,,Locations of retailers which accept SNAP benefits,,no,0,0,0,USDA SNAP Store Locations,,,,,,,
@@ -147,3 +147,13 @@ wh_per_18_sd,Percent White Non-Hispanic Population,Yes,sd,,,,,no,0,0,0,,,,Yes,0,
 wh_popE_18,"White, Non-Hispanic Population",Yes,estimate,,,Total white non-hispanic population in 2018,,no,0,0,0,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,958302,958302,7241.827446
 wh_popE_18_sd,"White, Non-Hispanic Population",Yes,sd,,,,,no,0,0,0,,,,Yes,0,4,4,1.938336242
 wic,WIC Clinic,Yes,point,public_health,,Locations of retailers which accept WIC benefits,,no,0,0,0,CPAL/googleways,,,,,,,
+rohhE_18,Renter Occupied Households,No,estimate,,,,,,,,,,,,,0,459974,459974,3283.442965
+thhE_18,Total Households,No,estimate,,,,,,,,,,,,,0,917276,917276,5589.189346
+rohh_per_18,Percent Renter Occupied Households,No,estimate,,,,,,,,,,,,,0,1,1,0.606790684
+per_rohh,Change in Renter Occupied Households from 2013 to 2018,No,percentchange,,,,,,,,,,,,,-0.0084609,0.016129,0.0245899,-4.44E-06
+HCV_rohh,Total Housing Choice Vouchers to Renter Occupied Households,Yes,estimate,,,,,,,,,,,,Yes,0.002623083,24.9,24.89737692,0.226176603
+rohhE_18_sd,Renter Occupied Households,No,sd,,,,,,,,,,,,,0,4,4,1.931355439
+thhE_18_sd,Total Households,No,sd,,,,,,,,,,,,,0,4,4,1.934264107
+rohh_per_18_sd,Percent Renter Occupied Households,No,sd,,,,,,,,,,,,,0,4,4,2.084351367
+per_rohh_sd,Change in Renter Occupied Households from 2013 to 2018,No,sd,,,,,,,,,,,,,0,4,4,2.001164144
+HCV_rohh_sd,Total Housing Choice Vouchers to Renter Occupied Households,Yes,sd,,,,,,,,,,,,Yes,0.002623083,24.9,24.89737692,0.226176603

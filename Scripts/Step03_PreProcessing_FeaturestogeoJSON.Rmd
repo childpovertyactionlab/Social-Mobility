@@ -203,7 +203,8 @@ featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
                     snap.zip, banks.zip), comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), wic.zip), childcare.zip)
 
 featureset <- featureset %>%
-  mutate(FID = 1:n())
+  mutate(FID = 1:n()) %>%
+  select(FID, everything())
 ```
 
 
