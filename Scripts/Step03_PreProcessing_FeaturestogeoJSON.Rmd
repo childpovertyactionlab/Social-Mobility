@@ -175,75 +175,35 @@ rm(childcare.sh)
 ```{r}
 #select points within geography of interest
 snap.zip <- snap.join[zip.sh, ]
-snap.zip <- mutate(snap.zip, FID = 1:n())
 
 banks.zip <- banks.join[zip.sh, ]
-banks.zip <- mutate(banks.zip, FID = 1:n())
 
 comcen.zip <- comcen.join[zip.sh, ]
-comcen.zip <- mutate(comcen.zip, FID = 1:n())
 
 comhealth.zip <- comhealth.join[zip.sh, ]
-comhealth.zip <- mutate(comhealth.zip, FID = 1:n())
 
 creditunions.zip <- creditunions.join[zip.sh, ]
-creditunions.zip <- mutate(creditunions.zip, FID = 1:n())
 
 supermarket.zip <- supermarket.join[zip.sh, ]
-supermarket.zip <- mutate(supermarket.zip, FID = 1:n())
 
 pharmacies.zip <- pharmacies.join[zip.sh, ]
-pharmacies.zip <- mutate(pharmacies.zip, FID = 1:n())
 
 libraries.zip <- libraries.join[zip.sh, ]
-libraries.zip <- mutate(libraries.zip, FID = 1:n())
 
 schools.zip <- schools.join[zip.sh, ]
 
-ihs <- schools.zip %>%
-  filter(variable == "ihs") %>%
-  mutate(FID = 1:n())
-
-ims <- schools.zip %>%
-  filter(variable == "ims") %>%
-  mutate(FID = 1:n())
-
-ies <- schools.zip %>%
-  filter(variable == "ies") %>%
-  mutate(FID = 1:n())
-
-chs <- schools.zip %>%
-  filter(variable == "chs") %>%
-  mutate(FID = 1:n())
-
-cms <- schools.zip %>%
-  filter(variable == "cms") %>%
-  mutate(FID = 1:n())
-
-ces <- schools.zip %>%
-  filter(variable == "ces") %>%
-  mutate(FID = 1:n())
-
 wic.zip <- wic.join[zip.sh, ]
-wic.zip <- mutate(snap.zip, FID = 1:n())
 
 childcare.zip <- childcare.join[zip.sh, ]
-childcare.zip <- mutate(childcare.zip, FID = 1:n())
 ```
 
 ```{r}
-schools.zip <- rbind(rbind(rbind(rbind(rbind(ihs, ims), ies), chs), cms), ces)
-
-rm(ihs)
-rm(ims)
-rm(ies)
-rm(chs)
-rm(cms)
-rm(ces)
-
 #join all files into one
 featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
                     snap.zip, banks.zip), comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), wic.zip), childcare.zip)
+
+featureset <- featureset %>%
+  mutate(FID = 1:n())
 ```
 
 
