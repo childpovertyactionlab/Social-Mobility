@@ -21,7 +21,7 @@ cbp_per_18,Percent Children Below Poverty,Yes,percent,,,,,no,0,0,0,,,,No,0,0.818
 cbp_per_18_sd,Percent Children Below Poverty,Yes,sd,,,,,no,0,0,0,,,,No,0,4,4,1.896451425
 ces,Elementary School,Yes,point,school,charter_elementary_school,Locations of charter elementary schools,,no,0,0,0,TEA,,,,,,,
 charter_school,Charter School,Yes,point_subcategory,school,,,,no,0,0,0,,,,,,,,
-childcare,Childcare Center,Yes,point,social_infrastructure,,,,no,0,0,0,,,,,,,,
+uscc,Unsubsidized Childcare Center,Yes,point,social_infrastructure,,Locations of unsubsidized childcare centers,,no,0,0,0,TDHPS,,,,,,,
 chs,High School,Yes,point,school,charter_high_school,Locations of charter high schools,,no,0,0,0,TEA,,,,,,,
 cms,Middle School,Yes,point,school,charter_middle_school,Locations of charter middle schools,,no,0,0,0,TEA,,,,,,,
 comcen,Community and Recreation Center,Yes,point,social_infrastructure,,Locations of community centers,,no,0,0,0,NCTCOG,,,,,,,
@@ -34,14 +34,14 @@ emp_pubtrE_18,Population Public Transportation to Work,Yes,estimate,,,,,no,0,0,0
 emp_pubtrE_18_sd,Population Public Transportation to Work,Yes,sd,,,,,no,0,0,0,,,,Yes,1,4,3,1.913903432
 emp_r_18,Ratio of Employed Population,Yes,estimate,,,,,no,0,0,0,,,,Yes,0,98.1,98.1,81.95212797
 emp_r_18_sd,Ratio of Employed Population,Yes,sd,,,,,no,0,0,0,,,,Yes,0,4,4,2.057591623
-emp_r25t29E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.45327157
-emp_r25t29E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.095986038
-emp_r30t34E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.27058483
-emp_r30t34E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.075625364
-emp_r35t44E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,82.63173133
-emp_r35t44E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.059336824
-emp_r45t54E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,,0,100,100,80.85141865
-emp_r45t54E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,,0,4,4,2.058173357
+emp_r25t29E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,Yes,0,100,100,82.45327157
+emp_r25t29E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,Yes,0,4,4,2.095986038
+emp_r30t34E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,Yes,0,100,100,82.27058483
+emp_r30t34E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,Yes,0,4,4,2.075625364
+emp_r35t44E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,Yes,0,100,100,82.63173133
+emp_r35t44E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,Yes,0,4,4,2.059336824
+emp_r45t54E_18,Ratio Employed Population Subgroup,No,estimate,,,,,no,0,0,0,,,,Yes,0,100,100,80.85141865
+emp_r45t54E_18_sd,Ratio Employed Population Subgroup,No,sd,,,,,no,0,0,0,,,,Yes,0,4,4,2.058173357
 empE_18,Population Employed,Yes,estimate,,,,,no,0,0,0,,,,Yes,0,1260913,1260913,7888.92762
 empE_18_sd,Population Employed,Yes,sd,,,,,no,0,0,0,,,,Yes,0,4,4,1.922047702
 es_3t4_per_18,Percent Enrolled Pre-K,Yes,percent,,,,,no,0,0,0,,,,Yes,0,1,1,0.11923219
@@ -51,8 +51,8 @@ es_3t4E_18_sd,Enrolled Pre-K,Yes,sd,,,,,no,0,0,0,,,,Yes,1,4,3,1.940081443
 fid,ID,No,name,,,,,no,0,0,0,,,,,1,1263,1262,493.4730747
 GEOID,Geography,No,name,,,Census shape geoid,,no,0,0,0,ACS 5 Year,,"Zip, Tract, Place",Yes,48085,48439980000,48439931915,35258431864
 geometry,Geometry,No,name,,,,,no,0,0,0,,,,,-97.846529,33.916064,131.762593,-32.01735305
-giniE_18,Gini Coefficient,Yes,estimate,,,Gini coefficient in each geography in 2018,,no,0,0,0,ACS 5 Year,2018,"Zip, Tract, Place",No,0,0.634,0.634,0.403149739
-giniE_18_sd,Gini Coefficient,Yes,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",,no,0,0,0,CPAL and ACS,2018,"Zip, Tract, Place",No,0,4,4,1.991273997
+giniE_18,Gini Coefficient,Yes,estimate,,,Gini coefficient in each geography in 2018,1,no,0,0,0,ACS 5 Year,2018,"Zip, Tract, Place",No,0,0.634,0.634,0.403149739
+giniE_18_sd,Gini Coefficient,Yes,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",1,no,0,0,0,CPAL and ACS,2018,"Zip, Tract, Place",No,0,4,4,1.991273997
 grad_degE_18,Population with Graduate Degrees,Yes,estimate,,,Total population with a graduate degree in 2018,,no,0,0,0,ACS 5 Year,2018,"Zip, Tract, Place",Yes,0,184260,184260,1240.12623
 grad_degE_18_sd,Graduate Degrees,Yes,sd,,,"Standard deviation sorting of highest degree earned is graduate population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",,no,0,0,0,CPAL and ACS,2018,"Zip, Tract, Place",Yes,1,4,3,1.969168121
 HCV_PCT_RE,Public Assistance Vouchers Percent,No,estimate,,,,,no,0,0,0,,,,No,,,,

@@ -12,20 +12,7 @@ output:
     code_folding: show
 ---
 
----
-title: "Social Mobility: Pre-Processing"
-subtitle: "Step 02: ACS Data to geoJSON"
-author: "Michael Lopez"
-date: "`r format(Sys.Date(), '%B, %d, %Y'`"
-output: 
-  github_document: default
-    toc: true
-    number_sections: true
-    toc_float: true
-    theme: pagedown::architect
-    code_folding: show
----
-
+Setup of script, load necessary libraries and set working directory.
 ```{r setup, include = FALSE, echo = FALSE}
 rm(list=ls(all=TRUE))
 knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub')
@@ -36,10 +23,12 @@ library(rio)
 library(sf)
 ```
 
+Doublecheck and make certain that working directory has changed.
 ```{r directory test}
 getwd()
 ```
 
+Import four different geography types and rename columns to join with field types in other data types. Remove duplicate data columns as well.
 ```{r import geography data, echo=FALSE}
 #import acs data
 sm_zcta <- st_read("Social-Mobility/Data/Intermediate/sm_zcta.geojson")
@@ -55,7 +44,8 @@ zip.select <- sm_zcta %>%
          ALAND = ALAND10,
          AWATER = AWATER10,
          INTPTLAT = INTPTLAT10,
-         INTPTLON = INTPTLON10)
+         INTPTLON = INTPTLON10) %>%
+  mutate(GEOID = as.integer(GEOID))
 
 names(sm_places)
 place.select <- sm_places %>%
@@ -78,18 +68,29 @@ rm(sm_tracts)
 rm(sm_counties)
 ```
 
+Change working directory for the following code chunk in order to import data from a different filepath on CPAL dropbox. All imports of new data should go in this block chunk.
 ```{r import raw data, echo=FALSE}
 setwd("E:/CPAL Dropbox") #Michael
 #setwd("C:/Users/OwenWilson-Chavez/CPAL Dropbox") #Owen
 
+#Urban Institute Rental Assistance Priority Index
 renter <- import("Data Library/Urban Institute/Rental Assistance Priority Index/housing_index_state_adj.csv")
 
+#HUD Housing Choice Vouchers
+housing_vouchers <- st_read("Data Library/HUD/Housing Choice Vouchers/Housing_Choice_Vouchers_by_Tract-shp/HCV_BY_TRACT.shp")
+
+#County Voter Precincts
 precincts_dallas <- st_read("Data Library/Texas Elections/Dallas County Elections/Precinct Shapefiles/Precinct13.shp")
 
+#County Voter Data
 vote2016 <- import("Data Library/Texas Elections/Dallas County Elections/Votes by Precinct/2016_Vote_byPrecinct_DallasCounty.csv")
 #vote2018 <- import("Data Library/Dallas County Elections/Votes by Precinct/2018_Vote_byPrecinct_DallasCounty.csv")
 vote2020 <- import("Data Library/Texas Elections/Dallas County Elections/Votes by Precinct/2020_Vote_byPrecinct_DallasCounty.csv")
 
+#Brookings EITC Data
+eitc_zip <- import("Basic Needs/04_Projects/EITC/Brookings EITC/zipcodeTX_TY14.csv")
+eitc_county <- import("Basic Needs/04_Projects/EITC/Brookings EITC/countyTX_TY14.csv")
+eitc_place <- import("Basic Needs/04_Projects/EITC/Brookings EITC/cityTX_TY14.csv")
 ```
 
 ```{r housing vouchers}
@@ -98,7 +99,10 @@ housing_lim <- as.data.frame(housing_vouchers) %>%
   select(GEOID, HCV_PUBLIC) %>%
   mutate(GEOID = as.numeric(GEOID))
   
-tract_housing <- left_join(tract.select, housing_lim)
+names(tract.select)
+tract_housing <- tract.select %>%
+  left_join(., housing_lim) %>%
+  mutate(HCV_rohh = HCV_PUBLIC/rohhE_18)
 
 rm(housing_vouchers)
 rm(housing_lim)
@@ -149,57 +153,88 @@ vote_change <- vote2020 %>%
   full_join(., vote2016) %>%
   mutate(turnout_dif = turnout_2020-turnout_2016) %>%
   left_join(precincts_dallas, .)
+```
 
-geojsonio::geojson_write(vote2016, file = "Social-Mobility/Data/geojson/vote_2016.geojson")
-geojsonio::geojson_write(vote2020, file = "Social-Mobility/Data/geojson/vote_2020.geojson")
+```{r brookings EITC}
+names(eitc_zip)
+eitc_zip <- eitc_zip %>%
+  mutate(GEOID = as.numeric(str_sub(ZIPCODE, 4, 8))) %>%
+  select(GEOID, ERETURN14, EEIC14, EEICAM14, ECTC14, ECTCAM14) %>%
+  rename(Tot_Returns = ERETURN14,
+         Tot_EITC = EEIC14,
+         Sum_EITC = EEICAM14,
+         Tot_CTC = ECTC14,
+         Sum_CTC = ECTCAM14) %>%
+left_join(zip.select, .)
+
+eitc_place <- eitc_place %>%
+  mutate(GEOID = as.numeric(str_c(STFIPS, str_sub(plc_fip, 4, 8)))) %>%
+  select(GEOID, ERETURN14, EEIC14, EEICAM14, ECTC14, ECTCAM14) %>%
+  rename(Tot_Returns = ERETURN14,
+         Tot_EITC = EEIC14,
+         Sum_EITC = EEICAM14,
+         Tot_CTC = ECTC14,
+         Sum_CTC = ECTCAM14) %>%
+left_join(place.select, .)
+
+eitc_county <- eitc_county %>%
+  mutate(GEOID = as.numeric(str_c(STFIPS, str_sub(county_fips, 4, 6)))) %>%
+  select(GEOID, ERETURN14, EEIC14, EEICAM14, ECTC14, ECTCAM14) %>%
+  rename(Tot_Returns = ERETURN14,
+         Tot_EITC = EEIC14,
+         Sum_EITC = EEICAM14,
+         Tot_CTC = ECTC14,
+         Sum_CTC = ECTCAM14) %>%
+left_join(county.select, .)
 ```
 
 ```{r join to each other}
 new_tract_var <- tract_rent %>%
   left_join(.,  as.data.frame(tract_housing)) %>%
-  mutate(per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)))
+  mutate(per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)),
+         HCV_rohh = hablar::rationalize(as.numeric(HCV_rohh)))
 
 new_zip_var <- zip.select %>%
-  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)),
-         GEOID = as.integer(GEOID))
+  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)))
 
-new_place_var <- place.select 
+new_place_var <- place.select  %>%
+  mutate(per_rohh = hablar::rationalize(as.numeric(per_rohh)))
 
 new_county_var <- county.select
-
 ```
 
 ```{r acs modifications}
-names(new_tract_var)
-belpov <- new_tract_var %>%
-  filter(bp_per_18 >= 0.4) %>%
-  select(pop_bpE_18,geometry) %>%
-  rename(bp_o40 = pop_bpE_18)
+#names(new_tract_var)
+#belpov <- new_tract_var %>%
+#  filter(bp_per_18 >= 0.4) %>%
+#  select(pop_bpE_18,geometry) %>%
+#  rename(bp_o40 = pop_bpE_18)
 
-new_zip_var <- zip.select %>%
-  select(GEOID, tot_popE_18, geometry) %>%
-  st_intersection(., belpov) %>%
-  group_by(GEOID) %>%
-  summarise(bp_o40 = sum(bp_o40),
-            tot_popE_18 = sum(tot_popE_18)) %>%
-  mutate(bp_o40per = bp_o40/tot_popE_18)
+#new_zip_var <- zip.select %>%
+#  select(GEOID, tot_popE_18, geometry) %>%
+#  st_intersection(., belpov) %>%
+#  group_by(GEOID) %>%
+#  summarise(bp_o40 = sum(bp_o40),
+#            tot_popE_18 = sum(tot_popE_18)) %>%
+#  mutate(bp_o40per = bp_o40/tot_popE_18,
+#         GEOID = as.numeric(GEOID))
 
-new_place_var <- place.select %>%
-  select(GEOID, tot_popE_18, geometry) %>%
-  st_intersection(., belpov) %>%
-  group_by(GEOID) %>%
-  summarise(bp_o40 = sum(bp_o40),
-            tot_popE_18 = sum(tot_popE_18)) %>%
-  mutate(bp_o40per = bp_o40/tot_popE_18)
+#new_place_var <- place.select %>%
+#  select(GEOID, tot_popE_18, geometry) %>%
+#  st_intersection(., belpov) %>%
+#  group_by(GEOID) %>%
+#  summarise(bp_o40 = sum(bp_o40),
+#            tot_popE_18 = sum(tot_popE_18)) %>%
+#  mutate(bp_o40per = bp_o40/tot_popE_18)
 
-new_county_var <-  county.select %>%
-  select(GEOID, tot_popE_18, geometry) %>%
-  st_intersection(., belpov) %>%
-  group_by(GEOID) %>%
-  summarise(bp_o40 = sum(bp_o40),
-            tot_popE_18 = sum(tot_popE_18)) %>%
-  mutate(bp_o40per = bp_o40/tot_popE_18)
-  
+#new_county_var <-  county.select %>%
+#  select(GEOID, tot_popE_18, geometry) %>%
+#  st_intersection(., belpov) %>%
+#  group_by(GEOID) %>%
+#  summarise(bp_o40 = sum(bp_o40),
+#            tot_popE_18 = sum(tot_popE_18)) %>%
+#  mutate(bp_o40per = bp_o40/tot_popE_18)
+#  
 ```
 
 Function which will group each variable into bins between 0 and 4 based on the standard deviation of each variable.
@@ -222,7 +257,7 @@ Convert all estimate variables by `log()` in order to then apply sdcut function.
 #zip codes
 names(new_zip_var)
 socmob.zip.sd <- as.data.frame(new_zip_var) %>%
-  mutate_at(c(8:61), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:65), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -236,7 +271,7 @@ socmob.zip.upload <- left_join(new_zip_var, socmob.zip.sd)
 
 #places
 socmob.place.sd <- as.data.frame(new_place_var) %>%
-  mutate_at(c(8:61), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:65), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -250,7 +285,7 @@ socmob.place.upload <- left_join(new_place_var, socmob.place.sd)
 
 #tracts
 socmob.tract.sd <- as.data.frame(new_tract_var) %>%
-  mutate_at(c(8:64), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:65), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -269,6 +304,11 @@ rm(socmob.tract.sd)
 
 ```{r descriptive stats}
 socmob.calc <- full_join(full_join(full_join(as.data.frame(socmob.tract.upload), as.data.frame(socmob.zip.upload)), as.data.frame(socmob.place.upload)),as.data.frame(new_county_var))
+
+str(new_county_var$GEOID)
+str(socmob.zip.upload$GEOID)
+str(socmob.tract.upload$GEOID)
+str(socmob.place.upload$GEOID)
 
 var <-  c("nbr.val", "nbr.null", "nbr.na", "min", "max", "range", "sum", "median", "mean", "SE.mean", "CI.mean.0.95", "var", "std.dev", "coef.var")
 socmob.calc.d <- cbind(var, pastecs::stat.desc(socmob.calc))
@@ -290,9 +330,9 @@ datadic_join <- datadic %>%
 
 ```{r geojson export}
 setwd("C:/Users/Michael Lopez/Documents/GitHub")
-#export(datadic_join, "Social-Mobility/DataDictionary.csv")
+export(datadic_join, "Social-Mobility/DataDictionary.csv")
 geojsonio::geojson_write(socmob.zip.upload, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
 geojsonio::geojson_write(socmob.place.upload, file = "Social-Mobility/Data/geojson/sm_places.geojson")
 geojsonio::geojson_write(socmob.tract.upload, file = "Social-Mobility/Data/geojson/sm_tracts.geojson")
-geojsonio::geojson_write(county.select, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
+geojsonio::geojson_write(new_county_var, file = "Social-Mobility/Data/geojson/sm_counties.geojson")
 ```
