@@ -87,6 +87,8 @@ socmob.var <- c(
   wh_pop = "B03002_003", #white population
   bl_pop = "B03002_004", #black population
   as_pop = "B03002_006", #asian population
+  rohh = "B25106_002", #renter occupied households
+  thh = "B25106_001", #total households
   hs_18t24 = "S1501_C01_002", #high school degrees between 18 and 24
   emp_r25t29 = "S2301_C02_004", #employed population ratio 25 to 29
   emp_r30t34 = "S2301_C02_005", #employed population ratio 30 to 34
@@ -292,6 +294,9 @@ socmob.calc <- socmob.combine %>%
          bp_per_18 = pop_bpE_18/tot_popE_18,
          cbp_per_13 = bp_u18E_13/pop_u18E_13,
          cbp_per_18 = bp_u18E_18/pop_u18E_18,
+         rohh_per_13 = rohhE_13/thhE_13,
+         rohh_per_18 = rohhE_18/thhE_18,
+         per_rohh = ((rohh_per_18 - rohh_per_13)/rohhE_18),
          per_tot_pop = ((tot_popE_18 - tot_popE_13)/tot_popE_13),
          per_med_inc = ((med_incE_18 - adj_med_inc_13)/adj_med_inc_13),
          per_gini = ((giniE_18 - giniE_13)/giniE_13),
