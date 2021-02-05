@@ -43,11 +43,16 @@ pharmacies.sh <-st_read("Data Library/Texas State Board of Pharmacy/GIS/TBSP_NTX
 libraries.sh <- st_read("Data Library/City of Dallas/02_Boundaries and Features/Libraries.shp")
 librariesTX.sh <- st_read("Data Library/Texas Public Libraries/Texas_Public_Libraries.shp")
 schools.sh <- st_read("Data Library/Texas Education Agency/GIS/Current_Schools_2020-2021.shp")
+schoolsprivate.sh <- st_read("Data Library/Texas Private School Accreditation Commission/TexasPrivateSchools_Feb2021.shp")
 wic.sh <- st_read("Data Library/Google/GIS/Shapefiles/WIC_Locations_Dec2020.shp") 
 childcare.sh <- st_read("Data Library/Texas Department of Family and Protective Services/SubsidyAccepting_ChildcareCenters_Feb2020.shp")
 childcareAll.sh <- st_read("Data Library/Texas Department of Family and Protective Services/All_ChildcareCenters_Feb2020.shp")
 childcareAll.sh <- as.data.frame(childcareAll.sh) %>%
-  select(-geometry)
+  select(-geometry) %>%
+  mutate(x_coor = X,
+         y_coor = Y) %>%
+  st_as_sf(x = ., coords = c(x = "X", y = "Y"),
+                        crs = "+proj=longlat +datum=WGS84 +no_defs")
 ```
 
 ```{r}
@@ -168,6 +173,17 @@ schools.join <- schools.sh %>%
   filter(variable != "os")
 rm(schools.sh)
 
+schoolsprivate.join <- schoolsprivate.sh %>%
+  mutate(Display = "Private School",
+         variable = "prs",
+         Address = ShortLabel) %>%
+  rename(Longitude = X,
+         Latitude = Y,
+         Name = USER_Schoo) %>%
+  select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
+
+rm(schoolsprivate.sh)
+
 wic.join <- wic.sh %>%
   mutate(Longitude = st_coordinates(.)[,1],
          Latitude = st_coordinates(.)[,2],
@@ -189,14 +205,13 @@ childcare.join <- childcare.sh %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 rm(childcare.sh)
 
-names(childcareAll.sh)
 childcareAll.join <- childcareAll.sh %>%
   filter(USER_SubsY == "N") %>%
-  mutate(Display = "Unsubsidized Childcare Center",
+  mutate(Display = "Childcare Center",
          City = str_to_title(USER_COUNT),
          variable = "uscc") %>%
-  rename(Longitude = X,
-         Latitude = Y,
+  rename(Longitude = x_coor,
+         Latitude = y_coor,
          Name = USER_Name,
          Address = USER_Addre) %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
@@ -223,17 +238,19 @@ libraries.zip <- libraries.join[zip.sh, ]
 
 schools.zip <- schools.join[zip.sh, ]
 
+schoolsprivate.zip <- schoolsprivate.join[zip.sh, ]
+
 wic.zip <- wic.join[zip.sh, ]
 
 childcare.zip <- childcare.join[zip.sh, ]
 
-#childcareAll.zip <- childcareAll.join[zip.sh, ]
+childcareAll.zip <- childcareAll.join[zip.sh, ]
 ```
 
 ```{r}
 #join all files into one
-featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
-                    snap.zip, banks.zip), comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), wic.zip), childcare.zip)#, childcareAll.zip)
+featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
+                    snap.zip, banks.zip), comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), schoolsprivate.zip), wic.zip), childcare.zip), childcareAll.zip)
 
 featureset <- featureset %>%
   mutate(FID = 1:n(),
