@@ -156,7 +156,6 @@ vote_change <- vote2020 %>%
 ```
 
 ```{r brookings EITC}
-names(eitc_zip)
 eitc_zip <- eitc_zip %>%
   mutate(GEOID = as.numeric(str_sub(ZIPCODE, 4, 8))) %>%
   select(GEOID, ERETURN14, EEIC14, EEICAM14, ECTC14, ECTCAM14) %>%
@@ -165,6 +164,13 @@ eitc_zip <- eitc_zip %>%
          Sum_EITC = EEICAM14,
          Tot_CTC = ECTC14,
          Sum_CTC = ECTCAM14) %>%
+  mutate(Tot_Returns = as.numeric(gsub(",", "", Tot_Returns)),
+         Tot_EITC = as.numeric(gsub(",", "", Tot_EITC)),
+         Sum_EITC = as.numeric(gsub(",", "", Sum_EITC)),
+         Tot_CTC = as.numeric(gsub(",", "", Tot_CTC)),
+         Sum_CTC = as.numeric(gsub(",", "", Sum_CTC)),
+         Avg_EITC = hablar::rationalize(Sum_EITC/Tot_EITC),
+         Avg_CTC = hablar::rationalize(Sum_CTC/Tot_CTC)) %>%
 left_join(zip.select, .)
 
 eitc_place <- eitc_place %>%
@@ -175,6 +181,13 @@ eitc_place <- eitc_place %>%
          Sum_EITC = EEICAM14,
          Tot_CTC = ECTC14,
          Sum_CTC = ECTCAM14) %>%
+  mutate(Tot_Returns = as.numeric(gsub(",", "", Tot_Returns)),
+         Tot_EITC = as.numeric(gsub(",", "", Tot_EITC)),
+         Sum_EITC = as.numeric(gsub(",", "", Sum_EITC)),
+         Tot_CTC = as.numeric(gsub(",", "", Tot_CTC)),
+         Sum_CTC = as.numeric(gsub(",", "", Sum_CTC)),
+         Avg_EITC = hablar::rationalize(Sum_EITC/Tot_EITC),
+         Avg_CTC = hablar::rationalize(Sum_CTC/Tot_CTC)) %>%
 left_join(place.select, .)
 
 eitc_county <- eitc_county %>%
@@ -185,6 +198,13 @@ eitc_county <- eitc_county %>%
          Sum_EITC = EEICAM14,
          Tot_CTC = ECTC14,
          Sum_CTC = ECTCAM14) %>%
+  mutate(Tot_Returns = as.numeric(gsub(",", "", Tot_Returns)),
+         Tot_EITC = as.numeric(gsub(",", "", Tot_EITC)),
+         Sum_EITC = as.numeric(gsub(",", "", Sum_EITC)),
+         Tot_CTC = as.numeric(gsub(",", "", Tot_CTC)),
+         Sum_CTC = as.numeric(gsub(",", "", Sum_CTC)),
+         Avg_EITC = hablar::rationalize(Sum_EITC/Tot_EITC),
+         Avg_CTC = hablar::rationalize(Sum_CTC/Tot_CTC)) %>%
 left_join(county.select, .)
 ```
 
@@ -195,12 +215,15 @@ new_tract_var <- tract_rent %>%
          HCV_rohh = hablar::rationalize(as.numeric(HCV_rohh)))
 
 new_zip_var <- zip.select %>%
+  left_join(.,  as.data.frame(eitc_zip)) %>%
   mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)))
 
 new_place_var <- place.select  %>%
+  left_join(.,  as.data.frame(eitc_place)) %>%
   mutate(per_rohh = hablar::rationalize(as.numeric(per_rohh)))
 
-new_county_var <- county.select
+new_county_var <- county.select %>%
+  left_join(.,  as.data.frame(eitc_county))
 ```
 
 ```{r acs modifications}
@@ -257,7 +280,7 @@ Convert all estimate variables by `log()` in order to then apply sdcut function.
 #zip codes
 names(new_zip_var)
 socmob.zip.sd <- as.data.frame(new_zip_var) %>%
-  mutate_at(c(8:65), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:72), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -271,7 +294,7 @@ socmob.zip.upload <- left_join(new_zip_var, socmob.zip.sd)
 
 #places
 socmob.place.sd <- as.data.frame(new_place_var) %>%
-  mutate_at(c(8:65), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:72), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -285,7 +308,7 @@ socmob.place.upload <- left_join(new_place_var, socmob.place.sd)
 
 #tracts
 socmob.tract.sd <- as.data.frame(new_tract_var) %>%
-  mutate_at(c(8:65), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:68), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
