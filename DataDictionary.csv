@@ -21,7 +21,7 @@ cbp_per_18,Percent Children Below Poverty,Yes,percent,,,,,yes,0,1,1,,,,No,0,0.81
 bp_u18E_18_sd,Population Under 18 Below Poverty,No,sd,,,,,no,0,0,0,,,,No,1,4,3,1.968004654
 ces,Charter Elementary,Yes,point,school,charter_school,Locations of charter elementary schools,,no,0,0,0,TEA,,,,,,,
 charter_school,Charter School,Yes,point_subcategory,school,,,,no,0,0,0,,,,,,,,
-uscc,Unsubsidized Childcare Center,Yes,point,social_infrastructure,,Locations of unsubsidized childcare centers,,no,0,0,0,TDHPS,,,,,,,
+uscc,Childcare Center,Yes,point,social_infrastructure,,Locations of unsubsidized childcare centers,,no,0,0,0,TDHPS,,,,,,,
 chs,Charter High,Yes,point,school,charter_school,Locations of charter high schools,,no,0,0,0,TEA,,,,,,,
 cms,Charter Middle,Yes,point,school,charter_school,Locations of charter middle schools,,no,0,0,0,TEA,,,,,,,
 comcen,Community and Recreation Center,Yes,point,social_infrastructure,,Locations of community centers,,no,0,0,0,NCTCOG,,,,,,,
