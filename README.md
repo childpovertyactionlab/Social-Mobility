@@ -19,6 +19,8 @@ The Data Dictionary is structured to provide directions for how to population di
   * percentchange
 * **category -** A field used to help classify point features represented on the Explorer.
 * **subcategory -** A field used to help classify features withing specific categories on the Explorer.
+* **category order -** A field to note the order in which feature categories should be ordered on the Explorer.
+* **subcategory order-** A field to not the order in which feature subcategories should be ordered on the Explorer.
 * **description -** A short description of specific variables or features.
 * **indicator_order -** Used to manage the order that indicators appear in the side bar of the Explorer application.
 * **tooltip -** A binary field used to denote if a variable should be included in the tooltip on the Explorer's map component.
