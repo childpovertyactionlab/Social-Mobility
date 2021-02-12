@@ -249,8 +249,8 @@ childcareAll.zip <- childcareAll.join[zip.sh, ]
 
 ```{r}
 #join all files into one
-featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
-                    snap.zip, banks.zip), comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), schoolsprivate.zip), wic.zip), childcare.zip), childcareAll.zip)
+featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
+                    banks.zip, comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), schoolsprivate.zip), wic.zip), childcare.zip), childcareAll.zip)
 
 featureset <- featureset %>%
   mutate(FID = 1:n(),

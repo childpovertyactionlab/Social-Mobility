@@ -87,7 +87,7 @@ socmob.var <- c(
   wh_pop = "B03002_003", #white population
   bl_pop = "B03002_004", #black population
   as_pop = "B03002_006", #asian population
-  rohh = "B25106_002", #renter occupied households
+  rohh = "B25106_024", #renter occupied households
   thh = "B25106_001", #total households
   hs_18t24 = "S1501_C01_002", #high school degrees between 18 and 24
   emp_r25t29 = "S2301_C02_004", #employed population ratio 25 to 29
