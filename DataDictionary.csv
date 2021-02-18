@@ -6,21 +6,6 @@ per_bp_sd,Change in Below Poverty from 2013 to 2018,0,sd,,,,,,,0,0,0,0,,,"County
 per_cbp_sd,Change in Children Below Poverty from 2013 to 2018,0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,4,4,2.100698487,2,1.146156414
 per_gini_sd,Change in gini coeffient from 2013 to 2018,0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,4,4,1.94938918,2,1.213668003
 pop_bpE_18_sd,Population Below Poverty,0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,4,4,1.89063409,2,1.174882455
-bp_per_18_sd,Percent Below Poverty,1,sd,,,,3,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,4,4,1.865037813,2,1.296248903
-bp_u18E_18,Population Under 18 Below Poverty,1,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,173086,173086,765.6682108,195,5717.725359
-cbp_per_18_sd,Percent Children Below Poverty,1,sd,,,,4,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,4,4,1.855730076,2,1.375450198
-giniE_18_sd,Gini Coefficient,1,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",1,,,0,0,0,0,CPAL and ACS,2018,"County, Zip, Tract, Place",0,0,4,4,1.983129727,2,1.236924808
-HCV_PUBLIC,Total Public Assistance Vouchers,1,estimate,,,,,,,0,0,0,0,,,Tract,0,11,602,591,65.4220339,40,69.18197643
-HCV_PUBLIC_sd,Total Public Assistance Vouchers,1,sd,,,,16,,,0,0,0,0,,,Tract,0,1,4,3,1.920338983,2,0.970932316
-pop_bpE_18,Population Below Poverty,1,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,423899,423899,2000.454545,594,14325.60698
-rent_instability,Renter Instability Index,1,estimate,,,,,,,0,0,1,0,,,Tract,0,-1.428617601,2.035712027,3.464329628,-0.016641275,-0.046209345,0.541343541
-rent_instability_sd,Renter Instability Index,1,sd,,,,5,,,0,0,0,0,,,Tract,0,0,4,4,1.996041172,2,1.247177544
-per_bp,Change in Below Poverty from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,-0.3111721,0.2847139,0.595886,-0.018228302,-0.011071,0.064621212
-per_cbp,Change in Children Below Poverty from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,-19141.16248,0.6666667,19141.82915,-89.19411389,-25.499292,635.1939913
-per_gini,Change in gini coeffient from 2013 to 2018,0,percentchange,,,Percent change in gini coeffient between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",0,-0.5597065,0.9644328,1.5241393,0.023840925,0.0098819,0.134246054
-bp_per_18,Percent Below Poverty,1,percent,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,0,0.6772313,0.6772313,0.128132771,0.1014677,0.100696968
-cbp_per_18,Percent Children Below Poverty,1,percent,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,0,0.818332,0.818332,0.17818158,0.1374207,0.156781856
-giniE_18,Gini Coefficient,1,estimate,,,Gini coefficient in each geography in 2018,,,,1,0,2,0,ACS 5 Year,2018,"County, Zip, Tract, Place",0,0,0.634,0.634,0.403149739,0.3993,0.067812621
 as_per_18_sd,Percent Asian Population,0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",1,1,4,3,1.912158232,2,0.979931305
 as_popE_18_sd,Asian Population,0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",1,1,4,3,1.955788249,2,0.887318463
 bl_per_18_sd,Percent Black Population,0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",1,0,4,4,1.925538104,2,1.04788408
@@ -78,6 +63,44 @@ Tot_Returns,Total Tax Returns in 2014,0,estimate,,,,,,,0,0,0,0,Brookings,2014,"C
 Tot_Returns_sd,Total Tax Returns in 2014,0,estimate,,,,,,,0,0,0,0,Brookings,2014,"County, Zip, Tract, Place",1,0,4,4,1.943566591,2,0.957926169
 wh_per_18_sd,Percent White Non-Hispanic Population,0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",1,0,4,4,2.007562536,2,1.446544936
 wh_popE_18_sd,"White, Non-Hispanic Population",0,sd,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",1,0,4,4,1.90052356,2,1.162568493
+ALAND,Area Land (SqMi),0,estimate,,,,,,,0,0,2,0,,,"County, Zip, Tract, Place",,13392,2423342394,2423329002,36373747.37,4626702,155361556.7
+AWATER,Area Water (SqMi),0,estimate,,,,,,,0,0,2,0,,,"County, Zip, Tract, Place",,0,192588409,192588409,1556350.754,9036,8510804.299
+fid,ID,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,1,1263,1262,493.4730747,400,388.5471889
+geometry,Geometry,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,-97.846529,33.916064,131.762593,-32.01735305,-31.8805665,64.8614478
+INTPTLAT,,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,,,,,,
+INTPTLON,,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,,,,,,
+snap,SNAP Retailer,0,point,commerce,,Locations of retailers which accept SNAP benefits,,,,0,0,0,0,USDA SNAP Store Locations,,,,,,,,,
+rohhE_18,Renter Occupied Households,0,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,0,459974,459974,3283.442965,1098,18167.57546
+thhE_18,Total Households,0,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,0,917276,917276,5589.189346,1895,33439.52238
+per_bp,Change in Below Poverty from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,-0.3111721,0.2847139,0.595886,-0.018228302,-0.011071,0.064621212
+per_cbp,Change in Children Below Poverty from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,-19141.16248,0.6666667,19141.82915,-89.19411389,-25.499292,635.1939913
+per_gini,Change in gini coeffient from 2013 to 2018,0,percentchange,,,Percent change in gini coeffient between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",0,-0.5597065,0.9644328,1.5241393,0.023840925,0.0098819,0.134246054
+per_as,Change in Asian population from 2013 to 2018,0,percentchange,,,Change in Asian population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.2005016,0.3049652,0.5054668,0.009075091,0.0027132,0.035859807
+per_ba_deg,Change in Bachelors degrees from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.2660441,0.2849162,0.5509603,0.009094681,0.008181,0.048803465
+per_bl,Change in Black population from 2013 to 2018,0,percentchange,,,Change in Black population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.3332508,0.2444921,0.5777429,0.004653984,0.0050922,0.053555009
+per_emp_pubtr,Change in Public Transportation to Work from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-0.1950002,0.168413,0.3634132,-0.000441171,0,0.021268847
+per_emp_r,Change in Ratio of Employed Population,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-36.675,40.6,77.275,16.64422409,17.025,7.432247001
+per_es_3t4,Change in Pre-K from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-1,0.9444444,1.9444444,0.00532578,0,0.187988919
+per_grad_deg,Change in Graduate degrees from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.1670991,0.2089701,0.3760692,0.011872564,0.0088717,0.037497039
+per_his,Change in Hispanic population from 2013 to 2018,0,percentchange,,,Change in Hispanic population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.3163296,0.6987179,1.0150475,0.017832924,0.0158199,0.075576649
+per_hs_18t24,Change in High School Degree from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-16.6666667,0.6898546,17.3565213,0.072350414,0.1017292,0.471577553
+per_hs_deg,Change in High School degrees from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.7637363,0.3810861,1.1448224,-0.002561219,-0.0050455,0.060524947
+per_less_hs,Change in less than High School from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.3822202,0.2261865,0.6084067,-0.010452441,-0.0058153,0.053737374
+per_med_inc,Change in median income from 2013 to 2018,0,percentchange,,,Percent change in (adjusted) medium income between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.6292296,0.9627071,1.5919367,0.076730652,0.0595927,0.168002418
+per_rohh,Change in Renter Occupied Households from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-0.0084609,0.016129,0.0245899,-4.44E-06,-4.99E-06,0.000574048
+per_some_col,Change in some college from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.2467265,0.7637363,1.0104628,-0.007953587,-0.0074691,0.062224669
+per_tot_pop,Change in total population from 2013 to 2018,0,percentchange,,,Percent change in total population between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.8846154,2.7961538,3.6807692,0.110078021,0.07616445,0.226043716
+per_wh,Change in White population from 2013 to 2018,0,percentchange,,,Change in White population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.6279545,0.2766538,0.9046083,-0.034078051,-0.0353218,0.073306846
+rohh_per_18,Percent Renter Occupied Households,0,estimate,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",,0,1,1,0.606790684,0.6519174,0.250739811
+bp_per_18_sd,Percent Below Poverty,1,sd,,,,3,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,4,4,1.865037813,2,1.296248903
+bp_u18E_18,Population Under 18 Below Poverty,1,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,173086,173086,765.6682108,195,5717.725359
+cbp_per_18_sd,Percent Children Below Poverty,1,sd,,,,4,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,4,4,1.855730076,2,1.375450198
+giniE_18_sd,Gini Coefficient,1,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",1,,,0,0,0,0,CPAL and ACS,2018,"County, Zip, Tract, Place",0,0,4,4,1.983129727,2,1.236924808
+HCV_PUBLIC,Total Public Assistance Vouchers,1,estimate,,,,,,,0,0,0,0,,,Tract,0,11,602,591,65.4220339,40,69.18197643
+HCV_PUBLIC_sd,Total Public Assistance Vouchers,1,sd,,,,16,,,0,0,0,0,,,Tract,0,1,4,3,1.920338983,2,0.970932316
+pop_bpE_18,Population Below Poverty,1,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",0,0,423899,423899,2000.454545,594,14325.60698
+rent_instability,Renter Instability Index,1,estimate,,,,,,,0,0,1,0,,,Tract,0,-1.428617601,2.035712027,3.464329628,-0.016641275,-0.046209345,0.541343541
+rent_instability_sd,Renter Instability Index,1,sd,,,,5,,,0,0,0,0,,,Tract,0,0,4,4,1.996041172,2,1.247177544
 as_popE_18,Asian Population,1,estimate,,,Total asian population in 2018,,,,0,0,0,0,ACS 5 Year,2018,"County, Zip, Tract, Place",1,0,158780,158780,1092.596989,170,6542.730862
 ba_degE_18,Population with a Bachelors Degrees,1,estimate,,,Total population with a bachelors degree in 2018,,,,0,0,0,0,ACS 5 Year,2018,"County, Zip, Tract, Place",1,0,322294,322294,2341.012739,760,13234.22487
 ba_degE_18_sd,Bachelors Degrees,1,sd,,,"Standard deviation sorting of highest degree earned is bachelors population in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",12,,,0,0,0,0,CPAL and ACS,2018,"County, Zip, Tract, Place",1,0,4,4,1.890052356,2,1.169116532
@@ -111,40 +134,6 @@ some_colE_18_sd,Some College,1,sd,,,"Standard deviation sorting of highest degre
 tot_degE_18,Total Degrees,1,estimate,,,Total degrees in 2018,,,,0,0,0,0,ACS 5 Year,2018,"County, Zip, Tract, Place",1,0,1648710,1648710,10263.22119,3467,60368.419
 tot_popE_18,Total Population,1,estimate,,,Total population in 2018,,,,0,0,0,0,ACS 5 Year,2018,"County, Zip, Tract, Place",1,0,2586552,2586552,15975.52982,5315,94382.66785
 wh_popE_18,"White, Non-Hispanic Population",1,estimate,,,Total white non-hispanic population in 2018,,,,0,0,0,0,ACS 5 Year,2018,"County, Zip, Tract, Place",1,0,958302,958302,7241.827446,2338,37710.89476
-per_as,Change in Asian population from 2013 to 2018,0,percentchange,,,Change in Asian population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.2005016,0.3049652,0.5054668,0.009075091,0.0027132,0.035859807
-per_ba_deg,Change in Bachelors degrees from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being a bachelors degree between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.2660441,0.2849162,0.5509603,0.009094681,0.008181,0.048803465
-per_bl,Change in Black population from 2013 to 2018,0,percentchange,,,Change in Black population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.3332508,0.2444921,0.5777429,0.004653984,0.0050922,0.053555009
-per_emp_pubtr,Change in Public Transportation to Work from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-0.1950002,0.168413,0.3634132,-0.000441171,0,0.021268847
-per_emp_r,Change in Ratio of Employed Population,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-36.675,40.6,77.275,16.64422409,17.025,7.432247001
-per_es_3t4,Change in Pre-K from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-1,0.9444444,1.9444444,0.00532578,0,0.187988919
-per_grad_deg,Change in Graduate degrees from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being a graduate degree or higher between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.1670991,0.2089701,0.3760692,0.011872564,0.0088717,0.037497039
-per_his,Change in Hispanic population from 2013 to 2018,0,percentchange,,,Change in Hispanic population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.3163296,0.6987179,1.0150475,0.017832924,0.0158199,0.075576649
-per_hs_18t24,Change in High School Degree from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-16.6666667,0.6898546,17.3565213,0.072350414,0.1017292,0.471577553
-per_hs_deg,Change in High School degrees from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being a high school degree between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.7637363,0.3810861,1.1448224,-0.002561219,-0.0050455,0.060524947
-per_less_hs,Change in less than High School from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being less than a high school degree between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.3822202,0.2261865,0.6084067,-0.010452441,-0.0058153,0.053737374
-per_med_inc,Change in median income from 2013 to 2018,0,percentchange,,,Percent change in (adjusted) medium income between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.6292296,0.9627071,1.5919367,0.076730652,0.0595927,0.168002418
-per_rohh,Change in Renter Occupied Households from 2013 to 2018,0,percentchange,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",1,-0.0084609,0.016129,0.0245899,-4.44E-06,-4.99E-06,0.000574048
-per_some_col,Change in some college from 2013 to 2018,0,percentchange,,,Percent change in total population with highest degree earned being some college (2 years or less) between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.2467265,0.7637363,1.0104628,-0.007953587,-0.0074691,0.062224669
-per_tot_pop,Change in total population from 2013 to 2018,0,percentchange,,,Percent change in total population between 2018 and 2013,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.8846154,2.7961538,3.6807692,0.110078021,0.07616445,0.226043716
-per_wh,Change in White population from 2013 to 2018,0,percentchange,,,Change in White population from 2013 to 2018,,,,1,0,1,1,CPAL/ACS,2013 and 2018,"County, Zip, Tract, Place",1,-0.6279545,0.2766538,0.9046083,-0.034078051,-0.0353218,0.073306846
-as_per_18,Percent Asian Population,1,percent,,,Percent Asian Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,0.7035021,0.7035021,0.059271475,0.0283047,0.083912642
-Avg_CTC,Average CTC Return,1,estimate,,,,,,,1,1,0,0,Brookings,2014,"County, Zip, Tract, Place",1,601.0450958,1310,708.9549042,766.540475,761.2595686,75.10450083
-Avg_CTC_sd,Average CTC Return,1,sd,commerce,,,7,,,1,0,0,0,Brookings,2014,"County, Zip, Tract, Place",1,0,4,4,1.950226244,2,1.127782502
-Avg_EITC,Average EITC Return,1,estimate,,,,,,,1,1,0,0,Brookings,2014,"County, Zip, Tract, Place",1,1305.274725,3218.625166,1913.350441,2484.541599,2488.57211,293.8270869
-Avg_EITC_sd,Average EITC Return,1,sd,commerce,,,6,,,1,0,0,0,Brookings,2014,"County, Zip, Tract, Place",1,0,4,4,2.058823529,2,1.236693885
-bl_per_18,Percent Black Population,1,percent,,,Percent Black Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,0.9017735,0.9017735,0.146551239,0.0905281,0.16470023
-HCV_rohh,Total Housing Choice Vouchers to Renter Occupied Households,1,estimate,,,,,,,1,0,0,0,,,Tract,1,0.002623083,24.9,24.89737692,0.226176603,0.042827563,1.258623681
-his_per_18,Percent Hispanic Population,1,percent,,,Percent Hispanic Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,1,1,0.284900508,0.2132464,0.214946991
-wh_per_18,Percent White Non-Hispanic Population,1,percent,,,Percent White Non-Hispanic Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,1,1,0.481092443,0.5166254,0.261456844
-ALAND,Area Land (SqMi),0,estimate,,,,,,,0,0,2,0,,,"County, Zip, Tract, Place",,13392,2423342394,2423329002,36373747.37,4626702,155361556.7
-AWATER,Area Water (SqMi),0,estimate,,,,,,,0,0,2,0,,,"County, Zip, Tract, Place",,0,192588409,192588409,1556350.754,9036,8510804.299
-fid,ID,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,1,1263,1262,493.4730747,400,388.5471889
-geometry,Geometry,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,-97.846529,33.916064,131.762593,-32.01735305,-31.8805665,64.8614478
-INTPTLAT,,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,,,,,,
-INTPTLON,,0,name,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,,,,,,
-snap,SNAP Retailer,0,point,commerce,,Locations of retailers which accept SNAP benefits,,,,0,0,0,0,USDA SNAP Store Locations,,,,,,,,,
-rohhE_18,Renter Occupied Households,0,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,0,459974,459974,3283.442965,1098,18167.57546
-thhE_18,Total Households,0,estimate,,,,,,,0,0,0,0,,,"County, Zip, Tract, Place",,0,917276,917276,5589.189346,1895,33439.52238
 aftersch,Afterschool Programs (Dallas only),1,point,social_infrastructure,,Locations of Afterschool Programs,,,,0,0,0,0,,,,,,,,,,
 bank,Bank,1,point,commerce,,Locations of banks,,,,0,0,0,0,,,,,,,,,,
 ces,Charter Elementary,1,point,school,charter_school,Locations of charter elementary schools,,,,0,0,0,0,TEA,,,,,,,,,
@@ -171,4 +160,15 @@ school,Schools,1,point_category,,,,,,,0,0,0,0,,,,,,,,,,
 social_infrastructure,Social Infrastructure,1,point_category,,,,,,,0,0,0,0,,,,,,,,,,
 wic,WIC Clinic,1,point,public_health,,Locations of retailers which accept WIC benefits,,,,0,0,0,0,CPAL/googleways,,,,,,,,,
 prs,Private School,1,point,school,private_school,Locations of private schools,,,,0,0,0,0,Texas Private School Accreditation Commission,,,,,,,,,
-rohh_per_18,Percent Renter Occupied Households,0,estimate,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",,0,1,1,0.606790684,0.6519174,0.250739811
+bp_per_18,Percent Below Poverty,1,percent,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,0,0.6772313,0.6772313,0.128132771,0.1014677,0.100696968
+cbp_per_18,Percent Children Below Poverty,1,percent,,,,,,,1,0,1,1,,,"County, Zip, Tract, Place",0,0,0.818332,0.818332,0.17818158,0.1374207,0.156781856
+giniE_18,Gini Coefficient,1,estimate,,,Gini coefficient in each geography in 2018,,,,1,0,2,0,ACS 5 Year,2018,"County, Zip, Tract, Place",0,0,0.634,0.634,0.403149739,0.3993,0.067812621
+as_per_18,Percent Asian Population,1,percent,,,Percent Asian Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,0.7035021,0.7035021,0.059271475,0.0283047,0.083912642
+Avg_CTC,Average CTC Return,1,estimate,,,,,,,1,1,0,0,Brookings,2014,"County, Zip, Tract, Place",1,601.0450958,1310,708.9549042,766.540475,761.2595686,75.10450083
+Avg_CTC_sd,Average CTC Return,1,sd,commerce,,,7,,,1,0,0,0,Brookings,2014,"County, Zip, Tract, Place",1,0,4,4,1.950226244,2,1.127782502
+Avg_EITC,Average EITC Return,1,estimate,,,,,,,1,1,0,0,Brookings,2014,"County, Zip, Tract, Place",1,1305.274725,3218.625166,1913.350441,2484.541599,2488.57211,293.8270869
+Avg_EITC_sd,Average EITC Return,1,sd,commerce,,,6,,,1,0,0,0,Brookings,2014,"County, Zip, Tract, Place",1,0,4,4,2.058823529,2,1.236693885
+bl_per_18,Percent Black Population,1,percent,,,Percent Black Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,0.9017735,0.9017735,0.146551239,0.0905281,0.16470023
+HCV_rohh,Total Housing Choice Vouchers to Renter Occupied Households,1,estimate,,,,,,,1,0,0,0,,,Tract,1,0.002623083,24.9,24.89737692,0.226176603,0.042827563,1.258623681
+his_per_18,Percent Hispanic Population,1,percent,,,Percent Hispanic Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,1,1,0.284900508,0.2132464,0.214946991
+wh_per_18,Percent White Non-Hispanic Population,1,percent,,,Percent White Non-Hispanic Population in 2018,,,,1,0,1,1,CPAL/ACS,2018,"County, Zip, Tract, Place",1,0,1,1,0.481092443,0.5166254,0.261456844
