@@ -53,6 +53,9 @@ childcareAll.sh <- as.data.frame(childcareAll.sh) %>%
          y_coor = Y) %>%
   st_as_sf(x = ., coords = c(x = "X", y = "Y"),
                         crs = "+proj=longlat +datum=WGS84 +no_defs")
+vita.sh <- st_read("Data Library/IRS/VITA Centers Feb 2021/VITA_Centers_NTX.shp")
+fqhc.sh <- st_read("Data Library/Texas Department of State Health Services/Federally Qualified Health Center/February 2021/FederallyQualifiedHealthCenters_NTX.shp")
+
 ```
 
 ```{r}
@@ -216,41 +219,80 @@ childcareAll.join <- childcareAll.sh %>%
          Address = USER_Addre) %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 rm(childcareAll.sh)
+
+vita.join <- vita.sh %>%
+  mutate(Name = USER_Name,
+         Address = StAddr,
+         Display = "Volunteer Income Tax Assistance Center",
+         variable = "vita") %>%
+  rename(Longitude = X,
+         Latitude = Y) %>%
+  select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
+rm(vita.sh)
+
+fqhc.join <- fqhc.sh %>%
+  mutate(Name = USER_name,
+         Address = StAddr,
+         Display = "Federally Qualified Health Center",
+         variable = "fqhc") %>%
+  rename(Longitude = X,
+         Latitude = Y) %>%
+  select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
+rm(fqhc.sh)
 ```
 
 ```{r}
 #select points within geography of interest
 snap.zip <- snap.join[zip.sh, ]
+rm(snap.join)
 
 banks.zip <- banks.join[zip.sh, ]
+rm(banks.join)
 
 comcen.zip <- comcen.join[zip.sh, ]
+rm(comcen.join)
 
 comhealth.zip <- comhealth.join[zip.sh, ]
+rm(comhealth.join)
 
 creditunions.zip <- creditunions.join[zip.sh, ]
+rm(creditunions.join)
 
 supermarket.zip <- supermarket.join[zip.sh, ]
+rm(supermarket.join)
 
 pharmacies.zip <- pharmacies.join[zip.sh, ]
+rm(pharmacies.join)
 
 libraries.zip <- libraries.join[zip.sh, ]
+rm(libraries.join)
 
 schools.zip <- schools.join[zip.sh, ]
+rm(schools.join)
 
 schoolsprivate.zip <- schoolsprivate.join[zip.sh, ]
+rm(schoolsprivate.join)
 
 wic.zip <- wic.join[zip.sh, ]
+rm(wic.join)
 
 childcare.zip <- childcare.join[zip.sh, ]
+rm(childcare.join)
 
 childcareAll.zip <- childcareAll.join[zip.sh, ]
+rm(childcareAll.join)
+
+vita.zip <- vita.join[zip.sh, ]
+rm(vita.join)
+
+fqhc.zip <- fqhc.join[zip.sh, ]
+rm(fqhc.join)
 ```
 
 ```{r}
 #join all files into one
-featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
-                    banks.zip, comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), schoolsprivate.zip), wic.zip), childcare.zip), childcareAll.zip)
+featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
+                    banks.zip, comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), schoolsprivate.zip), wic.zip), childcare.zip), childcareAll.zip), vita.zip), fqhc.zip)
 
 featureset <- featureset %>%
   mutate(FID = 1:n(),
