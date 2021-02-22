@@ -22,7 +22,7 @@ HCV_PUBLIC,Total Public Assistance Vouchers,1,estimate,,,Total number of public 
 pop_bpE_18,Population Below Poverty,1,estimate,,,Total population living below poverty level in 2018.,,,,0,,0,0,0,,," Zip, Tract, Place",0,0,423899,423899,2000.454545,594,14325.60698
 rent_instability,Renter Instability Index,1,estimate,,,Renter instability index derived from Opportunity Insights Data from 2020.,,,,0,,0,1,0,,,Tract,0,-1.428617601,2.035712027,3.464329628,-0.016641275,-0.046209345,0.541343541
 as_popE_18,Asian Population,1,estimate,,,Total Asian population in 2018,,,,0,,0,0,0,ACS 5 Year,2018," Zip, Tract, Place",1,0,158780,158780,1092.596989,170,6542.730862
-giniE_18,Gini Coefficient,1,estimate,,,Gini coefficient in each in 2018.,,,,1,1,0,1,0,ACS 5 Year,2018," Zip, Tract, Place",1,0,0.634,0.634,0.403149739,0.3993,0.067812621
+giniE_18,Gini Coefficient,1,estimate,,,Gini coefficient in each in 2018.,,,,1,1,0,1,0,ACS 5 Year,2018," Zip, Tract, Place",0,0,0.634,0.634,0.403149739,0.3993,0.067812621
 bl_popE_18,Black Population,1,estimate,,,Total Black population in 2018,,,,0,,0,0,0,ACS 5 Year,2018," Zip, Tract, Place",1,0,572790,572790,2534.929357,542,18512.45487
 emp_pubtrE_18,Population Public Transportation to Work,1,estimate,,,,,,,0,,0,0,0,,," Zip, Tract, Place",1,0,34940,34940,117.835553,21,1092.714286
 med_incE_18,Median Household Income,1,estimate,,,Median income in each geography in 2018,,,,1,2,1,0,0,ACS 5 Year,2018," Zip, Tract, Place",1,0,250001,250001,73597.84308,65249,37562.22777
@@ -157,7 +157,7 @@ tot_popE_18_sd,Total Population,0,sd,,,"Standard deviation sorting of total popu
 wh_per_18_sd,White Non-Hispanic Population (%),0,sd,,,,,,,0,,0,0,0,,," Zip, Tract, Place",1,0,4,4,2.007562536,2,1.446544936
 wh_popE_18_sd,White Non-Hispanic Population,0,sd,,,,,,,0,,0,0,0,,," Zip, Tract, Place",1,0,4,4,1.90052356,2,1.162568493
 Avg_CTC_sd,Average CTC Return,0,sd,commerce,,,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,4,4,1.950226244,2,1.127782502
-giniE_18_sd,Gini Coefficient,1,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",1,,,0,,0,0,0,CPAL and ACS,2018," Zip, Tract, Place",1,0,4,4,1.983129727,2,1.236924808
+giniE_18_sd,Gini Coefficient,1,sd,,,"Standard deviation sorting of gini coefficient in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",1,,,0,,0,0,0,CPAL and ACS,2018," Zip, Tract, Place",0,0,4,4,1.983129727,2,1.236924808
 med_incE_18_sd,Median Household Income,1,sd,,,"Standard deviation sorting of median income in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",2,,,0,,0,0,0,CPAL and ACS,2018," Zip, Tract, Place",1,0,4,4,1.891797557,2,1.202895794
 bp_per_18_sd,Below Poverty (%),1,sd,,,"Standard deviation sorting of population below poverty in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",3,,,0,,0,0,0,,," Zip, Tract, Place",0,0,4,4,1.865037813,2,1.296248903
 cbp_per_18_sd,Children Below Poverty (%),1,sd,,,"Standard deviation sorting of child poverty rate in 2018. Data is grouped into buckets between 0-4 based on standard deviations ( -1, -0.5, 0, 0.5, and 1) from the mean.",4,,,0,,0,0,0,,," Zip, Tract, Place",0,0,4,4,1.855730076,2,1.375450198
