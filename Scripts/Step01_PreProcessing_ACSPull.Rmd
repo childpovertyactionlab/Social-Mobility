@@ -31,7 +31,6 @@ getwd()
 
 Import necessary geocode files and transform data columns to merge with ACS dataset later in process. 
 ```{r geographies of interest}
-getwd()
 #acs_b <- load_variables(2019, "acs5", cache = TRUE)
 #acs_s <- load_variables(2019, "acs5/subject", cache = TRUE)
 

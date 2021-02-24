@@ -45,8 +45,8 @@ librariesTX.sh <- st_read("Data Library/Texas Public Libraries/Texas_Public_Libr
 schools.sh <- st_read("Data Library/Texas Education Agency/GIS/Current_Schools_2020-2021.shp")
 schoolsprivate.sh <- st_read("Data Library/Texas Private School Accreditation Commission/TexasPrivateSchools_Feb2021.shp")
 wic.sh <- st_read("Data Library/Google/GIS/Shapefiles/WIC_Locations_Dec2020.shp") 
-childcare.sh <- st_read("Data Library/Texas Department of Family and Protective Services/SubsidyAccepting_ChildcareCenters_Feb2020.shp")
-childcareAll.sh <- st_read("Data Library/Texas Department of Family and Protective Services/All_ChildcareCenters_Feb2020.shp")
+childcare.sh <- st_read("Data Library/Texas Department of Family and Protective Services/ChildcareCenters_SubsidizedTX_Feb2021.shp")
+childcareAll.sh <- st_read("Data Library/Texas Department of Family and Protective Services/ChildcareCenters_unSubsidizedTX_Feb2021.shp")
 childcareAll.sh <- as.data.frame(childcareAll.sh) %>%
   select(-geometry) %>%
   mutate(x_coor = X,
@@ -199,23 +199,24 @@ wic.join <- wic.sh %>%
 st_crs(wic.join) = 4326
 rm(wic.sh)
 
+names(childcare.sh)
+
 childcare.join <- childcare.sh %>%
   mutate(Display = "Subsidized Childcare Center",
-         City = word(Address,-4),
          variable = "scc") %>%
   rename(Longitude = X,
-         Latitude = Y) %>%
+         Latitude = Y,
+         Name = USER_Opera,
+         Address = USER_Addre) %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 rm(childcare.sh)
 
 childcareAll.join <- childcareAll.sh %>%
-  filter(USER_SubsY == "N") %>%
   mutate(Display = "Childcare Center",
-         City = str_to_title(USER_COUNT),
          variable = "uscc") %>%
   rename(Longitude = x_coor,
          Latitude = y_coor,
-         Name = USER_Name,
+         Name = USER_Opera,
          Address = USER_Addre) %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 rm(childcareAll.sh)
