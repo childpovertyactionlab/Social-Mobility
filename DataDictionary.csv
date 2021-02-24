@@ -40,7 +40,7 @@ pop_bpE_19_sd,Below Poverty,0,sd,,,Total population living below federal poverty
 pop_o25E_19,Population Over 25,0,estimate,,,Total population over 25.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,1669564,1669564,10496.1905,3517,61466.24403
 pop_o25E_19_sd,Population Over 25,0,sd,,,Total population over 25.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.933682373,2,1.055624051
 pop_u18E_19,Population Under 18,0,estimate,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,687338,687338,4270.624204,1360,25141.21841
-bank,Bank,1,point,commerce,,Locations of banks,,,,0,,0,0,0,,,,,,,,,,
+bank,Bank,0,,commerce,,Locations of banks,,,,0,,0,0,0,,,,,,,,,,
 pop_u18E_19_sd,Population Under 18,0,sd,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.936009308,2,1.016442535
 rohhE_19,Renter-Occupied Households,0,estimate,,,Total number of renter-occupied households.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,464121,464121,2343.48813,685,15973.18249
 rohhE_19_sd,Renter-Occupied Households,0,sd,,,Total number of renter-occupied households.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.944153578,2,1.09465809
@@ -137,7 +137,7 @@ per_hs_18t24_sd,Change in recent High School Graduate,0,sd,,,Percent change in r
 per_hs_deg,Change in High School degrees ,0,percentchange,,,Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.8,0.6021562,1.4021562,0.218476464,0.224015,0.10387671
 per_hs_deg_sd,Change in High School degrees ,0,sd,,,Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.007562536,2,1.276386618
 scc,Subsidized Childcare Center,1,point,social_infrastructure,,Locations of subsidized childcare centers,,,,0,,0,0,0,TDHPS,,,,,,,,,
-snap,SNAP Retailer,0,point,commerce,,Locations of retailers which accept SNAP benefits,,,,0,,0,0,0,USDA SNAP Store Locations,,,,,,,,,
+snap,SNAP Retailer,0,,commerce,,Locations of retailers which accept SNAP benefits,,,,0,,0,0,0,USDA SNAP Store Locations,,,,,,,,,
 per_less_hs,Change in less than High School ,0,percentchange,,,Percent change in highest level of educational attainment is less than high school between 2014 and 2019,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.2176812,0.697707,0.9153882,0.146508166,0.1045333,0.132438673
 per_less_hs_sd,Change in less than High School ,0,sd,,,Percent change in highest level of educational attainment is less than high school between 2014 and 2019,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.937754508,2,1.183496264
 per_med_inc_sd,Change in median household income ,0,sd,,,Percent change in (adjusted) medium household income between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.952297848,2,1.163093809
