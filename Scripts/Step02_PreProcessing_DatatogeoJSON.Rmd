@@ -79,7 +79,7 @@ county.merge <- left_join(counties.shape, socmob.county.csv, by = "GEOID")
 #delete unnecessary columns
 names(zip.merge)
 zip.select <- zip.merge %>%
-  select(fid, GEOID, NAME, ALAND10, AWATER10, INTPTLAT10, INTPTLON10, tot_popE_18:geometry) %>%
+  select(fid, GEOID, NAME, ALAND10, AWATER10, INTPTLAT10, INTPTLON10, tot_popE_19:geometry) %>%
   rename(ALAND = ALAND10,
          AWATER = AWATER10,
          INTPTLAT = INTPTLAT10,
@@ -87,17 +87,17 @@ zip.select <- zip.merge %>%
 
 names(place.merge)
 place.select <- place.merge %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
 
 names(tract.merge)
 tract.select <- tract.merge %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
 
 names(county.merge)
 county.select <- county.merge %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
 ```
 

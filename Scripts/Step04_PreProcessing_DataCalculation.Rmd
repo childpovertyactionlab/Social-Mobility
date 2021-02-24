@@ -39,7 +39,7 @@ sm_counties <- st_read("Social-Mobility/Data/Intermediate/sm_counties.geojson")
 #delete unnecessary columns
 names(sm_zcta)
 zip.select <- sm_zcta %>%
-  select(fid, NAME, GEOID10, ALAND10, AWATER10, INTPTLAT10, INTPTLON10, tot_popE_18:geometry) %>%
+  select(fid, NAME, GEOID10, ALAND10, AWATER10, INTPTLAT10, INTPTLON10, tot_popE_19:geometry) %>%
   rename(GEOID = GEOID10,
          ALAND = ALAND10,
          AWATER = AWATER10,
@@ -49,17 +49,17 @@ zip.select <- sm_zcta %>%
 
 names(sm_places)
 place.select <- sm_places %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
 
 names(sm_tracts)
 tract.select <- sm_tracts %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
 
 names(sm_counties)
 county.select <- sm_counties %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_18:geometry) %>%
+  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
 
 rm(sm_zcta)
@@ -80,7 +80,14 @@ renter <- import("Data Library/Urban Institute/Rental Assistance Priority Index/
 housing_vouchers <- st_read("Data Library/HUD/Housing Choice Vouchers/Housing_Choice_Vouchers_by_Tract-shp/HCV_BY_TRACT.shp")
 
 #County Voter Precincts
+precincts_collin <- st_read("Data Library/Texas Elections/Collin County Elections/2018_CollinCounty_VoterPrecincts.geojson")
 precincts_dallas <- st_read("Data Library/Texas Elections/Dallas County Elections/Precinct Shapefiles/Precinct13.shp")
+precincts_denton <- st_read("Data Library/Texas Elections/Denton County Elections/Precinct Shapefiles/Voter_Precincts_-_2018.shp")
+#precincts_ellis
+precincts_johnson <- st_read("Data Library/Texas Elections/Johnson County Elections/Precinct Shapefiles/Voting_Precincts_of_Johnson_County.shp")
+#precincts_kaurman
+precincts_rockwall <- st_read("Data Library/Texas Elections/Rockwall County Elections/Precinct Shapefiles/2012_Precinct_Boundaries_Rockwall_County.shp")
+precincts_tarrant <- st_read("Data Library/Texas Elections/Tarrant County Elections/Precinct Shapefiles/Tarrant_County_Elections_Voting_Precinct_Boundary.shp")
 
 #County Voter Data
 vote2016 <- import("Data Library/Texas Elections/Dallas County Elections/Votes by Precinct/2016_Vote_byPrecinct_DallasCounty.csv")
@@ -102,7 +109,7 @@ housing_lim <- as.data.frame(housing_vouchers) %>%
 names(tract.select)
 tract_housing <- tract.select %>%
   left_join(., housing_lim) %>%
-  mutate(HCV_rohh = HCV_PUBLIC/rohhE_18)
+  mutate(HCV_rohh = HCV_PUBLIC/rohhE_19)
 
 rm(housing_vouchers)
 rm(housing_lim)
@@ -216,11 +223,13 @@ new_tract_var <- tract_rent %>%
 
 new_zip_var <- zip.select %>%
   left_join(.,  as.data.frame(eitc_zip)) %>%
-  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)))
+  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)),
+         per_rohh = hablar::rationalize(as.numeric(per_rohh)))
 
 new_place_var <- place.select  %>%
   left_join(.,  as.data.frame(eitc_place)) %>%
-  mutate(per_rohh = hablar::rationalize(as.numeric(per_rohh)))
+  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)),
+         per_rohh = hablar::rationalize(as.numeric(per_rohh)))
 
 new_county_var <- county.select %>%
   left_join(.,  as.data.frame(eitc_county))
@@ -266,8 +275,8 @@ Cuts occur at +/- 0.5 standard deviations and +/- 1 standard deviation.
 sdcut <- function(x) {
   sd1p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*0.50)
   sd1n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*0.50)
-  sd2p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*0.9)
-  sd2n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*0.9)
+  sd2p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*1)
+  sd2n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*1)
   ifelse(x > sd2p, 4,
          ifelse(x > sd1p & x < sd2p, 3,
                 ifelse(x > sd1n & x < sd1p, 2,
@@ -280,7 +289,15 @@ Convert all estimate variables by `log()` in order to then apply sdcut function.
 #zip codes
 names(new_zip_var)
 socmob.zip.sd <- as.data.frame(new_zip_var) %>%
-  mutate_at(c(8:72), funs(c(sdcut(.)))) %>%
+  mutate(bp_u18E_19 = bp_u18E_19*(-1),
+         pop_bpE_19 = pop_bpE_19*(-1),
+         giniE_19 = giniE_19*(-1),
+         bp_per_19 = bp_per_19*(-1),
+         cbp_per_19 = cbp_per_19*(-1),
+         per_bp = per_bp*(-1),
+         per_cbp = per_cbp*(-1),
+         per_gini = per_gini*(-1)) %>%
+  mutate_at(c(8:66), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -294,7 +311,15 @@ socmob.zip.upload <- left_join(new_zip_var, socmob.zip.sd)
 
 #places
 socmob.place.sd <- as.data.frame(new_place_var) %>%
-  mutate_at(c(8:72), funs(c(sdcut(.)))) %>%
+  mutate(bp_u18E_19 = bp_u18E_19*(-1),
+         pop_bpE_19 = pop_bpE_19*(-1),
+         giniE_19 = giniE_19*(-1),
+         bp_per_19 = bp_per_19*(-1),
+         cbp_per_19 = cbp_per_19*(-1),
+         per_bp = per_bp*(-1),
+         per_cbp = per_cbp*(-1),
+         per_gini = per_gini*(-1)) %>%
+  mutate_at(c(8:66), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -308,7 +333,16 @@ socmob.place.upload <- left_join(new_place_var, socmob.place.sd)
 
 #tracts
 socmob.tract.sd <- as.data.frame(new_tract_var) %>%
-  mutate_at(c(8:68), funs(c(sdcut(.)))) %>%
+  mutate(bp_u18E_19 = bp_u18E_19*(-1),
+         pop_bpE_19 = pop_bpE_19*(-1),
+         rent_instability = rent_instability*(-1),
+         giniE_19 = giniE_19*(-1),
+         bp_per_19 = bp_per_19*(-1),
+         cbp_per_19 = cbp_per_19*(-1),
+         per_bp = per_bp*(-1),
+         per_cbp = per_cbp*(-1),
+         per_gini = per_gini*(-1)) %>%
+  mutate_at(c(8:62), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
