@@ -13,7 +13,7 @@ bl_popE_19,Black Population,0,estimate,,,Total Black population in 2019,,,,0,,0,
 bp_u18E_19_sd,Under 18 Below Poverty,0,sd,,,Total population under 18 living below federal poverty level in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,3,3,2.030831879,2,0.984562421
 es_3t4E_19,Enrolled Pre-K,0,estimate,,,Total number of children (3 to 4 years old) enrolled in pre-k in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,11652,11652,60.53213665,14,392.6997237
 social_infrastructure,Social Infrastructure,1,point_category,,,,,1,,0,,0,0,0,,,,,,,,,,
-school,Schools,1,point_category,,,,,2,,0,,0,0,0,,,,,,,,,,
+education,Education,1,point_category,,,,,2,,0,,0,0,0,,,,,,,,,,
 public_health,Public Health,1,point_category,,,,,3,,0,,0,0,0,,,,,,,,,,
 commerce,Commerce,1,point_category,,,,,4,,0,,0,0,0,,,,,,,,,,
 emp_pubtrE_19_sd,Public Transportation to Work,0,sd,,,Total employed population who take public transportation to work in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.913903432,2,0.914015087
@@ -40,16 +40,16 @@ pop_bpE_19_sd,Below Poverty,0,sd,,,Total population living below federal poverty
 pop_o25E_19,Population Over 25,0,estimate,,,Total population over 25.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,1669564,1669564,10496.1905,3517,61466.24403
 pop_o25E_19_sd,Population Over 25,0,sd,,,Total population over 25.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.933682373,2,1.055624051
 pop_u18E_19,Population Under 18,0,estimate,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,687338,687338,4270.624204,1360,25141.21841
-bank,Bank,0,,commerce,,Locations of banks,,,,0,,0,0,0,,,,,,,,,,
+bank,Bank,1,point,commerce,,Locations of banks,,,,0,,0,0,0,,,,,,,,,,
 pop_u18E_19_sd,Population Under 18,0,sd,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.936009308,2,1.016442535
 rohhE_19,Renter-Occupied Households,0,estimate,,,Total number of renter-occupied households.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,464121,464121,2343.48813,685,15973.18249
 rohhE_19_sd,Renter-Occupied Households,0,sd,,,Total number of renter-occupied households.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.944153578,2,1.09465809
 thhE_19,Total Households,0,estimate,,,Total number of households in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,928341,928341,5687.081644,1919,33930.36108
 thhE_19_sd,Total Households,0,sd,,,Total number of households in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.93310064,2,1.076066916
-ces,Charter Elementary,1,point,school,charter_school,Locations of charter elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
-charter_school,Charter School,1,point_subcategory,school,,,,,2,0,,0,0,0,,,,,,,,,,
-chs,Charter High,1,point,school,charter_school,Locations of charter high schools,,,,0,,0,0,0,TEA,,,,,,,,,
-cms,Charter Middle,1,point,school,charter_school,Locations of charter middle schools,,,,0,,0,0,0,TEA,,,,,,,,,
+ces,Charter Elementary,1,point,education,charter_school,Locations of charter elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
+charter_school,Charter School,1,point_subcategory,education,,,,,3,0,,0,0,0,,,,,,,,,,
+chs,Charter High,1,point,education,charter_school,Locations of charter high schools,,,,0,,0,0,0,TEA,,,,,,,,,
+cms,Charter Middle,1,point,education,charter_school,Locations of charter middle schools,,,,0,,0,0,0,TEA,,,,,,,,,
 comcen,Community and Recreation Center,1,point,social_infrastructure,,Locations of community centers,,,,0,,0,0,0,NCTCOG,,,,,,,,,
 comhel,Community Health Clinic,1,point,public_health,,Locations of community health clinics,,,,0,,0,0,0,,,,,,,,,,
 crunion,Credit Union,1,point,commerce,,Locations of credit unions,,,,0,,0,0,0,CPAL/googleways,,,,,,,,,
@@ -66,7 +66,7 @@ Sum_CTC,Sum of CTC,0,estimate,,,Sum of CTC returns in 2014 in dollars.,,,,0,,1,0
 Sum_CTC_sd,Sum of CTC,0,sd,,,Sum of CTC returns in 2014 in dollars.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,4,4,1.997742664,2,0.925991877
 Sum_EITC,Sum of EITC,0,estimate,,,Sum of EITC returns in 2014 in dollars.,,,,0,,1,0,0,Brookings,2014," Place, Zip",1,31875,737753396,737721521,10119582.59,2523041,47737547.6
 Sum_EITC_sd,Sum of EITC,0,sd,,,Sum of EITC returns in 2014 in dollars.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,1,4,3,2.009029345,2,0.815522322
-his,Public High,1,point,school,public_school,Locations of DISD junior high schools,,,,0,,0,0,0,TEA,,,,,,,,,
+his,Public High,1,point,education,public_school,Locations of DISD junior high schools,,,,0,,0,0,0,TEA,,,,,,,,,
 Tot_CTC,Returns Receiving the CTC,0,estimate,,,Total number of returns filed which received the CTC in 2014.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,69998,69998,1039.288248,307,4586.021607
 Tot_CTC_sd,Returns Receiving the CTC,0,sd,,,Total number of returns filed which received the CTC in 2014.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,4,4,1.977426637,2,0.899691081
 Tot_EITC,Returns Receiving EITC,0,estimate,,,Total number of returns filed which received the EITC in 2014.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,267539,267539,3813.008869,1133,17426.44925
@@ -74,8 +74,8 @@ Tot_EITC_sd,Returns Receiving EITC,0,sd,,,Total number of returns filed which re
 Tot_Returns,Tax Returns in 2014,0,estimate,,,Total number of tax returns filed in 2014.,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,267539,267539,3813.008869,1133,17426.44925
 Tot_Returns_sd,Tax Returns in 2014,0,estimate,,,Total number of tax returns filed in 2014.,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,4,4,1.997742664,2,0.870582245
 ALAND,Area Land (SqMi),0,estimate,,,Area in square miles of land in geography,,,,0,,0,1,0,CPAL,," Zip, Tract, Place",NA,13392,2423342394,2423329002,36373747.37,4626702,155361556.7
-ies,Public Elementary,1,point,school,public_school,Locations of DISD elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
-ims,Public Middle,1,point,school,public_school,Locations of DISD independent elementary/secondary schools,,,,0,,0,0,0,TEA,,,,,,,,,
+ies,Public Elementary,1,point,education,public_school,Locations of DISD elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
+ims,Public Middle,1,point,education,public_school,Locations of DISD independent elementary/secondary schools,,,,0,,0,0,0,TEA,,,,,,,,,
 AWATER,Area Water (SqMi),0,estimate,,,Area in square miles of water in geography,,,,0,,0,1,0,CPAL,," Zip, Tract, Place",NA,0,192588409,192588409,1556350.754,9036,8510804.299
 fid,ID,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",NA,1,1263,1262,493.4730747,400,388.5471889
 geometry,Geometry,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",NA,-97.846529,33.916064,131.762593,-32.01735305,-31.8805665,64.8614478
@@ -127,9 +127,9 @@ per_es_3t4_sd,Change in Pre-K Enrollment,0,sd,,,Percent change in population 3 t
 per_gini,Change in Gini coeffient ,0,percentchange,,,,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.4820065,0.7911319,1.2731384,0.01681993,0.0033881,0.135245872
 per_gini_sd,Change in Gini coeffient ,0,sd,,,,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,2.051774287,2,1.158154791
 per_his,Change in Hispanic population ,0,percentchange,,,Percent change in Hispanic population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3416753,0.75,1.0916753,0.018335951,0.0154704,0.075927654
-private_school,Private School,1,point_subcategory,school,,,,,,0,,0,0,0,,,,,,,,,,
-prs,Private School,1,point,school,private_school,Locations of private schools,,,,0,,0,0,0,Texas Private School Accreditation Commission,2021,,,,,,,,
-public_school,Public School,1,point_subcategory,school,,,,,1,0,,0,0,0,,,,,,,,,,
+private_school,Private School,1,point_subcategory,education,,,,,4,0,,0,0,0,,,,,,,,,,
+prs,Private School,1,point,education,private_school,Locations of private schools,,,,0,,0,0,0,Texas Private School Accreditation Commission,2021,,,,,,,,
+public_school,Public School,1,point_subcategory,education,,,,,2,0,,0,0,0,,,,,,,,,,
 recctr,Recreation Center,1,point,social_infrastructure,,Locations of recreation centers,,,,0,,0,0,0,City of Dallas,,,,,,,,,
 per_his_sd,Change in Hispanic population ,0,sd,,,Percent change in Hispanic population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.004653869,2,1.113459503
 per_hs_18t24,Change in recent High School Graduate,0,percentchange,,,Percent change in residents between 18 to 24 who have graduated from high school between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-20,0.625,20.625,0.070070801,0.0948678,0.526435393
@@ -158,3 +158,4 @@ HCV_PUBLIC,Total Public Assistance Vouchers,0,estimate,,,Households receiving pu
 rent_instability_sd,Renter Instability Index,1,sd,,,Estimate the prevalence of low-income renters at risk of experiencing housing instability. (Opportunity Insights),5,,,0,,0,0,0,Opportunity Insights,2019,Tract,0,0,4,4,2.001583531,2,1.191623176
 rent_instability,Renter Instability Index,0,estimate,,,Estimate the prevalence of low-income renters at risk of experiencing housing instability. (Opportunity Insights),,,,0,,0,1,0,Opportunity Insights,2019,Tract,0,-1.428617601,2.035712027,3.464329628,-0.016641275,-0.046209345,0.541343541
 wic,WIC Clinic,1,point,public_health,,Locations of retailers which accept WIC benefits,,,,0,,0,0,0,CPAL/googleways,,,,,,,,,
+highed,College Campuses,1,point,education,,Locations of higher education campuses,,,1,0,,0,0,0,Texas Department of Banking,2021,,,,,,,,
