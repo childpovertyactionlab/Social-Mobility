@@ -32,13 +32,17 @@ getwd()
 #import geography comparison shape file
 zip.sh <- st_read("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/Shapefiles/sm_zcta.shp")
 
+county.sh <- st_read("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/Shapefiles/sm_counties.shp")
+
+
 #import feature shape files
 snap.sh <- st_read("Data Library/USDA/GIS/SNAP_Store_Locations_TX_Dec2020.shp")
-banks.sh <- st_read("Data Library/01_Data Update Projects/Dallas Features/Verification/Banks.shp") 
+banks.sh <- st_read("Data Library/Texas Department of Banking/Geocoded/NorthTexas_BankingLocations_Feb2021.shp") 
 comcen.sh <- st_read("Data Library/NCTCOG/CommunityCenters.shp")
 comhealth.sh <- st_read("Data Library/Miscellaneous/Community Health Clinics/CommunityHealthClincs_June2020.shp")
 creditunions.sh <- st_read("Data Library/Google/GIS/Shapefiles/CreditUnions_Dec2020.shp") 
 supermarket.sh <- st_read("Data Library/Miscellaneous/Grocery Stores/FoodandGrocery_DallasCounty_July2020.shp")
+highered.sh <- st_read("Data Library/NCTCOG/HigherEducation.shp")
 pharmacies.sh <-st_read("Data Library/Texas State Board of Pharmacy/GIS/TBSP_NTX_Dec2020.shp")
 libraries.sh <- st_read("Data Library/City of Dallas/02_Boundaries and Features/Libraries.shp")
 librariesTX.sh <- st_read("Data Library/Texas Public Libraries/Texas_Public_Libraries.shp")
@@ -67,12 +71,16 @@ snap.join <- snap.sh %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 rm(snap.sh)
 
+names(banks.sh)
+
 banks.join <- banks.sh %>%
   st_transform(crs = 4326) %>%
   mutate(Display = "Bank",
          variable = "bank") %>%
   rename(Longitude = X,
-         Latitude = Y) %>%
+         Latitude = Y,
+         Name = USER_entit,
+         Address = USER_addre) %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 rm(banks.sh)
 
@@ -240,60 +248,69 @@ fqhc.join <- fqhc.sh %>%
          Latitude = Y) %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 rm(fqhc.sh)
+
+highered.join <- highered.sh %>%
+  mutate(Display = "College Campuses",
+         variable = "highed",
+         Longitude = st_coordinates(.)[,1],
+         Latitude = st_coordinates(.)[,2]) %>%
+  select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
+st_crs(highered.join, crs = 4326)
+rm(highered.sh)
 ```
 
 ```{r}
 #select points within geography of interest
-snap.zip <- snap.join[zip.sh, ]
+snap.county <- snap.join[county.sh, ]
 rm(snap.join)
 
-banks.zip <- banks.join[zip.sh, ]
+banks.county <- banks.join[county.sh, ]
 rm(banks.join)
 
-comcen.zip <- comcen.join[zip.sh, ]
+comcen.county <- comcen.join[county.sh, ]
 rm(comcen.join)
 
-comhealth.zip <- comhealth.join[zip.sh, ]
+comhealth.county <- comhealth.join[county.sh, ]
 rm(comhealth.join)
 
-creditunions.zip <- creditunions.join[zip.sh, ]
+creditunions.county <- creditunions.join[county.sh, ]
 rm(creditunions.join)
 
-supermarket.zip <- supermarket.join[zip.sh, ]
+supermarket.county <- supermarket.join[county.sh, ]
 rm(supermarket.join)
 
-pharmacies.zip <- pharmacies.join[zip.sh, ]
+pharmacies.county <- pharmacies.join[county.sh, ]
 rm(pharmacies.join)
 
-libraries.zip <- libraries.join[zip.sh, ]
+libraries.county <- libraries.join[county.sh, ]
 rm(libraries.join)
 
-schools.zip <- schools.join[zip.sh, ]
+schools.county <- schools.join[county.sh, ]
 rm(schools.join)
 
-schoolsprivate.zip <- schoolsprivate.join[zip.sh, ]
+schoolsprivate.county <- schoolsprivate.join[county.sh, ]
 rm(schoolsprivate.join)
 
-wic.zip <- wic.join[zip.sh, ]
+wic.county <- wic.join[county.sh, ]
 rm(wic.join)
 
-childcare.zip <- childcare.join[zip.sh, ]
+childcare.county <- childcare.join[county.sh, ]
 rm(childcare.join)
 
-childcareAll.zip <- childcareAll.join[zip.sh, ]
+childcareAll.county <- childcareAll.join[county.sh, ]
 rm(childcareAll.join)
 
-vita.zip <- vita.join[zip.sh, ]
+vita.county <- vita.join[county.sh, ]
 rm(vita.join)
 
-fqhc.zip <- fqhc.join[zip.sh, ]
+fqhc.county <- fqhc.join[county.sh, ]
 rm(fqhc.join)
 ```
 
 ```{r}
 #join all files into one
 featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
-                    banks.zip, comcen.zip), comhealth.zip), creditunions.zip), supermarket.zip), pharmacies.zip), libraries.zip), schools.zip), schoolsprivate.zip), wic.zip), childcare.zip), childcareAll.zip), vita.zip), fqhc.zip)
+                    banks.county, comcen.county), comhealth.county), creditunions.county), supermarket.county), pharmacies.county), libraries.county), schools.county), schoolsprivate.county), wic.county), childcare.county), childcareAll.county), vita.county), fqhc.county)
 
 featureset <- featureset %>%
   mutate(FID = 1:n(),

@@ -297,7 +297,7 @@ socmob.zip.sd <- as.data.frame(new_zip_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:66), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:63), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -319,7 +319,7 @@ socmob.place.sd <- as.data.frame(new_place_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:66), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:63), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -342,7 +342,7 @@ socmob.tract.sd <- as.data.frame(new_tract_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:62), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:59), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
