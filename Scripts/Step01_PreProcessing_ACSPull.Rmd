@@ -31,8 +31,8 @@ getwd()
 
 Import necessary geocode files and transform data columns to merge with ACS dataset later in process. 
 ```{r geographies of interest}
-#acs_b <- load_variables(2019, "acs5", cache = TRUE)
-#acs_s <- load_variables(2019, "acs5/subject", cache = TRUE)
+acs_b <- load_variables(2019, "acs5", cache = TRUE)
+acs_s <- load_variables(2019, "acs5/subject", cache = TRUE)
 
 #fips <- tidycensus::fips_codes
 
@@ -71,23 +71,24 @@ Bug fixed with recent tidycensus update allowing S and B table variables to pull
 ```{r tidycensus variables}
 socmob.var <- c(
   tot_pop = "B01003_001", #total population
-  pop_19t24 = "S1501_C01_001", #population 19 to 24
+  popm_18t24 = "B15001_003", #population 18 to 24 male
+  popf_18t24 = "B15001_044", #population 18 to 24 female
   pop_o25 = "S1501_C01_006", #population 25 and over
-  pop_u19 = "S0101_C01_022", #population under 19
+  pop_u18 = "S0901_C01_001", #population under 18
   pop_3t4 = "B09001_004", #population between 3 to 4
-  med_inc = "B19014_001", #median household income
+  med_inc = "B19013_001", #median household income
   gini = "B19083_001", #gini coefficient
-  less_ms = "S1501_C01_007", #total population less than 9th grade
-  less_hs = "S1501_C01_008", #total population less than high school but above 9th
-  hs_deg = "S1501_C01_009", #total with high school degree
-  ba_deg = "S1501_C01_015", #total with bachelors degree or higher
+  less_hs = "B23006_002", #total population less than high school but above 9th
+  hs_deg = "B23006_009", #total with high school degree
+  ba_deg = "B23006_023", #total with bachelors degree or higher
   his_pop = "B03002_012", #hispanic population
   wh_pop = "B03002_003", #white population
   bl_pop = "B03002_004", #black population
   as_pop = "B03002_006", #asian population
   rohh = "B25106_024", #renter occupied households
   thh = "B25106_001", #total households
-  hs_19t24 = "S1501_C01_002", #high school degrees between 19 and 24
+  hsm_18t24 = "B15001_006", #high school degrees between 18 and 24 male
+  hsf_18t24 = "B15001_047", #high school degrees between 18 and 24 female
   emp_r25t29 = "S2301_C03_004", #employed population ratio 25 to 29
   emp_r30t34 = "S2301_C03_005", #employed population ratio 30 to 34
   emp_r35t44 = "S2301_C03_006", #employed population ratio 35 to 44
@@ -96,7 +97,7 @@ socmob.var <- c(
   emp = "S0802_C01_001", #employed over 16
   emp_pubtr = "S0802_C04_001", #employed over 16 and take public transportation to work
   pop_bp = "S1701_C02_001", #population below poverty
-  bp_u19 = "S1701_C02_002" #population under 19 below poverty
+  bp_u18 = "S1701_C02_002" #population under 18 below poverty
 )
 ```
 
@@ -272,7 +273,9 @@ socmob.combine <- full_join(full_join(full_join(socmob.zip, socmob.place), socmo
 
 names(socmob.combine)
 socmob.calc <- socmob.combine %>%
-  mutate(wh_per_19 = wh_popE_19/tot_popE_19,
+  mutate(pop_18t24E_14 = popm_18t24E_14+popf_18t24E_14,
+         pop_18t24E_19 = popm_18t24E_19+popf_18t24E_19,
+         wh_per_19 = wh_popE_19/tot_popE_19,
          bl_per_19 = bl_popE_19/tot_popE_19,
          as_per_19 = as_popE_19/tot_popE_19,
          his_per_19 = his_popE_19/tot_popE_19,
@@ -281,10 +284,10 @@ socmob.calc <- socmob.combine %>%
          as_per_14 = as_popE_14/tot_popE_14,
          his_per_14 = his_popE_14/tot_popE_14,
          adj_med_inc_14 = med_incE_14*(1.08),                    #Inflation rate 2019/2014
-         emp_r_14 = (emp_r25t29E_14+emp_r30t34E_14+emp_r35t44E_14+emp_r45t54E_14)/4,
-         emp_r_19 = (emp_r25t29E_19+emp_r30t34E_19+emp_r35t44E_19+emp_r45t54E_19)/4,
-         hs_18t24_per_14 = hs_18t24E_14/pop_18t24E_14,
-         hs_18t24_per_19 = hs_18t24E_19/pop_18t24E_19,
+         emp_r_14 = ((emp_r25t29E_14+emp_r30t34E_14+emp_r35t44E_14+emp_r45t54E_14)/4)/100,
+         emp_r_19 = ((emp_r25t29E_19+emp_r30t34E_19+emp_r35t44E_19+emp_r45t54E_19)/4)/100,
+         hs_18t24_per_14 = (hsm_18t24E_14+hsf_18t24E_14)/pop_18t24E_14,
+         hs_18t24_per_19 = (hsm_18t24E_19+hsm_18t24E_19)/pop_18t24E_19,
          es_3t4_per_14 = es_3t4E_14/pop_3t4E_14,
          es_3t4_per_19 = es_3t4E_19/pop_3t4E_19,
          emp_pubtr_per_14 = emp_pubtrE_14/empE_14,
@@ -295,13 +298,11 @@ socmob.calc <- socmob.combine %>%
          cbp_per_19 = bp_u18E_19/pop_u18E_19,
          rohh_per_14 = rohhE_14/thhE_14,
          rohh_per_19 = rohhE_19/thhE_19,
-         less_hs_14 = less_hsE_14+less_msE_14,
-         less_hs_19 = less_hsE_19+less_msE_19,
          per_rohh = ((rohh_per_19 - rohh_per_14)/rohhE_19),
          per_tot_pop = ((tot_popE_19 - tot_popE_14)/tot_popE_14),
          per_med_inc = ((med_incE_19 - adj_med_inc_14)/adj_med_inc_14),
          per_gini = ((giniE_19 - giniE_14)/giniE_14),
-         per_less_hs = (less_hs_19/pop_o25E_19) - (less_hs_14/pop_o25E_14),
+         per_less_hs = (less_hsE_19/pop_o25E_19) - (less_hsE_14/pop_o25E_14),
          per_hs_deg = (hs_degE_19/pop_o25E_19) - (hs_degE_14/pop_o25E_14),
          per_ba_deg = (ba_degE_19/pop_o25E_19) - (ba_degE_14/pop_o25E_14),
          per_wh = (wh_popE_19/tot_popE_19) - (wh_popE_14/tot_popE_14),
@@ -315,7 +316,7 @@ socmob.calc <- socmob.combine %>%
          per_bp = bp_per_19 - bp_per_14,
          per_cbp = cbp_per_19 - cbp_per_14) %>%
   mutate_if(is.numeric, funs(replace_na(., 0))) %>%
-  select(-(ends_with("_14")), -(ends_with("M_19")), -(emp_r25t29E_19:emp_r45t54E_19))
+  select(-(ends_with("_14")), -(ends_with("M_19")), -(emp_r25t29E_19:emp_r45t54E_19), -(popm_18t24E_19:popf_18t24E_19), -(hsm_18t24E_19:hsf_18t24E_19))
 
 names(socmob.calc)
 

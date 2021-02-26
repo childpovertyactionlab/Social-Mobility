@@ -1,161 +1,161 @@
 variable,display_name,display_variable,type,category,subcategory,description,indicator_order,category_order,subcategory_order,tooltip,tooltip_order,currency,decimals,percent,source,years,place,highisgood,min,max,range,mean,median,std.dev
-giniE_19,Gini Coefficient,0,estimate,,,Degree of income inequality in a geography.,,,,1,1,0,1,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,0.6658,0.6658,0.402999884,0.3982,0.06902219
-med_incE_19,Median Household Income,0,estimate,,,Median household income.,,,,1,2,1,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,250001,250001,76435.38854,68316,38287.94507
-emp_r_19,Employment to Population Ratio,0,estimate,,,Employed residents between 25 to 54 employed to total population per 100 people.,,,,1,4,0,0,1,ACS 5 Year,2019," Zip, Tract, Place",1,0,95.75,95.75,78.79468732,80.675,10.77188429
-ba_degE_19,Bachelors Degrees or Higher,0,estimate,,,Total population with a bachelors or graduate degree.,,,,1,7,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,525525,525525,3743.549508,1157,21330.8919
-tot_popE_19,Total Population,0,estimate,,,Total population in 2019.,,,,1,13,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,2606868,2606868,16265.45918,5427,95637.04945
-emp_r_19_sd,Employment to Population Ratio,1,sd,,,Employed residents between 25 to 54 employed to total population per 100 people.,11,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,2.067481094,2,0.960867682
+aftersch,Afterschool Programs (Dallas only),1,point,social_infrastructure,,Locations of afterschool programs in the City of Dallas,,,,0,,0,0,0,City of Dallas,,,,,,,,,
+ALAND,Area Land (SqMi),0,estimate,,,Area in square miles of land in geography,,,,0,,0,1,0,CPAL,," Zip, Tract, Place",,13392,2423342394,2423329002,36373747.37,4626702,155361556.7
+as_per_19,Asian Population (%),0,percent,,,Percent Asian population in 2019,,,,1,9,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,0.6692676,0.6692676,0.060674534,0.0304348,0.086300321
+as_per_19_sd,Asian Population (%),0,sd,,,Percent Asian population in 2019,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,1,4,3,1.899360093,2,0.95583171
 as_popE_19,Asian Population,0,estimate,,,Total Asian population in 2019,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,162770,162770,1151.4696,177,6889.412127
 as_popE_19_sd,Asian Population,0,sd,,,Total Asian population in 2019,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.962769052,2,0.846693638
-pop_bpE_19,Below Poverty,0,estimate,,,Total population living below federal poverty level in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,395812,395812,1884.803127,559,13385.74135
-bl_popE_19_sd,Black Population,0,sd,,,Total Black population in 2019,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.942408377,2,0.937915117
+Avg_CTC,Average CTC Return,0,estimate,,,Average child tax credit return amount ($) in 2015.,,,,0,,1,0,0,Brookings,2014," Zip, Tract, Place",1,601.0450958,1310,708.9549042,766.540475,761.2595686,75.10450083
+Avg_CTC_sd,Average CTC Return,0,sd,commerce,,Average child tax credit return amount ($) in 2015.,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,4,4,1.943438914,2,1.081262776
+Avg_EITC,Average EITC Return,0,estimate,,,Average earned income tax credit return ($) in 2015.,,,,0,,1,0,0,Brookings,2014," Zip, Tract, Place",1,1305.274725,3218.625166,1913.350441,2484.541599,2488.57211,293.8270869
+Avg_EITC_sd,Average EITC Return,0,sd,,,Average earned income tax credit return ($) in 2015.,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,4,4,2.063348416,2,1.197338549
+AWATER,Area Water (SqMi),0,estimate,,,Area in square miles of water in geography,,,,0,,0,1,0,CPAL,," Zip, Tract, Place",,0,192588409,192588409,1556350.754,9036,8510804.299
+ba_degE_19,Bachelors Degreess or Higher,0,estimate,,,Total population with a bachelor's or graduate degree.,,,,1,7,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,441013,441013,3180.554719,939,18099.357
+ba_degE_19_sd,Bachelors Degreess or Higher,1,sd,,,Total population with a bachelor's or graduate degree.,10,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.964514252,2,0.968309067
+bank,Bank,1,point,commerce,,Locations of banks,,,,0,,0,0,0,,,,,,,,,,
+bl_per_19,Black Population (%),0,percent,,,Percent Black Population in 2019,,,,1,10,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,0.9468354,0.9468354,0.148766697,0.091541,0.164073983
+bl_per_19_sd,Black Population (%),0,sd,,,Percent Black Population in 2019,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,1,4,3,1.944735311,2,0.994674368
 bl_popE_19,Black Population,0,estimate,,,Total Black population in 2019,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,580189,580189,2608.943833,581,18840.44568
+bl_popE_19_sd,Black Population,0,sd,,,Total Black population in 2019,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.942408377,2,0.937915117
+bp_per_19,Below Poverty (%),0,percent,,,Percent of residents with an income below federal poverty level.,,,,1,5,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",0,0,0.6489899,0.6489899,0.119529148,0.095017,0.09366676
+bp_per_19_sd,Below Poverty (%),1,sd,,,Percent of residents with an income below federal poverty level.,3,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",0,0,4,4,2.089005236,2,1.193546432
+bp_u18E_19,Under 18 Below Poverty,0,estimate,,,Total population under 18 living below federal poverty level in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,158902,158902,708.2999421,176,5245.530281
 bp_u18E_19_sd,Under 18 Below Poverty,0,sd,,,Total population under 18 living below federal poverty level in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,3,3,2.030831879,2,0.984562421
-es_3t4E_19,Enrolled Pre-K,0,estimate,,,Total number of children (3 to 4 years old) enrolled in pre-k in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,11652,11652,60.53213665,14,392.6997237
-social_infrastructure,Social Infrastructure,1,point_category,,,,,1,,0,,0,0,0,,,,,,,,,,
-education,Education,1,point_category,,,,,2,,0,,0,0,0,,,,,,,,,,
-public_health,Public Health,1,point_category,,,,,3,,0,,0,0,0,,,,,,,,,,
+cbp_per_19,Children Below Poverty (%),0,percent,,,Percent of residents under 18 with an income below federal poverty level in 2019.,,,,1,6,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",0,0,0.4557845,0.4557845,0.014627292,0,0.05521076
+cbp_per_19_sd,Children Below Poverty (%),1,sd,,,Percent of residents under 18 with an income below federal poverty level in 2019.,4,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",0,0,3,3,0.527632344,0,1.016292614
+ces,Charter Elementary,1,point,school,charter_school,Locations of charter elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
+charter_school,Charter School,1,point_subcategory,school,,,,,3,0,,0,0,0,,,,,,,,,,
+chs,Charter High,1,point,school,charter_school,Locations of charter high schools,,,,0,,0,0,0,TEA,,,,,,,,,
+cms,Charter Middle,1,point,school,charter_school,Locations of charter middle schools,,,,0,,0,0,0,TEA,,,,,,,,,
+comcen,Community and Recreation Center,1,point,social_infrastructure,,Locations of community centers,,,,0,,0,0,0,NCTCOG,,,,,,,,,
+comhel,Community Health Clinic,1,point,public_health,,Locations of community health clinics,,,,0,,0,0,0,,,,,,,,,,
 commerce,Commerce,1,point_category,,,,,4,,0,,0,0,0,,,,,,,,,,
-emp_pubtrE_19_sd,Public Transportation to Work,0,sd,,,Total employed population who take public transportation to work in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.913903432,2,0.914015087
-empE_19_sd,Residents Employed,0,sd,,,Total population employed in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.93310064,2,1.03695022
-hs_degE_19,High School Degrees,0,estimate,,,Population where highest level of educational attainment is a high school degree (or equivalent).,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,377558,377558,2303.56051,805,13773.41742
-es_3t4E_19_sd,Enrolled Pre-K,0,sd,,,Total number of children (3 to 4 years old) enrolled in pre-k in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.951716114,2,0.993281399
-GEOID,Geography,0,name,,,Census shape geoid,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,48085,48439980000,48439931915,35258431864,48113013711,21376139763
-his_popE_19,Hispanic Population,0,estimate,,,Total hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,1047434,1047434,4787.453966,1359,33746.1553
-less_hs_19,Less than a High School Degree,0,estimate,,,Population where highest level of educational attainment is less than high school.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,344888,344888,1517.559351,445,11022.60965
-his_popE_19_sd,Hispanic Population,0,sd,,,Total hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.947062245,2,1.058306757
-NAME,Name,0,name,,,Name of census tract in geography,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,,,,,,
+crunion,Credit Union,1,point,commerce,,Locations of credit unions,,,,0,,0,0,0,CPAL/googleways,,,,,,,,,
+emp_pubtr_per_19,Public Transportation to Work (%),0,percent,,,Percent of employed population who take public transportation to work in 2019.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,0.5773196,0.5773196,0.014760126,0.0056919,0.027870463
+emp_pubtr_per_19_sd,Public Transportation to Work (%),1,sd,,,Percent of employed population who take public transportation to work in 2019.,12,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,1,4,3,1.93310064,2,0.880293426
 emp_pubtrE_19,Public Transportation to Work,0,estimate,,,Total employed population who take public transportation to work in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,33258,33258,113.9461494,18,1037.464848
-hs_18t24E_19_sd,Recent High School Graduates,0,sd,,,Population between 18 to 24 with a high school degree in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.924374636,2,1.051128531
-hs_18t24E_19,Recent High School Graduates,0,estimate,,,Population between 18 to 24 with a high school degree in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,39861,39861,211.5211349,63,1365.663583
-less_msE_19,Less than 9th grade completion,0,estimate,,,Population where highest level of educational attainment is less than 9th grade.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,185885,185885,764.0353214,181,5857.639879
-less_msE_19_sd,Less than 9th grade completion,0,estimate,,,Population where highest level of educational attainment is less than 9th grade.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.954043048,2,0.957590046
+emp_pubtrE_19_sd,Public Transportation to Work,0,sd,,,Total employed population who take public transportation to work in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.913903432,2,0.914015087
+emp_r_19,Employment to Population Ratio,0,estimate,,,Employed residents between 25 to 54 employed to total population per 100 people.,,,,1,4,0,0,1,ACS 5 Year,2019," Zip, Tract, Place",1,0,0.9575,0.9575,0.787946873,0.80675,0.107718843
+emp_r_19_sd,Employment to Population Ratio,1,sd,,,Employed residents between 25 to 54 employed to total population per 100 people.,11,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,2.067481094,2,0.960867682
 empE_19,Residents Employed,0,estimate,,,Total population employed in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,1282441,1282441,8096.177765,2653,47335.79948
-aftersch,Afterschool Programs (Dallas only),1,point,social_infrastructure,,Locations of afterschool programs in the City of Dallas,,,,0,,0,0,0,City of Dallas,,,,,,,,,
+empE_19_sd,Residents Employed,0,sd,,,Total population employed in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.93310064,2,1.03695022
+es_3t4_per_19,Enrolled Pre-K (%),0,percent,,,Percent of children (3 to 4 years old) enrolled in preschool.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.124975225,0.0881057,0.149628559
+es_3t4_per_19_sd,Enrolled Pre-K (%),1,sd,,,Percent of children (3 to 4 years old) enrolled in preschool.,15,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.935427574,2,1.056007941
+es_3t4E_19,Enrolled Pre-K,0,estimate,,,Total number of children (3 to 4 years old) enrolled in pre-k in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,11652,11652,60.53213665,14,392.6997237
+es_3t4E_19_sd,Enrolled Pre-K,0,sd,,,Total number of children (3 to 4 years old) enrolled in pre-k in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,1,4,3,1.951716114,2,0.993281399
+fid,ID,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",,1,1263,1262,493.4730747,400,388.5471889
+fqhc,Federally Qualified Health Center,1,point,public_health,,Locations of Qualified Health Centers,,,,0,,0,0,0,Texas Department of State Health Services,2021,,,,,,,,
+GEOID,Geography,0,name,,,Census shape geoid,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,48085,48439980000,48439931915,35258431864,48113013711,21376139763
+geometry,Geometry,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",,-97.846529,33.916064,131.762593,-32.01735305,-31.8805665,64.8614478
+giniE_19,Gini Coefficient,0,estimate,,,"Measure of the degree of income inequality, higher values correlate to a higher degree of income inequality in a geography.",,,,1,1,0,1,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,0.6658,0.6658,0.402999884,0.3982,0.06902219
+giniE_19_sd,Gini Coefficient,1,sd,,,"Measure of the degree of income inequality, higher values correlate to a higher degree of income inequality in a geography.",1,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",0,0,4,4,2.016870273,2,1.167195868
+HCV_PUBLIC,Total Public Assistance Vouchers,0,estimate,,,Households receiving public assistance vouchers in 2016. Minimum of 10 vouchers.,,,,0,,0,0,0,HUD,2019,Tract,0,11,602,591,65.4220339,40,69.18197643
+HCV_PUBLIC_sd,Total Public Assistance Vouchers,1,sd,,,Households receiving public assistance vouchers in 2016. Minimum of 10 vouchers.,13,,,0,,0,0,0,HUD,2019,Tract,0,1,4,3,1.916949153,2,0.96538609
+HCV_rohh,Housing Vouchers to Renters Ratio,0,estimate,,,Total housing choice vouchers compared to number of renter households.,,,,0,,0,0,0,CPAL/HUD/ACS,2019,Tract,1,0.004133655,0.866477273,0.862343618,0.07936386,0.056400544,0.078938817
+HCV_rohh_sd,Housing Vouchers to Renters Ratio,1,sd,,,Total housing choice vouchers compared to number of renter households.,14,,,0,,0,0,0,CPAL/HUD/ACS,2019,Tract,1,1,4,3,1.972881356,2,0.944617584
+highed,College Campuses,1,point,school,,Locations of higher education campuses,,,1,0,,0,0,0,Texas Department of Banking,2021,,,,,,,,
+his,Public High,1,point,school,public_school,Locations of DISD junior high schools,,,,0,,0,0,0,TEA,,,,,,,,,
+his_per_19,Hispanic Population (%),0,percent,,,Percent Hispanic Population in 2019,,,,1,11,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.288807843,0.2178369,0.215451093
+his_per_19_sd,Hispanic Population (%),0,sd,,,Percent Hispanic Population in 2019,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.929028505,2,1.212407115
+his_popE_19,Hispanic Population,0,estimate,,,Total hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,1047434,1047434,4787.453966,1359,33746.1553
+his_popE_19_sd,Hispanic Population,0,sd,,,Total hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.947062245,2,1.058306757
+hs_18t24_per_19,Recent High School Graduates (%),0,percent,,,Percent of residents between 18 to 24 who have graduated high school.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1.2439024,1.2439024,0.369331859,0.3481013,0.217591224
+hs_18t24_per_19_sd,Recent High School Graduates (%),1,sd,,,Percent of residents between 18 to 24 who have graduated high school.,7,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.96567772,2,1.248742088
+hs_18t24E_19,Recent High School Graduates,0,estimate,,,Population between 18 to 24 with a high school degree in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,,,,,,
+hs_18t24E_19_sd,Recent High School Graduates,0,sd,,,Population between 18 to 24 with a high school degree in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,,,,,,
+hs_degE_19,High School Degrees,0,estimate,,,Population where highest level of educational attainment is a high school degree (or equivalent).,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,314790,314790,1876.092646,644,11406.22881
+hs_degE_19_sd,High School Degrees,1,sd,,,Population where highest level of educational attainment is a high school degree (or equivalent).,9,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.931355439,2,1.122813473
+ies,Public Elementary,1,point,school,public_school,Locations of DISD elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
+ims,Public Middle,1,point,school,public_school,Locations of DISD independent elementary/secondary schools,,,,0,,0,0,0,TEA,,,,,,,,,
+INTPTLAT,,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",,,,,,,
+INTPTLON,,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",,,,,,,
+less_hsE_19,Less than a High School Degree,0,estimate,,,Population where highest level of educational attainment is less than high school.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,288448,288448,1238.634047,349,9157.385062
+less_hsE_19_sd,Less than a High School Degree,1,sd,,,Population where highest level of educational attainment is less than high school.,8,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.963350785,2,0.996119099
+less_msE_19,Less than 9th grade completion,0,estimate,,,Population where highest level of educational attainment is less than 9th grade.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,,,,,,
+less_msE_19_sd,Less than 9th grade completion,0,estimate,,,Population where highest level of educational attainment is less than 9th grade.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,,,,,,
+lib,Library,1,point,social_infrastructure,,Locations of libraries,,,,0,,0,0,0,City of Dallas,,,,,,,,,
+market,Supermarket,1,point,commerce,,Locations of supermarkets,,,,0,,0,0,0,CPAL,,,,,,,,,
+med_incE_19,Median Household Income,0,estimate,,,Median household income.,,,,1,2,1,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,250001,250001,76435.38854,68316,38287.94507
+med_incE_19_sd,Median Household Income,1,sd,,,Median household income.,2,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.927865038,2,1.13394427
+NAME,Name,0,name,,,Name of census tract in geography,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,,,,,,
+per_as,Change in Asian population (2014 to 2019),0,percentchange,,,Percent change in Asian population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.214645,0.313033,0.527678,0.00891049,0.0030628,0.035809545
+per_as_sd,Change in Asian population,0,sd,,,Percent change in Asian population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.994764398,2,1.000277284
+per_ba_deg,Change in Bachelor's degrees (2014 to 2019),0,percentchange,,,Percent change in total population with a bachelor's or graduate degree from 2014 to 2019.,,,,1,8,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3200855,0.5124369,0.8325224,0.012227155,0.0099386,0.058298089
+per_ba_deg_sd,Change in Bachelorss degrees,0,sd,,,Percent change in total population with a bachelor's or graduate degree from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.966841187,2,1.122608685
+per_bl,Change in Black population (2014 to 2019),0,percentchange,,,Percent change in Black population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.4021122,0.2940331,0.6961453,0.006402317,0.0056229,0.056407958
+per_bl_sd,Change in Black population,0,sd,,,Percent change in Black population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.040139616,2,1.084398399
+per_bp,Change in Below Poverty  (2014 to 2019),0,percentchange,,,Percent change in population below federal poverty from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.3203181,0.3266589,0.646977,-0.028538192,-0.0180792,0.067346902
+per_bp_sd,Change in Below Poverty,0,sd,,,Percent change in population below federal poverty from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,2,2,1.142368514
+per_cbp,Change in Children Below Poverty  (2014 to 2019),0,percentchange,,,Percent change in children (under 18) below federal poverty from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.2584181,0.080486,0.3389041,-0.003833307,0,0.019813543
+per_cbp_sd,Change in Children Below Poverty,0,sd,,,Percent change in children (under 18) below federal poverty from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,0.586969168,0,1.054605761
+per_emp_pubtr,Change in Public Transportation to Work  (2014 to 2019),0,percentchange,,,Percent change in employed population who take public transportation to work from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.2497382,0.1934812,0.4432194,-0.001628565,0,0.022313568
+per_emp_pubtr_sd,Change in Public Transportation to Work,0,sd,,,Percent change in employed population who take public transportation to work from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.977312391,2,0.877249373
+per_emp_r,Change in Ratio of Employment to Population Ratio (2014 to 2019),0,percentchange,,,,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.299,0.42675,0.72575,0.177884482,0.18075,0.076029636
+per_emp_r_sd,Change in Ratio of Employment to Population Ratio,0,sd,,,,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.027341478,2,1.165500125
+per_es_3t4,Change in Pre-K Enrollment (2014 to 2019),0,percentchange,,,Percent change in population 3 to 4 enrolled in pre-school from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,1,2,0.011812954,0,0.192870091
+per_es_3t4_sd,Change in Pre-K Enrollment,0,sd,,,Percent change in population 3 to 4 enrolled in pre-school from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.014543339,2,1.06610287
+per_gini,Change in Gini coeffient  (2014 to 2019),0,percentchange,,,,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.4820065,0.7911319,1.2731384,0.01681993,0.0033881,0.135245872
+per_gini_sd,Change in Gini coeffient,0,sd,,,,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,2.051774287,2,1.158154791
+per_his,Change in Hispanic population  (2014 to 2019),0,percentchange,,,Percent change in Hispanic population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3416753,0.75,1.0916753,0.018335951,0.0154704,0.075927654
+per_his_sd,Change in Hispanic population,0,sd,,,Percent change in Hispanic population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.004653869,2,1.113459503
+per_hs_18t24,Change in recent High School Graduate (2014 to 2019),0,percentchange,,,Percent change in residents between 18 to 24 who have graduated from high school between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,0.9029933,1.9029933,0.071272576,0.0517726,0.23271616
+per_hs_18t24_sd,Change in recent High School Graduate,0,sd,,,Percent change in residents between 18 to 24 who have graduated from high school between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.000581734,2,1.206067175
+per_hs_deg,Change in High School degrees  (2014 to 2019),0,percentchange,,,Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3455066,0.3533092,0.6988158,-0.003800717,-0.0056786,0.053390172
+per_hs_deg_sd,Change in High School degrees,0,sd,,,Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.011634671,2,1.152455319
+per_less_hs,Change in less than High School  (2014 to 2019),0,percentchange,,,Percent change in highest level of educational attainment is less than high school between 2014 and 2019,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3472464,0.2043578,0.5516042,-0.011424308,-0.0058104,0.050900608
+per_less_hs_sd,Change in less than High School,0,sd,,,Percent change in highest level of educational attainment is less than high school between 2014 and 2019,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.985456661,2,1.088257896
+per_med_inc,Change in median household income (2014 to 2019),0,percentchange,,,Percent change in (adjusted) medium household income between 2014 and 2019.,,,,1,3,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3595944,1.4772866,1.836881,0.111178238,0.0895962,0.182906229
+per_med_inc_sd,Change in median household income,0,sd,,,Percent change in (adjusted) medium household income between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.952297848,2,1.163093809
+per_rohh,Change in Renter-Occupied Households  (2014 to 2019),0,percentchange,,,Percent change in renter-occupiedhouseholds between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.0360412,0.25,0.2860412,8.45E-05,3.56E-06,0.006285051
+per_rohh_sd,Change in Renter-Occupied Households,0,sd,,,Percent change in renter-occupiedhouseholds between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.974970896,2,0.279282453
+per_tot_pop,Change in total population  (2014 to 2019),0,percentchange,,,Percent change in total population between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.9583333,2.8088235,3.7671568,0.105405159,0.07255805,0.216676271
+per_tot_pop_sd,Change in total population,0,sd,,,Percent change in total population between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.961583236,2,0.937618793
+per_wh,Change in White population  (2014 to 2019),0,percentchange,,,Percent change in White population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.5564516,0.2199552,0.7764068,-0.035405943,-0.0341361,0.070851888
+per_wh_sd,Change in White population,0,sd,,,Percent change in White population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.009307737,2,1.154999024
+pharm,Pharmacy,1,point,public_health,,Locations of pharmacies,,,,0,,0,0,0,TSBP,,,,,,,,,
 pop_18t24E_19,Population 18 to 24,0,estimate,,,Total population between 18 to 24 years old.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,249966,249966,1498.64447,483,9094.779635
 pop_18t24E_19_sd,Population 18 to 24,0,sd,,,Total population between 18 to 24 years old.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.94938918,2,0.980186975
 pop_3t4E_19,Between 3 to 4 years old,0,estimate,,,Total population between 3 to 4 years old.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,79624,79624,468.0995947,146,2849.857704
 pop_3t4E_19_sd,Between 3 to 4 years old,0,sd,,,Total population between 3 to 4 years old.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.94124491,2,1.031817946
+pop_bpE_19,Below Poverty,0,estimate,,,Total population living below federal poverty level in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,395812,395812,1884.803127,559,13385.74135
 pop_bpE_19_sd,Below Poverty,0,sd,,,Total population living below federal poverty level in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,4,4,2.068062827,2,1.07382788
 pop_o25E_19,Population Over 25,0,estimate,,,Total population over 25.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,1669564,1669564,10496.1905,3517,61466.24403
 pop_o25E_19_sd,Population Over 25,0,sd,,,Total population over 25.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.933682373,2,1.055624051
-pop_u18E_19,Population Under 18,0,estimate,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,687338,687338,4270.624204,1360,25141.21841
-bank,Bank,1,point,commerce,,Locations of banks,,,,0,,0,0,0,,,,,,,,,,
-pop_u18E_19_sd,Population Under 18,0,sd,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.936009308,2,1.016442535
+pop_u18E_19,Population Under 18,0,estimate,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,685833,685833,2795.521135,0,25216.58553
+pop_u18E_19_sd,Population Under 18,0,sd,,,Total population under 18 in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,0.527050611,0,1.002468474
+private_school,Private School,1,point_subcategory,school,,,,,4,0,,0,0,0,,,,,,,,,,
+prs,Private School,1,point,school,private_school,Locations of private schools,,,,0,,0,0,0,Texas Private School Accreditation Commission,2021,,,,,,,,
+public_health,Public Health,1,point_category,,,,,3,,0,,0,0,0,,,,,,,,,,
+public_school,Public School,1,point_subcategory,school,,,,,2,0,,0,0,0,,,,,,,,,,
+recctr,Recreation Center,1,point,social_infrastructure,,Locations of recreation centers,,,,0,,0,0,0,City of Dallas,,,,,,,,,
+rent_instability,Renter Instability Index,0,estimate,,,Estimate the prevalence of low-income renters at risk of experiencing housing instability. (Opportunity Insights),,,,0,,0,1,0,Opportunity Insights,2019,Tract,0,-1.428617601,2.035712027,3.464329628,-0.016641275,-0.046209345,0.541343541
+rent_instability_sd,Renter Instability Index,1,sd,,,Estimate the prevalence of low-income renters at risk of experiencing housing instability. (Opportunity Insights),5,,,0,,0,0,0,Opportunity Insights,2019,Tract,0,0,4,4,2.001583531,2,1.191623176
+rohh_per_19,Renter-Occupied Households (%),0,percent,,,Percent of households that are renter-occupied.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.390956529,0.3464458,0.249757425
+rohh_per_19_sd,Renter-Occupied Households (%),0,sd,,,Percent of households that are renter-occupied.,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.914485166,2,1.295741507
 rohhE_19,Renter-Occupied Households,0,estimate,,,Total number of renter-occupied households.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,464121,464121,2343.48813,685,15973.18249
 rohhE_19_sd,Renter-Occupied Households,0,sd,,,Total number of renter-occupied households.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.944153578,2,1.09465809
-thhE_19,Total Households,0,estimate,,,Total number of households in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,928341,928341,5687.081644,1919,33930.36108
-thhE_19_sd,Total Households,0,sd,,,Total number of households in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.93310064,2,1.076066916
-ces,Charter Elementary,1,point,education,charter_school,Locations of charter elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
-charter_school,Charter School,1,point_subcategory,education,,,,,3,0,,0,0,0,,,,,,,,,,
-chs,Charter High,1,point,education,charter_school,Locations of charter high schools,,,,0,,0,0,0,TEA,,,,,,,,,
-cms,Charter Middle,1,point,education,charter_school,Locations of charter middle schools,,,,0,,0,0,0,TEA,,,,,,,,,
-comcen,Community and Recreation Center,1,point,social_infrastructure,,Locations of community centers,,,,0,,0,0,0,NCTCOG,,,,,,,,,
-comhel,Community Health Clinic,1,point,public_health,,Locations of community health clinics,,,,0,,0,0,0,,,,,,,,,,
-crunion,Credit Union,1,point,commerce,,Locations of credit unions,,,,0,,0,0,0,CPAL/googleways,,,,,,,,,
-bp_u18E_19,Under 18 Below Poverty,0,estimate,,,Total population under 18 living below federal poverty level in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",0,0,158902,158902,708.2999421,176,5245.530281
-wh_per_19_sd,White Non-Hispanic Population (%),0,sd,,,Percent White Non-Hispanic Population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,2.004072135,2,1.391595322
-wh_popE_19,White Non-Hispanic Population,0,estimate,,,Total White Non-Hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,957676,957676,7282.96989,2313,37820.66089
-wh_popE_19_sd,White Non-Hispanic Population,0,sd,,,Total White Non-Hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.935427574,2,1.047151594
-Avg_EITC_sd,Average EITC Return,1,sd,commerce,,Average earned income tax credit return ($) in 2015.,6,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,4,4,2.063348416,2,1.197338549
-Avg_CTC,Average CTC Return,0,estimate,,,Average child tax credit return amount ($) in 2015.,,,,0,,1,0,0,Brookings,2014," Zip, Tract, Place",1,601.0450958,1310,708.9549042,766.540475,761.2595686,75.10450083
-Avg_CTC_sd,Average CTC Return,0,sd,commerce,,Average child tax credit return amount ($) in 2015.,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,4,4,1.943438914,2,1.081262776
-fqhc,Federally Qualified Health Center,1,point,public_health,,Locations of Qualified Health Centers,,,,0,,0,0,0,Texas Department of State Health Services,2021,,,,,,,,
-Avg_EITC,Average EITC Return,0,estimate,,,Average earned income tax credit return ($) in 2015.,,,,0,,1,0,0,Brookings,2014," Zip, Tract, Place",1,1305.274725,3218.625166,1913.350441,2484.541599,2488.57211,293.8270869
+scc,Subsidized Childcare Center,1,point,social_infrastructure,,Locations of subsidized childcare centers,,,,0,,0,0,0,TDHPS,,,,,,,,,
+school,School,1,point_category,,,,,2,,0,,0,0,0,,,,,,,,,,
+snap,SNAP Retailer,0,,commerce,,Locations of retailers which accept SNAP benefits,,,,0,,0,0,0,USDA SNAP Store Locations,,,,,,,,,
+social_infrastructure,Social Infrastructure,1,point_category,,,,,1,,0,,0,0,0,,,,,,,,,,
 Sum_CTC,Sum of CTC,0,estimate,,,Sum of CTC returns in 2014 in dollars.,,,,0,,1,0,0,Brookings,2014," Place, Zip",1,3201,49604302,49601101,759495.7295,233315,3279663.504
 Sum_CTC_sd,Sum of CTC,0,sd,,,Sum of CTC returns in 2014 in dollars.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,4,4,1.997742664,2,0.925991877
 Sum_EITC,Sum of EITC,0,estimate,,,Sum of EITC returns in 2014 in dollars.,,,,0,,1,0,0,Brookings,2014," Place, Zip",1,31875,737753396,737721521,10119582.59,2523041,47737547.6
 Sum_EITC_sd,Sum of EITC,0,sd,,,Sum of EITC returns in 2014 in dollars.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,1,4,3,2.009029345,2,0.815522322
-his,Public High,1,point,education,public_school,Locations of DISD junior high schools,,,,0,,0,0,0,TEA,,,,,,,,,
+thhE_19,Total Households,0,estimate,,,Total number of households in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,928341,928341,5687.081644,1919,33930.36108
+thhE_19_sd,Total Households,0,sd,,,Total number of households in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.93310064,2,1.076066916
 Tot_CTC,Returns Receiving the CTC,0,estimate,,,Total number of returns filed which received the CTC in 2014.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,69998,69998,1039.288248,307,4586.021607
 Tot_CTC_sd,Returns Receiving the CTC,0,sd,,,Total number of returns filed which received the CTC in 2014.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,4,4,1.977426637,2,0.899691081
 Tot_EITC,Returns Receiving EITC,0,estimate,,,Total number of returns filed which received the EITC in 2014.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,267539,267539,3813.008869,1133,17426.44925
-Tot_EITC_sd,Returns Receiving EITC,0,sd,,,Total number of returns filed which received the EITC in 2014.,,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,4,4,1.997742664,2,0.870582245
+Tot_EITC_sd,Returns Receiving EITC,1,sd,,,Total number of returns filed which received the EITC in 2014.,6,,,0,,0,0,0,Brookings,2014," Place, Zip",1,0,4,4,1.997742664,2,0.870582245
+tot_popE_19,Total Population,0,estimate,,,Total population in 2019.,,,,1,13,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,2606868,2606868,16265.45918,5427,95637.04945
+tot_popE_19_sd,Total Population,0,sd,,,Total population in 2019.,,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.930773706,2,1.037358647
 Tot_Returns,Tax Returns in 2014,0,estimate,,,Total number of tax returns filed in 2014.,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,267539,267539,3813.008869,1133,17426.44925
 Tot_Returns_sd,Tax Returns in 2014,0,estimate,,,Total number of tax returns filed in 2014.,,,,0,,0,0,0,Brookings,2014," Zip, Tract, Place",1,0,4,4,1.997742664,2,0.870582245
-ALAND,Area Land (SqMi),0,estimate,,,Area in square miles of land in geography,,,,0,,0,1,0,CPAL,," Zip, Tract, Place",NA,13392,2423342394,2423329002,36373747.37,4626702,155361556.7
-ies,Public Elementary,1,point,education,public_school,Locations of DISD elementary schools,,,,0,,0,0,0,TEA,,,,,,,,,
-ims,Public Middle,1,point,education,public_school,Locations of DISD independent elementary/secondary schools,,,,0,,0,0,0,TEA,,,,,,,,,
-AWATER,Area Water (SqMi),0,estimate,,,Area in square miles of water in geography,,,,0,,0,1,0,CPAL,," Zip, Tract, Place",NA,0,192588409,192588409,1556350.754,9036,8510804.299
-fid,ID,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",NA,1,1263,1262,493.4730747,400,388.5471889
-geometry,Geometry,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",NA,-97.846529,33.916064,131.762593,-32.01735305,-31.8805665,64.8614478
-INTPTLAT,,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",NA,,,,,,
-INTPTLON,,0,name,,,,,,,0,,0,0,0,CPAL,," Zip, Tract, Place",NA,,,,,,
-lib,Library,1,point,social_infrastructure,,Locations of libraries,,,,0,,0,0,0,City of Dallas,,,,,,,,,
-market,Supermarket,1,point,commerce,,Locations of supermarkets,,,,0,,0,0,0,CPAL,,,,,,,,,
-less_hs_19_sd,Less than a High School Degree,1,sd,,,Population where highest level of educational attainment is less than high school.,8,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.94124491,2,1.034634716
-hs_degE_19_sd,High School Degrees,1,sd,,,Population where highest level of educational attainment is a high school degree (or equivalent).,9,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.922629436,2,1.149153081
-ba_degE_19_sd,Bachelors Degrees or Higher,1,sd,,,Total population with a bachelors or graduate degree.,10,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.952297848,2,1.009295684
-tot_popE_19_sd,Total Population,0,sd,,,Total population in 2019.,,,,0,,0,0,0,CPAL and ACS,2019," Zip, Tract, Place",1,0,4,4,1.930773706,2,1.037358647
-per_med_inc,Change in median household income ,0,percentchange,,,Percent change in (adjusted) medium household income between 2014 and 2019.,,,,1,3,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3595944,1.4772866,1.836881,0.111178238,0.0895962,0.182906229
-bp_per_19,Below Poverty (%),0,percent,,,Percent of residents with an income below federal poverty level.,,,,1,5,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",0,0,0.6489899,0.6489899,0.119529148,0.095017,0.09366676
-cbp_per_19,Children Below Poverty (%),0,percent,,,Percent of residents under 18 with an income below federal poverty level in 2019.,,,,1,6,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",0,0,0.8088012,0.8088012,0.165583526,0.1282051,0.147989226
-per_ba_deg,Change in Bachelors degrees,0,percentchange,,,Percent change in total population with a bachelors or graduate degree from 2014 to 2019.,,,,1,8,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.1981792,0.9025009,1.1006801,0.323641357,0.2883204,0.207404235
-as_per_19,Asian Population (%),0,percent,,,Percent Asian population in 2019,,,,1,9,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,0.6692676,0.6692676,0.060674534,0.0304348,0.086300321
-bl_per_19,Black Population (%),0,percent,,,Percent Black Population in 2019,,,,1,10,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,0.9468354,0.9468354,0.148766697,0.091541,0.164073983
-his_per_19,Hispanic Population (%),0,percent,,,Percent Hispanic Population in 2019,,,,1,11,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.288807843,0.2178369,0.215451093
-wh_per_19,White Non-Hispanic Population (%),0,percent,,,Percent White Non-Hispanic Population in 2019.,,,,1,12,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.473372149,0.5023906,0.258670891
-giniE_19_sd,Gini Coefficient,1,sd,,,Degree of income inequality in a geography.,1,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",0,0,4,4,2.016870273,2,1.167195868
-med_incE_19_sd,Median Household Income,1,sd,,,Median household income.,2,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.927865038,2,1.13394427
-bp_per_19_sd,Below Poverty (%),1,sd,,,Percent of residents with an income below federal poverty level.,3,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",0,0,4,4,2.089005236,2,1.193546432
-cbp_per_19_sd,Children Below Poverty (%),1,sd,,,Percent of residents under 18 with an income below federal poverty level in 2019.,4,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",0,0,4,4,2.093659104,2,1.275706767
-hs_18t24_per_19_sd,Recent High School Graduates (%),1,sd,,,Percent of residents between 18 to 24 who have graduated high school.,7,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.901105294,2,1.159359318
-emp_pubtr_per_19_sd,Public Transportation to Work (%),1,sd,,,Percent of employed population who take public transportation to work in 2019.,12,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,1,4,3,1.93310064,2,0.880293426
-es_3t4_per_19_sd,Enrolled Pre-K (%),1,sd,,,Percent of children (3 to 4 years old) enrolled in preschool.,15,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.935427574,2,1.056007941
-as_per_19_sd,Asian Population (%),0,sd,,,Percent Asian population in 2019,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,1,4,3,1.899360093,2,0.95583171
-bl_per_19_sd,Black Population (%),0,sd,,,Percent Black Population in 2019,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,1,4,3,1.944735311,2,0.994674368
-es_3t4_per_19,Enrolled Pre-K (%),0,percent,,,Percent of children (3 to 4 years old) enrolled in preschool.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.124975225,0.0881057,0.149628559
-his_per_19_sd,Hispanic Population (%),0,sd,,,Percent Hispanic Population in 2019,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.929028505,2,1.212407115
-emp_pubtr_per_19,Public Transportation to Work (%),0,percent,,,Percent of employed population who take public transportation to work in 2019.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,0.5773196,0.5773196,0.014760126,0.0056919,0.027870463
-hs_18t24_per_19,Recent High School Graduates (%),0,percent,,,Percent of residents between 18 to 24 who have graduated high school.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.149719473,0.137931,0.110085959
-per_as,Change in Asian population,0,percentchange,,,Percent change in Asian population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.214645,0.313033,0.527678,0.00891049,0.0030628,0.035809545
-per_as_sd,Change in Asian population,0,sd,,,Percent change in Asian population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.994764398,2,1.000277284
-per_ba_deg_sd,Change in Bachelors degrees,0,sd,,,Percent change in total population with a bachelors or graduate degree from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.931355439,2,1.340664254
-per_bl,Change in Black population,0,percentchange,,,Percent change in Black population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.4021122,0.2940331,0.6961453,0.006402317,0.0056229,0.056407958
-per_bl_sd,Change in Black population,0,sd,,,Percent change in Black population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.040139616,2,1.084398399
-per_bp,Change in Below Poverty ,0,percentchange,,,Percent change in population below federal poverty from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.3203181,0.3266589,0.646977,-0.028538192,-0.0180792,0.067346902
-per_bp_sd,Change in Below Poverty ,0,sd,,,Percent change in population below federal poverty from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,2,2,1.142368514
-per_cbp,Change in Children Below Poverty ,0,percentchange,,,Percent change in children (under 18) below federal poverty from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-19656.23346,0.6338028,19656.86726,-91.77513001,-25.7859242,649.4818852
-per_cbp_sd,Change in Children Below Poverty ,0,sd,,,Percent change in children (under 18) below federal poverty from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,1,4,3,1.970896391,2,0.966697908
-pharm,Pharmacy,1,point,public_health,,Locations of pharmacies,,,,0,,0,0,0,TSBP,,,,,,,,,
-per_emp_pubtr,Change in Public Transportation to Work ,0,percentchange,,,Percent change in employed population who take public transportation to work from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.2497382,0.1934812,0.4432194,-0.001628565,0,0.022313568
-per_emp_pubtr_sd,Change in Public Transportation to Work ,0,sd,,,Percent change in employed population who take public transportation to work from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.977312391,2,0.877249373
-per_emp_r,Change in Ratio of Employment to Population Ratio,0,percentchange,,,,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-29.9,42.675,72.575,17.78844818,18.075,7.6029636
-per_emp_r_sd,Change in Ratio of Employment to Population Ratio,0,sd,,,,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.027341478,2,1.165500125
-per_es_3t4,Change in Pre-K Enrollment,0,percentchange,,,Percent change in population 3 to 4 enrolled in pre-school from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,1,2,0.011812954,0,0.192870091
-per_es_3t4_sd,Change in Pre-K Enrollment,0,sd,,,Percent change in population 3 to 4 enrolled in pre-school from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.014543339,2,1.06610287
-per_gini,Change in Gini coeffient ,0,percentchange,,,,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.4820065,0.7911319,1.2731384,0.01681993,0.0033881,0.135245872
-per_gini_sd,Change in Gini coeffient ,0,sd,,,,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,2.051774287,2,1.158154791
-per_his,Change in Hispanic population ,0,percentchange,,,Percent change in Hispanic population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3416753,0.75,1.0916753,0.018335951,0.0154704,0.075927654
-private_school,Private School,1,point_subcategory,education,,,,,4,0,,0,0,0,,,,,,,,,,
-prs,Private School,1,point,education,private_school,Locations of private schools,,,,0,,0,0,0,Texas Private School Accreditation Commission,2021,,,,,,,,
-public_school,Public School,1,point_subcategory,education,,,,,2,0,,0,0,0,,,,,,,,,,
-recctr,Recreation Center,1,point,social_infrastructure,,Locations of recreation centers,,,,0,,0,0,0,City of Dallas,,,,,,,,,
-per_his_sd,Change in Hispanic population ,0,sd,,,Percent change in Hispanic population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.004653869,2,1.113459503
-per_hs_18t24,Change in recent High School Graduate,0,percentchange,,,Percent change in residents between 18 to 24 who have graduated from high school between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-20,0.625,20.625,0.070070801,0.0948678,0.526435393
-per_hs_18t24_sd,Change in recent High School Graduate,0,sd,,,Percent change in residents between 18 to 24 who have graduated from high school between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.010471204,2,0.880460351
-per_hs_deg,Change in High School degrees ,0,percentchange,,,Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.8,0.6021562,1.4021562,0.218476464,0.224015,0.10387671
-per_hs_deg_sd,Change in High School degrees ,0,sd,,,Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.007562536,2,1.276386618
-scc,Subsidized Childcare Center,1,point,social_infrastructure,,Locations of subsidized childcare centers,,,,0,,0,0,0,TDHPS,,,,,,,,,
-snap,SNAP Retailer,0,,commerce,,Locations of retailers which accept SNAP benefits,,,,0,,0,0,0,USDA SNAP Store Locations,,,,,,,,,
-per_less_hs,Change in less than High School ,0,percentchange,,,Percent change in highest level of educational attainment is less than high school between 2014 and 2019,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.2176812,0.697707,0.9153882,0.146508166,0.1045333,0.132438673
-per_less_hs_sd,Change in less than High School ,0,sd,,,Percent change in highest level of educational attainment is less than high school between 2014 and 2019,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.937754508,2,1.183496264
-per_med_inc_sd,Change in median household income ,0,sd,,,Percent change in (adjusted) medium household income between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.952297848,2,1.163093809
-per_rohh,Change in Renter-Occupied Households ,0,percentchange,,,Percent change in renter-occupiedhouseholds between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.0360412,0.25,0.2860412,8.45E-05,3.56E-06,0.006285051
-per_rohh_sd,Change in Renter-Occupied Households ,0,sd,,,Percent change in renter-occupiedhouseholds between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.974970896,2,0.279282453
-per_tot_pop,Change in total population ,0,percentchange,,,Percent change in total population between 2014 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.9583333,2.8088235,3.7671568,0.105405159,0.07255805,0.216676271
-per_tot_pop_sd,Change in total population ,0,sd,,,Percent change in total population between 2014 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.961583236,2,0.937618793
-per_wh,Change in White population ,0,percentchange,,,Percent change in White population from 2014 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.5564516,0.2199552,0.7764068,-0.035405943,-0.0341361,0.070851888
-per_wh_sd,Change in White population ,0,sd,,,Percent change in White population from 2014 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.009307737,2,1.154999024
-rohh_per_19,Renter-Occupied Households (%),0,percent,,,Percent of households that are renter-occupied.,,,,0,,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.390956529,0.3464458,0.249757425
-rohh_per_19_sd,Renter-Occupied Households (%),0,sd,,,Percent of households that are renter-occupied.,,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.914485166,2,1.295741507
-HCV_rohh_sd,Housing Vouchers to Renters Ratio,1,sd,,,Total housing choice vouchers compared to number of renter households.,14,,,0,,0,0,0,CPAL/HUD/ACS,2019,Tract,1,1,4,3,1.972881356,2,0.944617584
-HCV_rohh,Housing Vouchers to Renters Ratio,0,estimate,,,Total housing choice vouchers compared to number of renter households.,,,,0,,0,0,0,CPAL/HUD/ACS,2019,Tract,1,0.004133655,0.866477273,0.862343618,0.07936386,0.056400544,0.078938817
-HCV_PUBLIC_sd,Total Public Assistance Vouchers,1,sd,,,Households receiving public assistance vouchers in 2016. Minimum of 10 vouchers.,13,,,0,,0,0,0,HUD,2019,Tract,0,1,4,3,1.916949153,2,0.96538609
 uscc,Childcare Center,1,point,social_infrastructure,,Locations of unsubsidized childcare centers,,,,0,,0,0,0,TDHPS,,,,,,,,,
 vita,Volunteer Income Tax Assistance Center,1,point,commerce,,Locations of Volunteer Income Tax Assistance Center,,,,0,,0,0,0,IRS,2021,,,,,,,,
-HCV_PUBLIC,Total Public Assistance Vouchers,0,estimate,,,Households receiving public assistance vouchers in 2016. Minimum of 10 vouchers.,,,,0,,0,0,0,HUD,2019,Tract,0,11,602,591,65.4220339,40,69.18197643
-rent_instability_sd,Renter Instability Index,1,sd,,,Estimate the prevalence of low-income renters at risk of experiencing housing instability. (Opportunity Insights),5,,,0,,0,0,0,Opportunity Insights,2019,Tract,0,0,4,4,2.001583531,2,1.191623176
-rent_instability,Renter Instability Index,0,estimate,,,Estimate the prevalence of low-income renters at risk of experiencing housing instability. (Opportunity Insights),,,,0,,0,1,0,Opportunity Insights,2019,Tract,0,-1.428617601,2.035712027,3.464329628,-0.016641275,-0.046209345,0.541343541
+wh_per_19,White Non-Hispanic Population (%),0,percent,,,Percent White Non-Hispanic Population in 2019.,,,,1,12,0,0,1,CPAL/ACS,2019," Zip, Tract, Place",1,0,1,1,0.473372149,0.5023906,0.258670891
+wh_per_19_sd,White Non-Hispanic Population (%),0,sd,,,Percent White Non-Hispanic Population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,2.004072135,2,1.391595322
+wh_popE_19,White Non-Hispanic Population,0,estimate,,,Total White Non-Hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,957676,957676,7282.96989,2313,37820.66089
+wh_popE_19_sd,White Non-Hispanic Population,0,sd,,,Total White Non-Hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.935427574,2,1.047151594
 wic,WIC Clinic,1,point,public_health,,Locations of retailers which accept WIC benefits,,,,0,,0,0,0,CPAL/googleways,,,,,,,,,
-highed,College Campuses,1,point,education,,Locations of higher education campuses,,,1,0,,0,0,0,Texas Department of Banking,2021,,,,,,,,
