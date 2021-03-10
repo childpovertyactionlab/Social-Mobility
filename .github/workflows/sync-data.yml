@@ -15,9 +15,15 @@ jobs:
       - uses: actions/checkout@v2.2.0
         with:
           fetch-depth: 0
+      - id: install-aws-cli
+          uses: unfor19/install-aws-cli-action@v1
+          with:
+            version: 2 # default
+            verbose: true # default
       - name: Gzip data directory
         run: |
-          ls -la
+          aws configure set aws_access_key_id ${AWS_ACCESS_ID}
+          aws configure set aws_secret_access_key ${AWS_SECRET_KEY}
           tree .
           cp -r ./Data/geojson gzip
           ls -la gzip
