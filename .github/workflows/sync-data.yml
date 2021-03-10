@@ -1,6 +1,6 @@
 name: Gzip map data files and copy to aws
 
-# Triggers the workflow on push to origin/build-data-only.
+# Triggers the workflow on push to testing, staging, or production.
 on:
   push:
     branches:
