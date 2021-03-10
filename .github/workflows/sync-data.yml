@@ -7,8 +7,6 @@ on:
       - testing
       - staging
       - production
-    branches-ignore:
-      - main
 
 jobs:
   build:
