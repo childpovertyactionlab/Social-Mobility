@@ -19,8 +19,8 @@ jobs:
         run: |
           ls -la
           tree .
-          cp -r ./Data/geojson ./gzip
-          ls -la .gzip
+          cp -r ./Data/geojson gzip
+          ls -la gzip
           gzip -r gzip
           tree gzip
           aws s3 cp --recursive ./gzip s3://untd-data/${GITHUB_REF##*/}/ \
