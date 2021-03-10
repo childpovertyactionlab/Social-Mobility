@@ -7,19 +7,22 @@ on:
       - testing
       - staging
       - production
+    branches-ignore:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.2.0
+      - id: install-aws-cli
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          version: 2 # default
+          verbose: true # default
+      - id: Check out branch
+        uses: actions/checkout@v2.2.0
         with:
           fetch-depth: 0
-      - id: install-aws-cli
-          uses: unfor19/install-aws-cli-action@v1
-          with:
-            version: 2 # default
-            verbose: true # default
       - name: Gzip data directory
         run: |
           aws configure set aws_access_key_id ${AWS_ACCESS_ID}
