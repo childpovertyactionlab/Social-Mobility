@@ -1,0 +1,30 @@
+name: Build and run data processing pipeline, data files only, no tilesets
+
+# Triggers the workflow on push to origin/build-data-only.
+on:
+  push:
+    branches:
+      - testing
+      - staging
+      - production
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.2.0
+        with:
+          fetch-depth: 0
+      - name: Gzip data directory
+        run: |
+          ls -la
+          tree .
+          cp -r ./Data/geojson ./gzip
+          ls -la .gzip
+          gzip -r gzip
+          tree gzip
+          aws s3 cp --recursive ./gzip s3://untd-data/${GITHUB_REF##*/}/ \
+            --acl=public-read \
+            --content-encoding=gzip \
+            --region=us-east-1 \
+            --cache-control max-age=2628000
