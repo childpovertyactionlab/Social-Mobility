@@ -17,7 +17,7 @@ jobs:
         with:
           version: 2 # default
           verbose: true # default
-      - id: Check out branch
+      - id: check-out-branch
         uses: actions/checkout@v2.2.0
         with:
           fetch-depth: 0
