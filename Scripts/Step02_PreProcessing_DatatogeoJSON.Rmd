@@ -38,6 +38,10 @@ zip.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_z
 place.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_places.shp")
 tract.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_tracts.shp")
 counties.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_counties.shp")
+school.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_schooldistricts.shp")
+
+plot(school.shape$geometry)
+
 ```
 
 ```{r transform and merge}
@@ -99,11 +103,18 @@ names(county.merge)
 county.select <- county.merge %>%
   select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
+
+names(county.merge)
+school.merge <- school.shape %>%
+  .[counties.shape, ]
+
+plot(school.merge$geometry)
 ```
 
 
 ```{r geojson export}
 getwd()
+geojsonio::geojson_write(school.merge, file = "Social-Mobility/Data/Intermediate/sm_schooldistricts.geojson")
 geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/Intermediate/sm_zcta.geojson")
 geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/Intermediate/sm_places.geojson")
 geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/Intermediate/sm_tracts.geojson")
