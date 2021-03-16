@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+    <idinfo>
+        <descript>
+            <abstract>The map includes 1020 school districts for Texas public schoosl in school year of 2019 to 2020.  </abstract>
+            <purpose>Current School Districts map for school yesr of 2019 to 2020.</purpose>
+        </descript>
+        <keywords>
+            <theme>
+                <themekt>None</themekt>
+                <themekey>TEA</themekey>
+            </theme>
+        </keywords>
+        <accconst>None</accconst>
+        <useconst>This map was produced by the Texas Education Agency in April, 2020. It is for informational purposes only--it has not been prepared for, nor is it suitable for, legal or engineering purposes.  Positions shown are based on information available at the time the map data was last updated.  They are approximations, and are not the product of an on-the-ground survey.</useconst>
+        <datacred/>
+    </idinfo>
+    <metainfo>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+    </metainfo>
+</metadata>
