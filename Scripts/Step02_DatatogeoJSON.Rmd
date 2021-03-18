@@ -39,6 +39,9 @@ place.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm
 tract.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_tracts.shp")
 counties.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_counties.shp")
 school.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/sm_schooldistricts.shp")
+statehouse.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/Texas_House_of_Representative_Districts.shp")
+statesenate.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/Texas_State_Senate_Districts.shp")
+congressdistrict.shape <- st_read("Social-Mobility/Data/Reference Geographies/Shapefiles/Texas_Congressional_Districts.shp")
 
 plot(school.shape$geometry)
 
@@ -104,20 +107,31 @@ county.select <- county.merge %>%
   select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
   rename(NAME = NAME.x)
 
-names(county.merge)
 school.merge <- school.shape %>%
   .[counties.shape, ]
 
-plot(school.merge$geometry)
+statehouse.merge <- statehouse.shape %>%
+  .[counties.shape, ]
+
+statesenate.merge <- statesenate.shape %>%
+  .[counties.shape, ]
+
+congressdistrict.merge <- congressdistrict.shape %>%
+  .[counties.shape, ]
+
+plot(statehouse.merge$geometry)
 ```
 
 
 ```{r geojson export}
 getwd()
-geojsonio::geojson_write(school.merge, file = "Social-Mobility/Data/Intermediate/sm_schooldistricts.geojson")
+geojsonio::geojson_write(school.merge, file = "Social-Mobility/Data/geojson/sm_schooldistricts.geojson")
 geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/Intermediate/sm_zcta.geojson")
 geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/Intermediate/sm_places.geojson")
 geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/Intermediate/sm_tracts.geojson")
 geojsonio::geojson_write(county.merge, file = "Social-Mobility/Data/Intermediate/sm_counties.geojson")
+geojsonio::geojson_write(statehouse.merge, file = "Social-Mobility/Data/geojson/sm_statehouse.geojson")
+geojsonio::geojson_write(statesenate.merge, file = "Social-Mobility/Data/geojson/sm_statesenate.geojson")
+geojsonio::geojson_write(congressdistrict.merge, file = "Social-Mobility/Data/geojson/sm_fedcongress.geojson")
 ```
 
