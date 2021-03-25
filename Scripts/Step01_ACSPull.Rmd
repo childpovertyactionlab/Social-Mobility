@@ -32,8 +32,7 @@ getwd()
 Import necessary geocode files and transform data columns to merge with ACS dataset later in process. 
 ```{r geographies of interest}
 acs_b <- load_variables(2019, "acs5", cache = TRUE)
-acs_s <- load_variables(2019, "acs5/subject", cache = TRUE)
-acs_s <- load_variables(2013, "acs5/subject", cache = TRUE)
+acs_s <- load_variables(2014, "acs5/subject", cache = TRUE)
 
 #fips <- tidycensus::fips_codes
 
@@ -94,7 +93,7 @@ socmob.var <- c(
   pop_bp = "S1701_C02_001", #population below poverty
   bp_u18 = "S1701_C02_002", #population under 18 below poverty
   pop_o25 = "S1501_C01_006", #population 25 and over
-  pop_u18 = "S2701_C01_002", #population under 18
+  pop_u18 = "S0101_C01_022", #population under 18
   emp_r25t29 = "S2301_C03_004", #employed population ratio 25 to 29
   emp_r30t34 = "S2301_C03_005", #employed population ratio 30 to 34
   emp_r35t44 = "S2301_C03_006", #employed population ratio 35 to 44
@@ -262,7 +261,7 @@ socmob.tract.2019 <- socmob.tract.2019 %>%
 
 socmob.tract <- full_join(socmob.tract.2013, socmob.tract.2019)
 
-rm(socmob.tract.2014)
+rm(socmob.tract.2013)
 rm(socmob.tract.2019)
 ```
 
