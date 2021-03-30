@@ -312,8 +312,8 @@ socmob.calc <- socmob.combine %>%
          per_hs_18t24 = hs_18t24_per_19-hs_18t24_per_13,
          per_es_3t4 = es_3t4_per_19 - es_3t4_per_13,
          per_emp_pubtr = emp_pubtr_per_19 - emp_pubtr_per_13,
-         per_bp = bp_per_19 - bp_per_13,
-         per_cbp = cbp_per_19 - cbp_per_13) %>%
+         per_bp = (bp_per_19 - bp_per_13)/bp_per_19,
+         per_cbp = (cbp_per_19 - cbp_per_13)/cbp_per_19) %>%
   mutate_if(is.numeric, funs(replace_na(., 0))) %>%
   select(-(ends_with("_13")), -(ends_with("M_19")), -(emp_r25t29E_19:emp_r45t54E_19), -(popm_18t24E_19:popf_18t24E_19), -(hsm_18t24E_19:hsf_18t24E_19))
 

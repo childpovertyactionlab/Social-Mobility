@@ -218,17 +218,21 @@ left_join(county.select, .)
 ```{r join to each other}
 new_tract_var <- tract_rent %>%
   left_join(.,  as.data.frame(tract_housing)) %>%
-  mutate(per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)),
+  mutate(per_bp = hablar::rationalize(as.numeric(per_bp)),
+         per_cbp = hablar::rationalize(as.numeric(per_cbp)),
+         per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)),
          HCV_rohh = hablar::rationalize(as.numeric(HCV_rohh)))
 
 new_zip_var <- zip.select %>%
   left_join(.,  as.data.frame(eitc_zip)) %>%
-  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)),
+  mutate(per_bp = hablar::rationalize(as.numeric(per_bp)),
+         per_cbp = hablar::rationalize(as.numeric(per_cbp)),
          per_rohh = hablar::rationalize(as.numeric(per_rohh)))
 
 new_place_var <- place.select  %>%
   left_join(.,  as.data.frame(eitc_place)) %>%
-  mutate(per_cbp = hablar::rationalize(as.numeric(per_cbp)),
+  mutate(per_bp = hablar::rationalize(as.numeric(per_bp)),
+         per_cbp = hablar::rationalize(as.numeric(per_cbp)),
          per_rohh = hablar::rationalize(as.numeric(per_rohh)))
 
 new_county_var <- county.select %>%

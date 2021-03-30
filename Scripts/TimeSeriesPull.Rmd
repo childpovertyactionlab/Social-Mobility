@@ -117,8 +117,19 @@ cpal_multi <- map(
   reduce(., rbind)
 
 untd_counties <- cpal_multi %>%
-  filter(str_detect(NAME, str_c(counties, collapse = "|")))
+  filter(str_detect(NAME, str_c(counties, collapse = "|"))) %>%
+  group_by(GEOID) %>%
+  mutate(cbp_change = (cbp_perE - lag(cbp_perE, n = 7))/cbp_perE) %>%
+  ungroup()
 ```
+
+```{r}
+ggplot(untd_counties, aes(x = cbp_change)) +
+  geom_histogram()
+
+min(untd_counties$cbp_change, na.rm = TRUE)
+```
+
 
 ```{r}
 export(untd_counties, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyTract_ChildPovertyRate.csv")
