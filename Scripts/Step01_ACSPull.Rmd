@@ -333,8 +333,6 @@ socmob.tract <- socmob.calc %>%
   filter(str_detect(TYPE, "TRACT"))
 
 rm(socmob.combine)
-
-BRRR::skrrrahh(sound = 27)
 ```
 
 Export to csv
