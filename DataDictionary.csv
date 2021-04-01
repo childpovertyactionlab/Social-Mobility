@@ -78,40 +78,40 @@ market,Supermarket,1,point,commerce,"",Locations of supermarkets,,,,0,,0,0,0,CPA
 med_incE_19,Median Household Income,0,estimate,"","",Median household income.,,,,0,2,1,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,250001,250001,76435.3885350319,68316,38287.9450703545
 med_incE_19_sd,Median Household Income,1,sd,"","",Median household income.,2,,,0,,0,0,0,CPAL/ACS,2019," Zip, Tract, Place",1,0,4,4,1.92786503781268,2,1.13394426975938
 NAME,Name,0,name,"","",Name of census tract in geography,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,,,,,,
-per_as,Change in Asian population (2013 to 2019),0,percentchange,"","",Percent change in Asian population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.2349925,0.3747511,0.6097436,0.00921240781702374,0,0.0387650705212185
-per_as_sd,Change in Asian population,0,sd,"","",Percent change in Asian population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.6847004072135,2,1.14671866242366
-per_ba_deg,Change in Bachelor's degrees (2013 to 2019),0,percentchange,"","",Percent change in total population with a bachelor's or graduate degree from 2013 to 2019.,,,,0,8,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3434827,0.5092421,0.8527248,0.00985498679791546,0,0.0583136466972035
-per_ba_deg_sd,Change in Bachelor's degrees,0,sd,"","",Percent change in total population with a bachelor's or graduate degree from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.67190226876091,2,1.26586621554508
-per_bl,Change in Black population (2013 to 2019),0,percentchange,"","",Percent change in Black population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.4198,0.2955456,0.7153456,0.00614952009264621,0,0.0562400754800392
-per_bl_sd,Change in Black population,0,sd,"","",Percent change in Black population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.71495055264689,2,1.23829226606772
-per_bp,Change in Below Poverty  (2013 to 2019),0,percentchange,"","",Percent change in population below federal poverty from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-34.0416667,1,35.0416667,-0.454945285722577,-0.0442003,1.72448534926841
-per_bp_sd,Change in Below Poverty,0,sd,"","",Percent change in population below federal poverty from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,1.70262390670554,2,0.964461322804305
-per_cbp,Change in Children Below Poverty  (2013 to 2019),0,percentchange,"","",Percent change in children (under 18) below federal poverty from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-82796.0781559,1,82797.0781559,-602.140303965631,-112.8101035,3437.01546281396
-per_cbp_sd,Change in Children Below Poverty,0,sd,"","",Percent change in children (under 18) below federal poverty from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,1.75566442131047,2,0.865852076679665
-per_emp_pubtr,Change in Public Transportation to Work  (2013 to 2019),0,percentchange,"","",Percent change in employed population who take public transportation to work from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.1991016,0.161275,0.3603766,-0.00122381986103069,0,0.0210477060224756
-per_emp_pubtr_sd,Change in Public Transportation to Work,0,sd,"","",Percent change in employed population who take public transportation to work from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.6695753344968,2,1.10673638193049
-per_emp_r,Change in Ratio of Employment to Population Ratio (2013 to 2019),0,percentchange,"","","",,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.14375,0.47225,0.616,0.151734655471917,0.16575,0.0976488879195136
-per_emp_r_sd,Change in Ratio of Employment to Population Ratio,0,sd,"","","",,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.69633507853403,2,1.30760445129431
-per_es_3t4,Change in Pre-K Enrollment (2013 to 2019),0,percentchange,"","",Percent change in population 3 to 4 enrolled in pre-school from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,1,2,0.0096802612044007,0,0.183048479794059
-per_es_3t4_sd,Change in Pre-K Enrollment,0,sd,"","",Percent change in population 3 to 4 enrolled in pre-school from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.70738801628854,2,1.24940408896722
-per_gini,Change in Gini coeffient  (2013 to 2019),0,percentchange,"","","",,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.3529773,0.677666,1.0306433,0.0220359716850029,0,0.132312339515156
-per_gini_sd,Change in Gini coeffient,0,sd,"","","",,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,1.72774869109948,2,1.32465348719493
-per_his,Change in Hispanic population  (2013 to 2019),0,percentchange,"","",Percent change in Hispanic population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3496922,0.6153846,0.9650768,0.0180331387376954,0.0048408,0.0759424606211248
-per_his_sd,Change in Hispanic population,0,sd,"","",Percent change in Hispanic population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.71844095404305,2,1.27200661459172
-per_hs_18t24,Change in recent High School Graduate (2013 to 2019),0,percentchange,"","",Percent change in residents between 18 to 24 who have graduated from high school between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.7540984,1.0508475,1.8049459,0.0577631897510133,0,0.225858920074616
-per_hs_18t24_sd,Change in recent High School Graduate,0,sd,"","",Percent change in residents between 18 to 24 who have graduated from high school between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.69051774287376,2,1.33924279667909
-per_hs_deg,Change in High School degrees  (2013 to 2019),0,percentchange,"","",Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.388547,0.3510441,0.7395911,-0.00271292327735958,0,0.052479909125972
-per_hs_deg_sd,Change in High School degrees,0,sd,"","",Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.68411867364747,2,1.29866871024525
-per_less_hs,Change in less than High School  (2013 to 2019),0,percentchange,"","",Percent change in highest level of educational attainment is less than high school between 2013 and 2019,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3745245,0.1562014,0.5307259,-0.0117666587724378,0,0.0505582807327984
-per_less_hs_sd,Change in less than High School,0,sd,"","",Percent change in highest level of educational attainment is less than high school between 2013 and 2019,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.68644560791158,2,1.25177270869755
-per_med_inc,Change in median household income (2013 to 2019),0,percentchange,"","",Percent change in (adjusted) medium household income between 2013 and 2019.,,,,0,3,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3711804,1.1877647,1.5589451,0.103506277301679,0.0685557,0.179756396926748
-per_med_inc_sd,Change in median household income,0,sd,"","",Percent change in (adjusted) medium household income between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.64456079115765,2,1.27796464053839
-per_rohh,Change in Renter-Occupied Households  (2013 to 2019),0,percentchange,"","",Percent change in renter-occupiedhouseholds between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.0559524,0.3636364,0.4195888,0.000124952568972437,0,0.00901008291817001
-per_rohh_sd,Change in Renter-Occupied Households,0,sd,"","",Percent change in renter-occupiedhouseholds between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.67132053519488,2,0.746468637185109
-per_tot_pop,Change in total population  (2013 to 2019),0,percentchange,"","",Percent change in total population between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.956044,2.9846154,3.9406594,0.110132834472769,0.0545279,0.249704841899285
-per_tot_pop_sd,Change in total population,0,sd,"","",Percent change in total population between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.65308498253783,2,1.08175924189322
-per_wh,Change in White population  (2013 to 2019),0,percentchange,"","",Percent change in White population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.5,0.2528123,0.7528123,-0.0357381420961204,-0.0254822,0.0719693383504402
-per_wh_sd,Change in White population,0,sd,"","",Percent change in White population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.68295520651542,2,1.30196649589474
+per_as,Change in Asian population (2013 to 2019),0,percentchange,"","",Percent change in Asian population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,222,223,1.19009973895859,0.13727995,7.26531122821416
+per_as_sd,Change in Asian population,0,sd,"","",Percent change in Asian population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,1,4,3,2.06052963430013,2,0.433741811517131
+per_ba_deg,Change in Bachelor's degrees (2013 to 2019),0,percentchange,"","",Percent change in total population with a bachelor's or graduate degree from 2013 to 2019.,,,,0,8,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,,,,,,
+per_ba_deg_sd,Change in Bachelor's degrees,0,sd,"","",Percent change in total population with a bachelor's or graduate degree from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,,,,,,
+per_bl,Change in Black population (2013 to 2019),0,percentchange,"","",Percent change in Black population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,74,75,0.772693037433155,0.1671605,3.36909874958626
+per_bl_sd,Change in Black population,0,sd,"","",Percent change in Black population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,1,4,3,2.07044776119403,2,0.491071515241825
+per_bp,Change in Below Poverty  (2013 to 2019),0,percentchange,"","",Percent change in population below federal poverty from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-1,26.3333333,27.3333333,0.18030182353283,-0.1079137,1.42762418683551
+per_bp_sd,Change in Below Poverty,0,sd,"","",Percent change in population below federal poverty from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,1.96672504378284,2,0.703422593822362
+per_cbp,Change in Children Below Poverty  (2013 to 2019),0,percentchange,"","",Percent change in children (under 18) below federal poverty from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-1,23.4444444,24.4444444,0.176116215834348,-0.19726905,1.64708683386932
+per_cbp_sd,Change in Children Below Poverty,0,sd,"","",Percent change in children (under 18) below federal poverty from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,2.00979192166463,2,0.769060046634643
+per_emp_pubtr,Change in Public Transportation to Work  (2013 to 2019),0,percentchange,"","",Percent change in employed population who take public transportation to work from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,30,31,0.339194523377484,0,2.00860568681935
+per_emp_pubtr_sd,Change in Public Transportation to Work,0,sd,"","",Percent change in employed population who take public transportation to work from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,1,4,3,1.97470039946738,2,0.767875416338156
+per_emp_r,Change in Ratio of Employment to Population Ratio (2013 to 2019),0,percentchange,"","","",,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,,,,,,
+per_emp_r_sd,Change in Ratio of Employment to Population Ratio,0,sd,"","","",,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,,,,,,
+per_es_3t4,Change in Pre-K Enrollment (2013 to 2019),0,percentchange,"","",Percent change in population 3 to 4 enrolled in pre-school from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,66.3333333,67.3333333,0.379081921657382,0,2.83650555249661
+per_es_3t4_sd,Change in Pre-K Enrollment,0,sd,"","",Percent change in population 3 to 4 enrolled in pre-school from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,1,4,3,2.09593837535014,2,0.568907313090541
+per_gini,Change in Gini coeffient  (2013 to 2019),0,percentchange,"","","",,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,-0.4820065,0.7911319,1.2731384,0.0168199301100174,0.0033881,0.135245871902094
+per_gini_sd,Change in Gini coeffient,0,sd,"","","",,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",0,0,4,4,2.05177428737638,2,1.15815479080082
+per_his,Change in Hispanic population  (2013 to 2019),0,percentchange,"","",Percent change in Hispanic population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,84.25,85.25,0.356491145380593,0.1573333,2.17442939225345
+per_his_sd,Change in Hispanic population,0,sd,"","",Percent change in Hispanic population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.0502043199066,2,0.423935189241928
+per_hs_18t24,Change in recent High School Graduate (2013 to 2019),0,percentchange,"","",Percent change in residents between 18 to 24 who have graduated from high school between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,36.0909091,37.0909091,0.829461709741784,0.28757335,2.39420553033061
+per_hs_18t24_sd,Change in recent High School Graduate,0,sd,"","",Percent change in residents between 18 to 24 who have graduated from high school between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.00707547169811,2,0.743076239389674
+per_hs_deg,Change in High School degrees  (2013 to 2019),0,percentchange,"","",Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,4.3333333,5.3333333,0.143263799536232,0.063745,0.471729046703656
+per_hs_deg_sd,Change in High School degrees,0,sd,"","",Percent change in highest level of educational attainment is a high school degree (or equivalent) between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.95107746068725,2,1.01958973726756
+per_less_hs,Change in less than High School  (2013 to 2019),0,percentchange,"","",Percent change in highest level of educational attainment is less than high school between 2013 and 2019,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,23.5,24.5,0.260234331708749,0,1.25496620456173
+per_less_hs_sd,Change in less than High School,0,sd,"","",Percent change in highest level of educational attainment is less than high school between 2013 and 2019,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.0023598820059,2,0.755925260259226
+per_med_inc,Change in median household income (2013 to 2019),0,percentchange,"","",Percent change in (adjusted) medium household income between 2013 and 2019.,,,,0,3,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.3595944,1.4772866,1.836881,0.111178238332368,0.0895962,0.182906229292114
+per_med_inc_sd,Change in median household income,0,sd,"","",Percent change in (adjusted) medium household income between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.95229784758581,2,1.16309380880993
+per_rohh,Change in Renter-Occupied Households  (2013 to 2019),0,percentchange,"","",Percent change in renter-occupiedhouseholds between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,31.1021771,32.1021771,0.122742933487833,0.0227298,0.95245667473449
+per_rohh_sd,Change in Renter-Occupied Households,0,sd,"","",Percent change in renter-occupiedhouseholds between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.02735739231665,2,0.563764182889114
+per_tot_pop,Change in total population  (2013 to 2019),0,percentchange,"","",Percent change in total population between 2013 and 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-0.9583333,2.8088235,3.7671568,0.105405159269988,0.07255805,0.216676271426965
+per_tot_pop_sd,Change in total population,0,sd,"","",Percent change in total population between 2013 and 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,1.9615832363213,2,0.937618792659266
+per_wh,Change in White population  (2013 to 2019),0,percentchange,"","",Percent change in White population from 2013 to 2019.,,,,0,,0,0,1,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,-1,45.1666667,46.1666667,0.0806815022582513,-0.0107827,1.19911378242553
+per_wh_sd,Change in White population,0,sd,"","",Percent change in White population from 2013 to 2019.,,,,0,,0,0,0,CPAL/ACS,2014 and 2019," Zip, Tract, Place",1,0,4,4,2.01628853984875,2,0.566602480326898
 pharm,Pharmacy,1,point,public_health,"",Locations of pharmacies,,,,0,,0,0,0,TSBP,"","",,,,,,,
 pop_18t24E_19,Population 18 to 24,0,estimate,"","",Total population between 18 to 24 years old.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,249966,249966,1498.6444701795,483,9094.77963481548
 pop_18t24E_19_sd,Population 18 to 24,0,sd,"","",Total population between 18 to 24 years old.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.94938917975567,2,0.980186975415705
@@ -159,3 +159,49 @@ wh_per_19_sd,White Non-Hispanic Population (%),0,sd,"","",Percent White Non-Hisp
 wh_popE_19,White Non-Hispanic Population,0,estimate,"","",Total White Non-Hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,957676,957676,7282.96988998263,2313,37820.6608858373
 wh_popE_19_sd,White Non-Hispanic Population,0,sd,"","",Total White Non-Hispanic population in 2019.,,,,0,,0,0,0,ACS 5 Year,2019," Zip, Tract, Place",1,0,4,4,1.93542757417103,2,1.04715159429178
 wic,WIC Clinic,1,point,public_health,"",Locations of retailers which accept WIC benefits,,,,0,,0,0,0,CPAL/googleways,"","",,,,,,,
+tot_popM_19,,,,,,,,,,,,,,,,,,,0,3053,3053,532.836711059641,449,387.121748219705
+popf_18t24M_19,,,,,,,,,,,,,,,,,,,3,1424,1421,148.04863925883,114,128.253618585834
+pop_3t4M_19,,,,,,,,,,,,,,,,,,,3,1900,1897,117.061957151129,89,118.090657798165
+med_incM_19,,,,,,,,,,,,,,,,,,,0,87407,87407,10508.1621308628,8978,7662.86588289053
+giniM_19,,,,,,,,,,,,,,,,,,,0,0.3052,0.3052,0.047442501447597,0.0429,0.0244579924638426
+less_hsM_19,,,,,,,,,,,,,,,,,,,3,3514,3511,200.229878401853,153,222.835149615098
+hs_degM_19,,,,,,,,,,,,,,,,,,,3,4470,4467,252.502026635785,196,264.28652696096
+ba_degM_19,,,,,,,,,,,,,,,,,,,3,4768,4765,264.813549507817,194,293.177890982053
+his_popM_19,,,,,,,,,,,,,,,,,,,0,4047,4047,466.292993630573,370,388.154799238916
+wh_popM_19,,,,,,,,,,,,,,,,,,,3,3599,3596,425.676896352056,322,351.544792921174
+bl_popM_19,,,,,,,,,,,,,,,,,,,4,3753,3749,340.250144759699,244,338.601369703607
+as_popM_19,,,,,,,,,,,,,,,,,,,3,2098,2095,193.82107701216,116,241.151413988382
+rohhM_19,,,,,,,,,,,,,,,,,,,3,3200,3197,178.609727851766,137,186.714561085377
+thhM_19,,,,,,,,,,,,,,,,,,,3,2589,2586,172.629994209612,123,177.288490610189
+hsf_18t24M_19,,,,,,,,,,,,,,,,,,,3,1260,1257,82.011580775912,58,90.5655392487211
+es_3t4M_19,,,,,,,,,,,,,,,,,,,3,944,941,42.9889982628836,21,54.509903163137
+empM_19,,,,,,,,,,,,,,,,,,,5,4666,4661,393.75390851187,307,325.980578308002
+emp_pubtrM_19,,,,,,,,,,,,,,,,,,,2,1855,1853,51.0758540822235,25,82.4619335722809
+pop_bpM_19,,,,,,,,,,,,,,,,,,,5,8268,8263,394.874348581355,295,459.692314683853
+bp_u18M_19,,,,,,,,,,,,,,,,,,,4,5278,5274,216.744643891141,150,287.941835800472
+pop_o25M_19,,,,,,,,,,,,,,,,,,,6,2793,2787,379.499131441807,303,263.806354052382
+pop_u18M_19,,,,,,,,,,,,,,,,,,,0,2890,2890,330.384481760278,268,256.847140296768
+emp_r45t54M_19,,,,,,,,,,,,,,,,,,,0,55.3,55.3,10.0320787492762,9.4,5.17908614310366
+tot_popM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.92146596858639,2,1.15765355837151
+popf_18t24M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.90168702734148,2,1.0998955150982
+pop_3t4M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.9261198371146,2,1.16697304513661
+med_incM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.92088423502036,2,1.01594971137528
+giniM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.94008144269924,2,0.964693485372747
+less_hsM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.90692262943572,2,1.22143916448732
+hs_degM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.92262943571844,2,1.14050968809233
+ba_degM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.92437463641652,2,1.1575959349041
+his_popM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.90808609656777,2,1.17983582529742
+wh_popM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.92844677137871,2,1.12340922399774
+bl_popM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.91099476439791,2,1.17139514616014
+as_popM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.95055264688773,2,1.02608498326905
+rohhM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.93891797556719,2,1.18257291058282
+thhM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.93717277486911,2,1.17383550392343
+hsf_18t24M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.89296102385108,2,1.16464827498138
+es_3t4M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,2.00581733566027,2,1.03768958087912
+empM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.93368237347295,2,1.17165787801128
+emp_pubtrM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.90808609656777,2,0.998682952033919
+pop_bpM_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.91972076788831,2,1.19196999604024
+bp_u18M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.891215823153,2,1.21272294829394
+pop_o25M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.94008144269924,2,1.15272324942042
+pop_u18M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.91797556719023,2,1.15690832703699
+emp_r45t54M_19_sd,,,,,,,,,,,,,,,,,,,0,4,4,1.90692262943572,2,1.10956987038668
