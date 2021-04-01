@@ -15,7 +15,8 @@ output:
 Load necessary libraries to import ACS census data with the tidycensus package.
 ```{r setup, include = FALSE, echo = FALSE}
 rm(list=ls(all=TRUE))
-knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub')
+knitr::opts_knit$set(root.dir = 'C:/Users/micha/Documents/GitHub')
+#knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub')
 #knitr::opts_knit$set(root.dir = 'C:/Users/OwenWilson-Chavez/CPAL Dropbox')
 getwd()
 library(tidycensus)
@@ -297,23 +298,23 @@ socmob.calc <- socmob.combine %>%
          cbp_per_19 = bp_u18E_19/pop_u18E_19,
          rohh_per_13 = rohhE_13/thhE_13,
          rohh_per_19 = rohhE_19/thhE_19,
-         per_rohh = ((rohh_per_19 - rohh_per_13)/rohhE_19),
+         per_rohh = ((rohh_per_19 - rohh_per_13)/rohh_per_13),
          per_tot_pop = ((tot_popE_19 - tot_popE_13)/tot_popE_13),
          per_med_inc = ((med_incE_19 - adj_med_inc_13)/adj_med_inc_13),
          per_gini = ((giniE_19 - giniE_13)/giniE_13),
-         per_less_hs = (less_hsE_19/pop_o25E_19) - (less_hsE_13/pop_o25E_13),
-         per_hs_deg = (hs_degE_19/pop_o25E_19) - (hs_degE_13/pop_o25E_13),
-         per_ba_deg = (ba_degE_19/pop_o25E_19) - (ba_degE_13/pop_o25E_13),
-         per_wh = (wh_popE_19/tot_popE_19) - (wh_popE_13/tot_popE_13),
-         per_bl = (bl_popE_19/tot_popE_19) - (bl_popE_13/tot_popE_13),
-         per_as = (as_popE_19/tot_popE_19) - (as_popE_13/tot_popE_13),
-         per_his = (his_popE_19/tot_popE_19) - (his_popE_13/tot_popE_13),
-         per_emp_r = emp_r_19-emp_r_13,
-         per_hs_18t24 = hs_18t24_per_19-hs_18t24_per_13,
-         per_es_3t4 = es_3t4_per_19 - es_3t4_per_13,
-         per_emp_pubtr = emp_pubtr_per_19 - emp_pubtr_per_13,
-         per_bp = (bp_per_19 - bp_per_13)/bp_per_19,
-         per_cbp = (cbp_per_19 - cbp_per_13)/cbp_per_19) %>%
+         per_less_hs = ((less_hsE_19 - less_hsE_13)/less_hsE_13),
+         per_hs_deg = ((hs_degE_19 - hs_degE_13)/hs_degE_13),
+         per_wh = ((wh_popE_19 - wh_popE_13)/wh_popE_13),
+         per_bl = ((bl_popE_19 - bl_popE_13)/bl_popE_13),
+         per_as = ((as_popE_19 - as_popE_13)/as_popE_13),
+         per_his = ((his_popE_19 - his_popE_13)/his_popE_13),
+         #per_emp_r = emp_r_19-emp_r_13,
+         per_hs_18t24 = (((hsm_18t24E_19+hsm_18t24E_19)-(hsm_18t24E_13+hsf_18t24E_13))/(hsm_18t24E_13+hsf_18t24E_13)),
+         per_es_3t4 = ((es_3t4E_19 - es_3t4E_13)/es_3t4E_13),
+         per_emp_pubtr = ((emp_pubtrE_19 - emp_pubtrE_13)/emp_pubtrE_13),
+         per_bp = ((pop_bpE_19 - pop_bpE_13)/pop_bpE_13),
+         per_cbp = ((bp_u18E_19 - bp_u18E_13)/bp_u18E_13)
+         ) %>%
   mutate_if(is.numeric, funs(replace_na(., 0))) %>%
   select(-(ends_with("_13")), -(ends_with("M_19")), -(emp_r25t29E_19:emp_r45t54E_19), -(popm_18t24E_19:popf_18t24E_19), -(hsm_18t24E_19:hsf_18t24E_19))
 
