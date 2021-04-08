@@ -32,11 +32,13 @@ getwd()
 ```
 
 ```{r setup for graphs, include = FALSE, echo = FALSE}
-acs19_b <- load_variables(2019, "acs5", cache = TRUE)
-acs19_s <- load_variables(2019, "acs5/subject", cache = TRUE)
+acs_b <- load_variables(2015, "acs5", cache = TRUE)
+acs_s <- load_variables(2019, "acs5/subject", cache = TRUE)
 #view(acs18)
 #data(fips_codes)
-years <- lst(2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)
+years_old <- lst(2012, 2013, 2014, 2015, 2016)
+years_new <- lst(2017, 2018, 2019)
+
 counties <- c("Dallas", "Tarrant", "Denton", "Collin", "Rockwall", "Kaufman", "Ellis", "Johnson")
 
 ###############################################################################################
@@ -77,60 +79,245 @@ theme_cpal <- function(base_size = 12, base_family = "sans") {
 }
 ###############################################################################################
 ###############################################################################################
-
-
-rm(acs19_b)
-rm(acs19_s)
 ```
 
 ```{r tidycensus variable selection, include = FALSE, echo = FALSE}
-acs_var <- c(
+acs_new <- c(
   tot_pop = "B01003_001", #total population
-  pop_u18 = "S0901_C01_001", #population under 18
-  pop_bp = "S0101_C01_022", #population below poverty
+  pop_u18 = "S0101_C01_022", #population under 18
+  pop_bp = "S1701_C02_001", #population below poverty
   bp_u18 = "S1701_C02_002", #population under 18 below poverty
-  cbp_per = "S1701_C03_002" #percent population under 18 below poverty
+  med_inc = "B19013_001", #median household income
+  gini = "B19083_001" #gini coefficient
+  )
+
+acs_old <- c(
+  tot_pop = "B01003_001", #total population
+  pop_u18 = "S1701_C01_002", #population under 18
+  pop_bp = "S1701_C02_001", #population below poverty
+  bp_u18 = "S1701_C02_002", #population under 18 below poverty
+  med_inc = "B19013_001", #median household income
+  gini = "B19083_001" #gini coefficient
   )
 ```
 
-```{r tract pull}
-cpal_base <- get_acs(geography = "county", 
-                     variables = acs_var,
-                     year = 2019, 
-                     survey = "acs5", 
-                     output = "wide")
-```
-
 ```{r pull variables from tidycensus, include = FALSE, echo = FALSE}
-cpal_multi <- map(
-  years,
+cpal_tract_old <- map(
+  years_old,
   ~get_acs(
     geography = "tract",
     state = "TX",
     #county = counties,
-    variables = acs_var,
+    variables = acs_old,
     year = .x, 
     survey = "acs5", 
     output = "wide"),
 ) %>%
-  map2(years, ~mutate(.x, year = .y)) %>%
+  map2(years_old, ~mutate(.x, year = .y)) %>%
   reduce(., rbind)
 
-untd_counties <- cpal_multi %>%
+cpal_tract_new <- map(
+  years_new,
+  ~get_acs(
+    geography = "tract",
+    state = "TX",
+    #county = counties,
+    variables = acs_new,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years_new, ~mutate(.x, year = .y)) %>%
+  reduce(., rbind)
+
+cpal_tract <- rbind(cpal_tract_old, cpal_tract_new)
+rm(cpal_tract_new)
+rm(cpal_tract_old)
+
+untd_tract_long <- cpal_tract %>%
   filter(str_detect(NAME, str_c(counties, collapse = "|"))) %>%
-  group_by(GEOID) %>%
-  mutate(cbp_change = (cbp_perE - lag(cbp_perE, n = 7))/cbp_perE) %>%
-  ungroup()
+  mutate(bp_per = pop_bpE/tot_popE,
+         cbp_per = bp_u18E/pop_u18E,
+         type = "Tract") %>%
+  select(-ends_with("M"))
+
+untd_tract_wide <- untd_tract_long %>%
+  pivot_wider(names_from = "year", 
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
+```
+
+```{r pull variables from tidycensus, include = FALSE, echo = FALSE}
+zip <- import("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/socmob_zcta.csv") %>%
+  select(ZIP) %>%
+  rename(GEOID = ZIP) %>%
+  mutate(GEOID = as.character(GEOID))
+
+cpal_zip_old <- map(
+  years_old,
+  ~get_acs(
+    geography = "zcta",
+    variables = acs_old,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years_old, ~mutate(.x, year = .y)) %>%
+  reduce(., rbind)
+
+cpal_zip_new <- map(
+  years_new,
+  ~get_acs(
+    geography = "zcta",
+    variables = acs_new,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years_new, ~mutate(.x, year = .y)) %>%
+  reduce(., rbind)
+
+cpal_zip <- cpal_zip_old %>%
+  mutate(GEOID = as.character(as.numeric(GEOID)-4800000)) %>%
+  rbind(., cpal_zip_new) %>%
+  inner_join(., zip)
+
+rm(cpal_zip_new)
+rm(cpal_zip_old)
+
+untd_zip_long <- cpal_zip %>%
+  mutate(bp_per = pop_bpE/tot_popE,
+         cbp_per = bp_u18E/pop_u18E,
+         type = "Zip") %>%
+  select(-ends_with("M"))
+
+untd_zip_wide <- untd_zip_long %>%
+  pivot_wider(names_from = "year", 
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
+```
+
+```{r pull variables from tidycensus, include = FALSE, echo = FALSE}
+place <- import("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/socmob_place.csv") %>%
+  select(GEOID) %>%
+  mutate(GEOID = as.character(GEOID))
+
+cpal_place_old <- map(
+  years_old,
+  ~get_acs(
+    geography = "place",
+    state = "TX",
+    variables = acs_old,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years_old, ~mutate(.x, year = .y)) %>%
+  reduce(., rbind)
+
+cpal_place_new <- map(
+  years_new,
+  ~get_acs(
+    geography = "place",
+    state = "TX",
+    variables = acs_new,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years_new, ~mutate(.x, year = .y)) %>%
+  reduce(., rbind)
+
+cpal_place <- rbind(cpal_place_old, cpal_place_new) %>%
+  inner_join(place, .)
+
+rm(cpal_place_new)
+rm(cpal_place_old)
+
+untd_place_long <- cpal_place %>%
+  mutate(bp_per = pop_bpE/tot_popE,
+         cbp_per = bp_u18E/pop_u18E,
+         type = "Place") %>%
+  select(-ends_with("M"))
+names(untd_place_long)
+
+untd_place_wide <- untd_place_long %>%
+  pivot_wider(names_from = "year", 
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
+```
+
+```{r pull variables from tidycensus, include = FALSE, echo = FALSE}
+county_names <- c("Dallas County", 
+                  "Rockwall County", 
+                  "Collin County", 
+                  "Denton County", 
+                  "Tarrant County", 
+                  "Kaufman County", 
+                  "Ellis County", 
+                  "Johnson County")
+
+cpal_county_old <- map(
+  years_old,
+  ~get_acs(
+    geography = "county",
+    state = "TX",
+    county = county_names,
+    variables = acs_old,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years_old, ~mutate(.x, year = .y)) %>%
+  reduce(., rbind)
+
+cpal_county_new <- map(
+  years_new,
+  ~get_acs(
+    geography = "county",
+    state = "TX",
+    county = county_names,
+    variables = acs_new,
+    year = .x, 
+    survey = "acs5", 
+    output = "wide"),
+) %>%
+  map2(years_new, ~mutate(.x, year = .y)) %>%
+  reduce(., rbind)
+
+cpal_county <- rbind(cpal_county_old, cpal_county_new)
+
+rm(cpal_county_new)
+rm(cpal_county_old)
+
+untd_county_long <- cpal_county %>%
+  mutate(bp_per = pop_bpE/tot_popE,
+         cbp_per = bp_u18E/pop_u18E,
+         type = "County") %>%
+  select(-ends_with("M"))
+
+untd_county_wide <- untd_county_long %>%
+  pivot_wider(names_from = "year", 
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
 ```
 
 ```{r}
-ggplot(untd_counties, aes(x = cbp_change)) +
-  geom_histogram()
+untd_wide <- full_join(full_join(full_join(untd_tract_wide, untd_zip_wide), untd_place_wide), untd_county_wide)
 
-min(untd_counties$cbp_change, na.rm = TRUE)
+untd_long <- full_join(full_join(full_join(untd_tract_long, untd_zip_long), untd_place_long), untd_county_long)
 ```
 
 
 ```{r}
-export(untd_counties, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyTract_ChildPovertyRate.csv")
+export(untd_tract_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyTract_Wide.csv")
+export(untd_tract_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyTract_Long.csv")
+
+export(untd_zip_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyZip_Wide.csv")
+export(untd_zip_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyZip_Long.csv")
+
+export(untd_place_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyPlace_Wide.csv")
+export(untd_place_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyPlace_Long.csv")
+
+export(untd_county_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyCounty_Wide.csv")
+export(untd_county_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyCounty_Long.csv")
+
+export(untd_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesAllGeographies_Wide.csv")
+export(untd_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesAllGeographies_Long.csv")
 ```
