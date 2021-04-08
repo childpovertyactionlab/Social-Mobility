@@ -216,24 +216,62 @@ left_join(county.select, .)
 ```
 
 ```{r join to each other}
+names(tract_rent)
+
 new_tract_var <- tract_rent %>%
   left_join(.,  as.data.frame(tract_housing)) %>%
-  mutate(per_bp = hablar::rationalize(as.numeric(per_bp)),
-         per_cbp = hablar::rationalize(as.numeric(per_cbp)),
+  mutate(per_rohh = hablar::rationalize(as.numeric(per_rohh)),
          per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)),
+         per_med_inc = hablar::rationalize(as.numeric(per_med_inc)),
+         per_gini = hablar::rationalize(as.numeric(per_gini)),
+         per_less_hs = hablar::rationalize(as.numeric(per_less_hs)),
+         per_hs_deg = hablar::rationalize(as.numeric(per_hs_deg)),
+         per_wh = hablar::rationalize(as.numeric(per_wh)),
+         per_bl = hablar::rationalize(as.numeric(per_bl)),
+         per_as = hablar::rationalize(as.numeric(per_as)),
+         per_his = hablar::rationalize(as.numeric(per_his)),
+         per_hs_18t24 = hablar::rationalize(as.numeric(per_hs_18t24)),
+         per_es_3t4 = hablar::rationalize(as.numeric(per_es_3t4)),
+         per_emp_pubtr = hablar::rationalize(as.numeric(per_emp_pubtr)),
+         per_bp = hablar::rationalize(as.numeric(per_bp)),
+         per_cbp = hablar::rationalize(as.numeric(per_cbp)),
          HCV_rohh = hablar::rationalize(as.numeric(HCV_rohh)))
 
 new_zip_var <- zip.select %>%
   left_join(.,  as.data.frame(eitc_zip)) %>%
-  mutate(per_bp = hablar::rationalize(as.numeric(per_bp)),
-         per_cbp = hablar::rationalize(as.numeric(per_cbp)),
-         per_rohh = hablar::rationalize(as.numeric(per_rohh)))
+  mutate(per_rohh = hablar::rationalize(as.numeric(per_rohh)),
+         per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)),
+         per_med_inc = hablar::rationalize(as.numeric(per_med_inc)),
+         per_gini = hablar::rationalize(as.numeric(per_gini)),
+         per_less_hs = hablar::rationalize(as.numeric(per_less_hs)),
+         per_hs_deg = hablar::rationalize(as.numeric(per_hs_deg)),
+         per_wh = hablar::rationalize(as.numeric(per_wh)),
+         per_bl = hablar::rationalize(as.numeric(per_bl)),
+         per_as = hablar::rationalize(as.numeric(per_as)),
+         per_his = hablar::rationalize(as.numeric(per_his)),
+         per_hs_18t24 = hablar::rationalize(as.numeric(per_hs_18t24)),
+         per_es_3t4 = hablar::rationalize(as.numeric(per_es_3t4)),
+         per_emp_pubtr = hablar::rationalize(as.numeric(per_emp_pubtr)),
+         per_bp = hablar::rationalize(as.numeric(per_bp)),
+         per_cbp = hablar::rationalize(as.numeric(per_cbp)),)
 
 new_place_var <- place.select  %>%
   left_join(.,  as.data.frame(eitc_place)) %>%
-  mutate(per_bp = hablar::rationalize(as.numeric(per_bp)),
-         per_cbp = hablar::rationalize(as.numeric(per_cbp)),
-         per_rohh = hablar::rationalize(as.numeric(per_rohh)))
+  mutate(per_rohh = hablar::rationalize(as.numeric(per_rohh)),
+         per_tot_pop = hablar::rationalize(as.numeric(per_tot_pop)),
+         per_med_inc = hablar::rationalize(as.numeric(per_med_inc)),
+         per_gini = hablar::rationalize(as.numeric(per_gini)),
+         per_less_hs = hablar::rationalize(as.numeric(per_less_hs)),
+         per_hs_deg = hablar::rationalize(as.numeric(per_hs_deg)),
+         per_wh = hablar::rationalize(as.numeric(per_wh)),
+         per_bl = hablar::rationalize(as.numeric(per_bl)),
+         per_as = hablar::rationalize(as.numeric(per_as)),
+         per_his = hablar::rationalize(as.numeric(per_his)),
+         per_hs_18t24 = hablar::rationalize(as.numeric(per_hs_18t24)),
+         per_es_3t4 = hablar::rationalize(as.numeric(per_es_3t4)),
+         per_emp_pubtr = hablar::rationalize(as.numeric(per_emp_pubtr)),
+         per_bp = hablar::rationalize(as.numeric(per_bp)),
+         per_cbp = hablar::rationalize(as.numeric(per_cbp)))
 
 new_county_var <- county.select %>%
   left_join(.,  as.data.frame(eitc_county))
@@ -301,7 +339,7 @@ socmob.zip.sd <- as.data.frame(new_zip_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:63), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:84), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -323,7 +361,7 @@ socmob.place.sd <- as.data.frame(new_place_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:63), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:84), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -346,7 +384,7 @@ socmob.tract.sd <- as.data.frame(new_tract_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:59), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:80), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -382,7 +420,7 @@ colnames(socmob.calc.d) <- n
 socmob.calc.d$variable <- factor(row.names(socmob.calc.d))
 socmob.calc.d <- socmob.calc.d %>%
   select(variable, min, max, range, mean, median, std.dev)
-
+setwd("C:/Users/Michael Lopez/Documents/GitHub")
 datadic <- import("Social-Mobility/DataDictionary.csv")
 datadic_join <- datadic %>%
   select(variable:highisgood) %>%
