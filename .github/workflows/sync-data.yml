@@ -28,6 +28,8 @@ jobs:
           tree .
           cp -r ./Data/geojson gzip
           cp ./DataDictionary.csv gzip
+          cp ./Data/ACS/TimeSeriesAllGeographies_Long.csv gzip
+          cp ./Data/ACS/TimeSeriesAllGeographies_Wide.csv gzip
           ls -la gzip
           gzip -r gzip
           tree gzip
