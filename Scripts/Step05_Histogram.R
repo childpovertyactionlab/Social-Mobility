@@ -1,3 +1,4 @@
+rm(list=ls(all=TRUE))
 setwd("C:/Users/Michael Lopez/Documents/GitHub")
 
 library(tidyverse)
