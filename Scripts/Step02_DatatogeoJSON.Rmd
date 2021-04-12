@@ -142,12 +142,64 @@ congressdistrict.merge <- congressdistrict.shape %>%
 ```{r geojson export}
 getwd()
 geojsonio::geojson_write(school.merge, file = "Social-Mobility/Data/geojson/sm_schooldistricts.geojson")
+school.merge %>%
+  st_point_on_surface(.) %>%
+  geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/schooldistricts_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/Intermediate/sm_zcta.geojson")
+zip.merge %>%
+  st_point_on_surface(.) %>%
+  geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/zcta_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/Intermediate/sm_places.geojson")
+place.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/places_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/Intermediate/sm_tracts.geojson")
+tract.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/tracts_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(county.merge, file = "Social-Mobility/Data/Intermediate/sm_counties.geojson")
+county.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/counties_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(statehouse.merge, file = "Social-Mobility/Data/geojson/sm_statehouse.geojson")
+statehouse.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/statehouse_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(statesenate.merge, file = "Social-Mobility/Data/geojson/sm_statesenate.geojson")
+statesenate.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/statesenate_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(congressdistrict.merge, file = "Social-Mobility/Data/geojson/sm_fedcongress.geojson")
+congressdistrict.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/fedcongress_pt.geojson")
 ```
 
