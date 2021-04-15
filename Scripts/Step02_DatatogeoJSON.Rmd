@@ -86,52 +86,120 @@ county.merge <- left_join(counties.shape, socmob.county.csv, by = "GEOID")
 #delete unnecessary columns
 names(zip.merge)
 zip.select <- zip.merge %>%
-  select(fid, GEOID, NAME, ALAND10, AWATER10, INTPTLAT10, INTPTLON10, tot_popE_19:geometry) %>%
-  rename(ALAND = ALAND10,
-         AWATER = AWATER10,
-         INTPTLAT = INTPTLAT10,
-         INTPTLON = INTPTLON10)
+  select(fid, GEOID, NAME, tot_popE_19:geometry) %>%
+  mutate(label = GEOID)
 
 names(place.merge)
 place.select <- place.merge %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
-  rename(NAME = NAME.x)
+  select(fid, GEOID, NAME.x, tot_popE_19:geometry) %>%
+  rename(NAME = NAME.x) %>%
+  mutate(label = GEOID)
 
 names(tract.merge)
 tract.select <- tract.merge %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
-  rename(NAME = NAME.x)
+  select(fid, GEOID, NAME.x, tot_popE_19:geometry) %>%
+  rename(NAME = NAME.x) %>%
+  mutate(label = GEOID)
 
 names(county.merge)
 county.select <- county.merge %>%
-  select(fid, GEOID, NAME.x, ALAND:INTPTLON, tot_popE_19:geometry) %>%
-  rename(NAME = NAME.x)
+  select(fid, GEOID, NAME.x, tot_popE_19:geometry) %>%
+  rename(NAME = NAME.x) %>%
+  mutate(label = GEOID)
 
 school.merge <- school.shape %>%
-  .[counties.shape, ]
+  .[counties.shape, ] %>%
+  select(OBJECTID, NAME, geometry) %>%
+  rename(fid = OBJECTID) %>%
+  mutate(label = NAME)
 
 statehouse.merge <- statehouse.shape %>%
-  .[counties.shape, ]
+  .[counties.shape, ] %>%
+  rename(fid = OBJECTID,
+         NAME = District) %>%
+  select(fid, NAME, geometry) %>%
+  mutate(NAME = paste("State House District", NAME),
+         label = NAME)
 
 statesenate.merge <- statesenate.shape %>%
-  .[counties.shape, ]
+  .[counties.shape, ] %>%
+  rename(fid = OBJECTID,
+         NAME = District) %>%
+  select(fid, NAME, geometry) %>%
+  mutate(NAME = paste("State Senate District", NAME),
+         label = NAME)
 
 congressdistrict.merge <- congressdistrict.shape %>%
-  .[counties.shape, ]
-
-plot(statehouse.merge$geometry)
+  .[counties.shape, ] %>%
+  rename(fid = OBJECTID,
+         NAME = District) %>%
+  select(fid, NAME, geometry) %>%
+  mutate(NAME = paste("Congressional District", NAME),
+         label = NAME)
 ```
 
 
 ```{r geojson export}
 getwd()
 geojsonio::geojson_write(school.merge, file = "Social-Mobility/Data/geojson/sm_schooldistricts.geojson")
+school.merge %>%
+  st_point_on_surface(.) %>%
+  geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/schooldistricts_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(zip.merge, file = "Social-Mobility/Data/Intermediate/sm_zcta.geojson")
+zip.merge %>%
+  st_point_on_surface(.) %>%
+  geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/zcta_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(place.merge, file = "Social-Mobility/Data/Intermediate/sm_places.geojson")
+place.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/places_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(tract.merge, file = "Social-Mobility/Data/Intermediate/sm_tracts.geojson")
+tract.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/tracts_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(county.merge, file = "Social-Mobility/Data/Intermediate/sm_counties.geojson")
+county.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/Intermediate/counties_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(statehouse.merge, file = "Social-Mobility/Data/geojson/sm_statehouse.geojson")
+statehouse.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/statehouse_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(statesenate.merge, file = "Social-Mobility/Data/geojson/sm_statesenate.geojson")
+statesenate.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/statesenate_pt.geojson")
+
+
+
+
 geojsonio::geojson_write(congressdistrict.merge, file = "Social-Mobility/Data/geojson/sm_fedcongress.geojson")
+congressdistrict.merge %>%
+  st_point_on_surface(.) %>%
+geojsonio::geojson_write(., file = "Social-Mobility/Data/geojson/fedcongress_pt.geojson")
 ```
 
