@@ -38,11 +38,11 @@ county.sh <- st_read("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Da
 #import feature shape files
 snap.sh <- st_read("Data Library/USDA/GIS/SNAP_Store_Locations_TX_Dec2020.shp")
 banks.sh <- st_read("Data Library/Texas Department of Banking/Geocoded/NorthTexas_BankingLocations_Feb2021.shp") 
-comcen.sh <- st_read("Data Library/NCTCOG/CommunityCenters.shp")
+comcen.sh <- st_read("Data Library/NCTCOG/Archive/CommunityCenters.shp")
 comhealth.sh <- st_read("Data Library/Miscellaneous/Community Health Clinics/CommunityHealthClincs_June2020.shp")
 creditunions.sh <- st_read("Data Library/Google/GIS/Shapefiles/CreditUnions_Dec2020.shp") 
 supermarket.sh <- st_read("Data Library/Miscellaneous/Grocery Stores/FoodandGrocery_DallasCounty_July2020.shp")
-highered.sh <- st_read("Data Library/NCTCOG/HigherEducation.shp")
+highered.sh <- st_read("Data Library/NCTCOG/Archive/HigherEducation.shp")
 pharmacies.sh <-st_read("Data Library/Texas State Board of Pharmacy/GIS/TBSP_NTX_Dec2020.shp")
 libraries.sh <- st_read("Data Library/City of Dallas/02_Boundaries and Features/Libraries.shp")
 librariesTX.sh <- st_read("Data Library/Texas Public Libraries/Texas_Public_Libraries.shp")
@@ -314,6 +314,7 @@ featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
 
 featureset <- featureset %>%
   mutate(FID = 1:n(),
+         GEOID = FID,
          Name = str_to_title(Name)) %>%
   select(FID, everything())
 ```
