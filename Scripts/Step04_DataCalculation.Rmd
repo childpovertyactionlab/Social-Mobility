@@ -315,10 +315,10 @@ Function which will group each variable into bins between 0 and 4 based on the s
 Cuts occur at +/- 0.5 standard deviations and +/- 1 standard deviation.
 ```{r sdcut function}
 sdcut <- function(x) {
-  sd1p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*0.50)
-  sd1n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*0.50)
-  sd2p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*1)
-  sd2n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*1)
+  sd1p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*0.25)
+  sd1n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*0.25)
+  sd2p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*1.5)
+  sd2n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*1.5)
   ifelse(x > sd2p, 4,
          ifelse(x > sd1p & x < sd2p, 3,
                 ifelse(x > sd1n & x < sd1p, 2,
@@ -339,7 +339,7 @@ socmob.zip.sd <- as.data.frame(new_zip_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:84), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:62), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -361,7 +361,7 @@ socmob.place.sd <- as.data.frame(new_place_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:84), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:62), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
@@ -384,7 +384,7 @@ socmob.tract.sd <- as.data.frame(new_tract_var) %>%
          per_bp = per_bp*(-1),
          per_cbp = per_cbp*(-1),
          per_gini = per_gini*(-1)) %>%
-  mutate_at(c(8:80), funs(c(sdcut(.)))) %>%
+  mutate_at(c(8:58), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
          GEOID = GEOID_sd,
