@@ -324,7 +324,7 @@ socmob.calc <- socmob.combine %>%
          per_cbp = ((bp_u18E_19 - bp_u18E_14)/bp_u18E_14)
          ) %>%
   mutate_if(is.numeric, funs(replace_na(., 0))) %>%
-  select(-(ends_with("_14")), -(ends_with("M_14")), -(emp_r25t29E_19:emp_r45t54E_19), -(popm_18t24E_19:popf_18t24E_19), -(hsm_18t24E_19:hsf_18t24E_19))
+  select(-(ends_with("_14")), -(ends_with("M_19")), -(emp_r25t29E_19:emp_r45t54E_19), -(popm_18t24E_19:popf_18t24E_19), -(hsm_18t24E_19:hsf_18t24E_19))
 
 perchange <- socmob.combine %>%
   group_by(TYPE) %>%
