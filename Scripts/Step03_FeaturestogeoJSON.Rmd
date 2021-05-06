@@ -14,7 +14,8 @@ output:
 
 ```{r setup, include = FALSE, echo = FALSE}
 rm(list=ls(all=TRUE))
-knitr::opts_knit$set(root.dir = 'E:/CPAL Dropbox')
+#knitr::opts_knit$set(root.dir = 'E:/CPAL Dropbox')
+knitr::opts_knit$set(root.dir = 'C:/Users/micha/CPAL Dropbox')
 #knitr::opts_knit$set(root.dir = 'C:/Users/OwenWilson-Chavez/CPAL Dropbox')
 getwd()
 library(tidyverse)
@@ -30,12 +31,13 @@ getwd()
 
 ```{r, echo = FALSE}
 #import geography comparison shape file
-zip.sh <- st_read("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/Shapefiles/sm_zcta.shp")
+zip.sh <- st_read("C:/Users/micha/Documents/GitHub/Social-Mobility/Data/Reference Geographies/Shapefiles/sm_zcta.shp")
 
-county.sh <- st_read("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/Shapefiles/sm_counties.shp")
-
+county.sh <- st_read("C:/Users/micha/Documents/GitHub/Social-Mobility/Data/Reference Geographies/Shapefiles/sm_counties.shp")
 
 #import feature shape files
+aftersch.sh <- st_read("Data Library/Dallas Afterschool/DallasAfterschool_Programs_Dec2019.shp")
+recctr.sh <- st_read("Data Library/04_CPAL Features/Places/Places.gdb", layer = "CommRecCtrs")
 snap.sh <- st_read("Data Library/USDA/GIS/SNAP_Store_Locations_TX_Dec2020.shp")
 banks.sh <- st_read("Data Library/Texas Department of Banking/Geocoded/NorthTexas_BankingLocations_Feb2021.shp") 
 comcen.sh <- st_read("Data Library/NCTCOG/Archive/CommunityCenters.shp")
@@ -257,10 +259,45 @@ highered.join <- highered.sh %>%
   select(Display, variable, Name, Address, City, Longitude, Latitude, geometry)
 st_crs(highered.join, crs = 4326)
 rm(highered.sh)
+
+aftersch.join <- aftersch.sh %>%
+  st_transform(crs = 4326) %>%
+  mutate(Display = "Afterschool Program",
+         variable = "aftersch",
+         Address = NA,
+         City = "Dallas") %>%
+  rename(Longitude = longitude,
+         Latitude = latitude,
+         Name = Account_Na) %>%
+  select(Display, variable, Name, Address, City, Longitude, Latitude, geometry) %>%
+  st_transform(crs = 4326)
+rm(aftersch.sh)
+
+recctr.join <- recctr.sh %>%
+  mutate(Display = "Recreation Center",
+         variable = "recctr",
+         Longitude = st_coordinates(.)[,1],
+         Latitude = st_coordinates(.)[,2]) %>%
+  rename(Address = ADDRESS,
+         Name = NAME,
+         geometry = Shape) %>%
+  select(Display, variable, Name, Address, City, Longitude, Latitude, geometry) %>%
+  st_transform(crs = 4326)
+rm(recctr.sh)
+
 ```
 
 ```{r}
 #select points within geography of interest
+recctr.county <- recctr.join[county.sh, ]
+rm(recctr.join)
+
+aftersch.county <- aftersch.join[county.sh, ]
+rm(aftersch.join)
+
+highered.county <- highered.join[county.sh, ]
+rm(highered.join)
+
 snap.county <- snap.join[county.sh, ]
 rm(snap.join)
 
@@ -309,19 +346,23 @@ rm(fqhc.join)
 
 ```{r}
 #join all files into one
-featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
-                    banks.county, comcen.county), comhealth.county), creditunions.county), supermarket.county), pharmacies.county), libraries.county), schools.county), schoolsprivate.county), wic.county), childcare.county), childcareAll.county), vita.county), fqhc.county)
+featureset <- rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(rbind(
+                    banks.county, comcen.county), comhealth.county), creditunions.county), supermarket.county), pharmacies.county), libraries.county), schools.county), schoolsprivate.county), wic.county), childcare.county), childcareAll.county), vita.county), fqhc.county), highered.county), recctr.county), aftersch.county)
 
 featureset <- featureset %>%
   mutate(FID = 1:n(),
          GEOID = FID,
-         Name = str_to_title(Name)) %>%
-  select(FID, everything())
+         Name = str_to_title(Name),
+         Latitude = round(Latitude, digits = 4),
+         Longitude = round(Longitude, digits = 4)) %>%
+  as.data.frame(.) %>%
+  select(FID, everything(), -geometry) %>%
+  st_as_sf(., coords = c("Longitude", "Latitude"), crs = 4326)
 ```
 
 
 ```{r}
 #export to geojson
-geojsonio::geojson_write(featureset, file = "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/geojson/sm_featureset.geojson")
+geojsonio::geojson_write(featureset, file = "C:/Users/micha/Documents/GitHub/Social-Mobility/Data/geojson/sm_featureset.geojson")
 ```
 
