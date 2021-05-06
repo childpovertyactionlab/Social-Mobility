@@ -15,7 +15,7 @@ output:
 Setup of script, load necessary libraries and set working directory.
 ```{r setup, include = FALSE, echo = FALSE}
 rm(list=ls(all=TRUE))
-knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub')
+knitr::opts_knit$set(root.dir = 'C:/Users/micha/Documents/GitHub')
 #knitr::opts_knit$set(root.dir = 'C:/Users/OwenWilson-Chavez/CPAL Dropbox')
 getwd()
 library(tidyverse)
@@ -70,7 +70,8 @@ rm(sm_counties)
 
 Change working directory for the following code chunk in order to import data from a different filepath on CPAL dropbox. All imports of new data should go in this block chunk.
 ```{r import raw data, echo=FALSE}
-setwd("E:/CPAL Dropbox") #Michael
+setwd("C:/Users/micha/CPAL Dropbox") #Michael
+#setwd("E:/CPAL Dropbox") #Michael
 #setwd("C:/Users/OwenWilson-Chavez/CPAL Dropbox") #Owen
 
 #Urban Institute Rental Assistance Priority Index
@@ -120,7 +121,8 @@ names(renter)
 
 renter_lim <- renter %>%
   select(GEOID, housing_index) %>%
-  mutate(GEOID = as.numeric(GEOID)) %>%
+  mutate(GEOID = as.numeric(GEOID),
+         housing_index = round(housing_index, digits = 4)) %>%
   rename(rent_instability = housing_index)
 
 tract_rent <- left_join(tract.select, renter_lim)
@@ -420,7 +422,7 @@ colnames(socmob.calc.d) <- n
 socmob.calc.d$variable <- factor(row.names(socmob.calc.d))
 socmob.calc.d <- socmob.calc.d %>%
   select(variable, min, max, range, mean, median, std.dev)
-setwd("C:/Users/Michael Lopez/Documents/GitHub")
+setwd("C:/Users/micha/Documents/GitHub")
 datadic <- import("Social-Mobility/DataDictionary.csv")
 datadic_join <- datadic %>%
   select(variable:highisgood) %>%
@@ -428,7 +430,7 @@ datadic_join <- datadic %>%
 ```
 
 ```{r geojson export}
-setwd("C:/Users/Michael Lopez/Documents/GitHub")
+setwd("C:/Users/micha/Documents/GitHub")
 export(datadic_join, "Social-Mobility/DataDictionary.csv")
 geojsonio::geojson_write(socmob.zip.upload, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
 geojsonio::geojson_write(socmob.place.upload, file = "Social-Mobility/Data/geojson/sm_places.geojson")
