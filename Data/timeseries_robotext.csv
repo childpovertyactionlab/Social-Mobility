@@ -1,11 +1,66 @@
 variable,sd_value,sd_description
-bp_per,0,very below average
-bp_per,1,slightly below average
-bp_per,2,about average
-bp_per,3,slightly above average
-bp_per,4,very above average
-cbp_per,0,very below average
-cbp_per,1,slightly below average
-cbp_per,2,about average
-cbp_per,3,slightly above average
-cbp_per,4,very above average
+as_per_sd,0,very below average
+as_per_sd,1,slightly below average
+as_per_sd,2,about average
+as_per_sd,3,slightly above average
+as_per_sd,4,very above average
+bl_per_sd,0,very below average
+bl_per_sd,1,slightly below average
+bl_per_sd,2,about average
+bl_per_sd,3,slightly above average
+bl_per_sd,4,very above average
+bp_per_sd,0,very below average
+bp_per_sd,1,slightly below average
+bp_per_sd,2,about average
+bp_per_sd,3,slightly above average
+bp_per_sd,4,very above average
+cbp_per_sd,0,very below average
+cbp_per_sd,1,slightly below average
+cbp_per_sd,2,about average
+cbp_per_sd,3,slightly above average
+cbp_per_sd,4,very above average
+emp_pubtr_per_sd,0,very below average
+emp_pubtr_per_sd,1,slightly below average
+emp_pubtr_per_sd,2,about average
+emp_pubtr_per_sd,3,slightly above average
+emp_pubtr_per_sd,4,very above average
+emp_r_sd,0,very below average
+emp_r_sd,1,slightly below average
+emp_r_sd,2,about average
+emp_r_sd,3,slightly above average
+emp_r_sd,4,very above average
+es_3t4_per_sd,0,very below average
+es_3t4_per_sd,1,slightly below average
+es_3t4_per_sd,2,about average
+es_3t4_per_sd,3,slightly above average
+es_3t4_per_sd,4,very above average
+giniE_sd,0,very below average
+giniE_sd,1,slightly below average
+giniE_sd,2,about average
+giniE_sd,3,slightly above average
+giniE_sd,4,very above average
+his_per_sd,0,very below average
+his_per_sd,1,slightly below average
+his_per_sd,2,about average
+his_per_sd,3,slightly above average
+his_per_sd,4,very above average
+hs_18t24_per_sd,0,very below average
+hs_18t24_per_sd,1,slightly below average
+hs_18t24_per_sd,2,about average
+hs_18t24_per_sd,3,slightly above average
+hs_18t24_per_sd,4,very above average
+med_incE_sd,0,very below average
+med_incE_sd,1,slightly below average
+med_incE_sd,2,about average
+med_incE_sd,3,slightly above average
+med_incE_sd,4,very above average
+rohh_per_sd,0,very below average
+rohh_per_sd,1,slightly below average
+rohh_per_sd,2,about average
+rohh_per_sd,3,slightly above average
+rohh_per_sd,4,very above average
+wh_per_sd,0,very below average
+wh_per_sd,1,slightly below average
+wh_per_sd,2,about average
+wh_per_sd,3,slightly above average
+wh_per_sd,4,very above average
