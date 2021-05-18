@@ -1,0 +1,11 @@
+variable,sd_value,sd_description
+bp_per,0,very below average
+bp_per,1,slightly below average
+bp_per,2,about average
+bp_per,3,slightly above average
+bp_per,4,very above average
+cbp_per,0,very below average
+cbp_per,1,slightly below average
+cbp_per,2,about average
+cbp_per,3,slightly above average
+cbp_per,4,very above average
