@@ -429,7 +429,7 @@ datadic_join <- datadic %>%
 ```
 
 ```{r geojson export}
-setwd("C:/Users/micha/Documents/GitHub")
+setwd("C:/Users/Michael Lopez/Documents/GitHub")
 export(datadic_join, "Social-Mobility/DataDictionary.csv")
 geojsonio::geojson_write(socmob.zip.upload, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
 geojsonio::geojson_write(socmob.place.upload, file = "Social-Mobility/Data/geojson/sm_places.geojson")
