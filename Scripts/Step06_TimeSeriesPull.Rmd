@@ -391,18 +391,18 @@ untd_long <- full_join(full_join(full_join(untd_tract_long, untd_zip_long), untd
 
 
 ```{r}
-#export(untd_tract_wide, "Data/ACS/TimeSeriesbyTract_Wide.csv")
+export(untd_tract_wide, "Data/ACS/TimeSeriesbyTract_Wide.csv")
 export(untd_tract_long, "Data/ACS/TimeSeriesbyTract_Long.csv")
 
-#export(untd_zip_wide, "Data/ACS/TimeSeriesbyZip_Wide.csv")
+export(untd_zip_wide, "Data/ACS/TimeSeriesbyZip_Wide.csv")
 export(untd_zip_long, "Data/ACS/TimeSeriesbyZip_Long.csv")
 
-#export(untd_place_wide, "Data/ACS/TimeSeriesbyPlace_Wide.csv")
+export(untd_place_wide, "Data/ACS/TimeSeriesbyPlace_Wide.csv")
 export(untd_place_long, "Data/ACS/TimeSeriesbyPlace_Long.csv")
 
-#export(untd_county_wide, "Data/ACS/TimeSeriesbyCounty_Wide.csv")
+export(untd_county_wide, "Data/ACS/TimeSeriesbyCounty_Wide.csv")
 export(untd_county_long, "Data/ACS/TimeSeriesbyCounty_Long.csv")
 
-#export(untd_wide, "Data/ACS/TimeSeriesAllGeographies_Wide.csv")
+export(untd_wide, "Data/ACS/TimeSeriesAllGeographies_Wide.csv")
 export(untd_long, "Data/ACS/TimeSeriesAllGeographies_Long.csv")
 ```
