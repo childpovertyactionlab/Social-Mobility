@@ -16,8 +16,8 @@ Load necessary libraries to import ACS census data with the tidycensus package.
 
 ```{r setup, include = FALSE, echo = FALSE}
 rm(list=ls(all=TRUE))
-#knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/')
-knitr::opts_knit$set(root.dir = 'C:/Users/micha/Documents/GitHub/Social-Mobility/')
+knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/')
+#knitr::opts_knit$set(root.dir = 'C:/Users/micha/Documents/GitHub/Social-Mobility/')
 getwd()
 library(tidycensus)
 library(tidyverse)
