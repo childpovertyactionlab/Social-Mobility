@@ -15,7 +15,8 @@ output:
 Setup of script, load necessary libraries and set working directory.
 ```{r setup, include = FALSE, echo = FALSE}
 rm(list=ls(all=TRUE))
-knitr::opts_knit$set(root.dir = 'C:/Users/micha/Documents/GitHub')
+#knitr::opts_knit$set(root.dir = 'C:/Users/micha/Documents/GitHub')
+knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub')
 #knitr::opts_knit$set(root.dir = 'C:/Users/OwenWilson-Chavez/CPAL Dropbox')
 getwd()
 library(tidyverse)
@@ -70,8 +71,8 @@ rm(sm_counties)
 
 Change working directory for the following code chunk in order to import data from a different filepath on CPAL dropbox. All imports of new data should go in this block chunk.
 ```{r import raw data, echo=FALSE}
-setwd("C:/Users/micha/CPAL Dropbox") #Michael
-#setwd("E:/CPAL Dropbox") #Michael
+#setwd("C:/Users/micha/CPAL Dropbox") #Michael
+setwd("E:/CPAL Dropbox") #Michael
 #setwd("C:/Users/OwenWilson-Chavez/CPAL Dropbox") #Owen
 
 #Urban Institute Rental Assistance Priority Index
@@ -319,8 +320,8 @@ Cuts occur at +/- 0.5 standard deviations and +/- 1 standard deviation.
 sdcut <- function(x) {
   sd1p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*0.25)
   sd1n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*0.25)
-  sd2p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*1.5)
-  sd2n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*1.5)
+  sd2p <- mean(x, na.rm = TRUE)+(sd(x, na.rm = TRUE)*1)
+  sd2n <- mean(x, na.rm = TRUE)-(sd(x, na.rm = TRUE)*1)
   ifelse(x > sd2p, 4,
          ifelse(x > sd1p & x < sd2p, 3,
                 ifelse(x > sd1n & x < sd1p, 2,
@@ -333,14 +334,15 @@ Convert all estimate variables by `log()` in order to then apply sdcut function.
 #zip codes
 names(new_zip_var)
 socmob.zip.sd <- as.data.frame(new_zip_var) %>%
+  mutate(giniE_19 = giniE_19*(-1),
+         per_gini = per_gini*(-1)) %>%
+  mutate_at(c(8:62), funs(c(log(.+10)))) %>%
   mutate(bp_u18E_19 = bp_u18E_19*(-1),
          pop_bpE_19 = pop_bpE_19*(-1),
-         giniE_19 = giniE_19*(-1),
          bp_per_19 = bp_per_19*(-1),
          cbp_per_19 = cbp_per_19*(-1),
          per_bp = per_bp*(-1),
-         per_cbp = per_cbp*(-1),
-         per_gini = per_gini*(-1)) %>%
+         per_cbp = per_cbp*(-1)) %>%
   mutate_at(c(8:62), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
@@ -350,19 +352,19 @@ socmob.zip.sd <- as.data.frame(new_zip_var) %>%
          INTPTLAT = INTPTLAT_sd,
          INTPTLON = INTPTLON_sd) %>%
   select(-geometry_sd)
-
 socmob.zip.upload <- left_join(new_zip_var, socmob.zip.sd)
 
 #places
 socmob.place.sd <- as.data.frame(new_place_var) %>%
+  mutate(giniE_19 = giniE_19*(-1),
+         per_gini = per_gini*(-1)) %>%
+  mutate_at(c(8:62), funs(c(log(.+10)))) %>%
   mutate(bp_u18E_19 = bp_u18E_19*(-1),
          pop_bpE_19 = pop_bpE_19*(-1),
-         giniE_19 = giniE_19*(-1),
          bp_per_19 = bp_per_19*(-1),
          cbp_per_19 = cbp_per_19*(-1),
          per_bp = per_bp*(-1),
-         per_cbp = per_cbp*(-1),
-         per_gini = per_gini*(-1)) %>%
+         per_cbp = per_cbp*(-1)) %>%
   mutate_at(c(8:62), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
@@ -377,15 +379,16 @@ socmob.place.upload <- left_join(new_place_var, socmob.place.sd)
 
 #tracts
 socmob.tract.sd <- as.data.frame(new_tract_var) %>%
+  mutate(rent_instability = rent_instability*(-1),
+         giniE_19 = giniE_19*(-1),
+         per_gini = per_gini*(-1)) %>%
+  mutate_at(c(8:58), funs(c(log(.+10)))) %>%
   mutate(bp_u18E_19 = bp_u18E_19*(-1),
          pop_bpE_19 = pop_bpE_19*(-1),
-         rent_instability = rent_instability*(-1),
-         giniE_19 = giniE_19*(-1),
          bp_per_19 = bp_per_19*(-1),
          cbp_per_19 = cbp_per_19*(-1),
          per_bp = per_bp*(-1),
-         per_cbp = per_cbp*(-1),
-         per_gini = per_gini*(-1)) %>%
+         per_cbp = per_cbp*(-1)) %>%
   mutate_at(c(8:58), funs(c(sdcut(.)))) %>%
   setNames(c(names(.)[1], paste0(names(.)[-1],"_sd"))) %>%
   rename(NAME = NAME_sd,
@@ -397,10 +400,6 @@ socmob.tract.sd <- as.data.frame(new_tract_var) %>%
   select(-geometry_sd)
 
 socmob.tract.upload <- left_join(new_tract_var, socmob.tract.sd)
-
-rm(socmob.zip.sd)
-rm(socmob.place.sd)
-rm(socmob.tract.sd)
 ```
 
 ```{r descriptive stats}
@@ -422,7 +421,7 @@ colnames(socmob.calc.d) <- n
 socmob.calc.d$variable <- factor(row.names(socmob.calc.d))
 socmob.calc.d <- socmob.calc.d %>%
   select(variable, min, max, range, mean, median, std.dev)
-setwd("C:/Users/micha/Documents/GitHub")
+setwd("C:/Users/Michael Lopez/Documents/GitHub")
 datadic <- import("Social-Mobility/DataDictionary.csv")
 datadic_join <- datadic %>%
   select(variable:highisgood) %>%
@@ -430,7 +429,7 @@ datadic_join <- datadic %>%
 ```
 
 ```{r geojson export}
-setwd("C:/Users/micha/Documents/GitHub")
+setwd("C:/Users/Michael Lopez/Documents/GitHub")
 export(datadic_join, "Social-Mobility/DataDictionary.csv")
 geojsonio::geojson_write(socmob.zip.upload, file = "Social-Mobility/Data/geojson/sm_zcta.geojson")
 geojsonio::geojson_write(socmob.place.upload, file = "Social-Mobility/Data/geojson/sm_places.geojson")
