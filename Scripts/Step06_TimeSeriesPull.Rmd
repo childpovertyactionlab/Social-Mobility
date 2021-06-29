@@ -16,7 +16,8 @@ Load necessary libraries to import ACS census data with the tidycensus package.
 
 ```{r setup, include = FALSE, echo = FALSE}
 rm(list=ls(all=TRUE))
-knitr::opts_knit$set(root.dir = 'E:/CPAL Dropbox')
+knitr::opts_knit$set(root.dir = 'C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/')
+#knitr::opts_knit$set(root.dir = 'C:/Users/micha/Documents/GitHub/Social-Mobility/')
 getwd()
 library(tidycensus)
 library(tidyverse)
@@ -84,20 +85,64 @@ theme_cpal <- function(base_size = 12, base_family = "sans") {
 ```{r tidycensus variable selection, include = FALSE, echo = FALSE}
 acs_new <- c(
   tot_pop = "B01003_001", #total population
-  pop_u18 = "S0101_C01_022", #population under 18
+  popm_18t24 = "B15001_003", #population 18 to 24 male
+  popf_18t24 = "B15001_044", #population 18 to 24 female
+  pop_3t4 = "B09001_004", #population between 3 to 4
+  med_inc = "B19013_001", #median household income
+  gini = "B19083_001", #gini coefficient
+  less_hs = "B23006_002", #total population less than high school but above 9th
+  hs_deg = "B23006_009", #total with high school degree
+  ba_deg = "B23006_023", #total with bachelors degree or higher
+  his_pop = "B03002_012", #hispanic population
+  wh_pop = "B03002_003", #white population
+  bl_pop = "B03002_004", #black population
+  as_pop = "B03002_006", #asian population
+  rohh = "B25106_024", #renter occupied households
+  thh = "B25106_001", #total households
+  hsm_18t24 = "B15001_006", #high school degrees between 18 and 24 male
+  hsf_18t24 = "B15001_047", #high school degrees between 18 and 24 female
+  es_3t4 = "B14003_004", #enrolled in school 3 to 4
+  emp = "S0802_C01_001", #employed over 16
+  emp_pubtr = "S0802_C04_001", #employed over 16 and take public transportation to work
   pop_bp = "S1701_C02_001", #population below poverty
   bp_u18 = "S1701_C02_002", #population under 18 below poverty
-  med_inc = "B19013_001", #median household income
-  gini = "B19083_001" #gini coefficient
+  pop_o25 = "S1501_C01_006", #population 25 and over
+  pop_u18 = "S0101_C01_022", #population under 18
+  emp_r25t29 = "S2301_C03_004", #employed population ratio 25 to 29
+  emp_r30t34 = "S2301_C03_005", #employed population ratio 30 to 34
+  emp_r35t44 = "S2301_C03_006", #employed population ratio 35 to 44
+  emp_r45t54 = "S2301_C03_007" #employed population ratio 45 to 54
   )
 
 acs_old <- c(
   tot_pop = "B01003_001", #total population
-  pop_u18 = "S1701_C01_002", #population under 18
+  popm_18t24 = "B15001_003", #population 18 to 24 male
+  popf_18t24 = "B15001_044", #population 18 to 24 female
+  pop_3t4 = "B09001_004", #population between 3 to 4
+  med_inc = "B19013_001", #median household income
+  gini = "B19083_001", #gini coefficient
+  less_hs = "B23006_002", #total population less than high school but above 9th
+  hs_deg = "B23006_009", #total with high school degree
+  ba_deg = "B23006_023", #total with bachelors degree or higher
+  his_pop = "B03002_012", #hispanic population
+  wh_pop = "B03002_003", #white population
+  bl_pop = "B03002_004", #black population
+  as_pop = "B03002_006", #asian population
+  rohh = "B25106_024", #renter occupied households
+  thh = "B25106_001", #total households
+  hsm_18t24 = "B15001_006", #high school degrees between 18 and 24 male
+  hsf_18t24 = "B15001_047", #high school degrees between 18 and 24 female
+  es_3t4 = "B14003_004", #enrolled in school 3 to 4
+  emp = "S0802_C01_001", #employed over 16
+  emp_pubtr = "S0802_C04_001", #employed over 16 and take public transportation to work
   pop_bp = "S1701_C02_001", #population below poverty
   bp_u18 = "S1701_C02_002", #population under 18 below poverty
-  med_inc = "B19013_001", #median household income
-  gini = "B19083_001" #gini coefficient
+  pop_o25 = "S1501_C01_006", #population 25 and over
+  pop_u18 = "S1701_C01_002", #population under 18
+  emp_r25t29 = "S2301_C03_004", #employed population ratio 25 to 29
+  emp_r30t34 = "S2301_C03_005", #employed population ratio 30 to 34
+  emp_r35t44 = "S2301_C03_006", #employed population ratio 35 to 44
+  emp_r45t54 = "S2301_C03_007" #employed population ratio 45 to 54
   )
 ```
 
@@ -136,18 +181,28 @@ rm(cpal_tract_old)
 
 untd_tract_long <- cpal_tract %>%
   filter(str_detect(NAME, str_c(counties, collapse = "|"))) %>%
-  mutate(bp_per = pop_bpE/tot_popE,
+  mutate(pop_18t24E = popm_18t24E+popf_18t24E,
+         wh_per = wh_popE/tot_popE,
+         bl_per = bl_popE/tot_popE,
+         as_per = as_popE/tot_popE,
+         his_per = his_popE/tot_popE,
+         emp_r = ((emp_r25t29E+emp_r30t34E+emp_r35t44E+emp_r45t54E)/4)/100,
+         hs_18t24_per = (hsm_18t24E+hsm_18t24E)/pop_18t24E,
+         es_3t4_per = es_3t4E/pop_3t4E,
+         emp_pubtr_per = emp_pubtrE/empE,
+         bp_per = pop_bpE/tot_popE,
          cbp_per = bp_u18E/pop_u18E,
+         rohh_per = rohhE/thhE,
          type = "Tract") %>%
-  select(-ends_with("M"))
+  select(-ends_with("M"), -(emp_r25t29E:emp_r45t54M))
 
 untd_tract_wide <- untd_tract_long %>%
   pivot_wider(names_from = "year", 
-              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per, rohh_per, emp_pubtr_per, es_3t4_per, hs_18t24_per, emp_r, his_per, as_per, bl_per, wh_per, pop_18t24E))
 ```
 
 ```{r pull variables from tidycensus, include = FALSE, echo = FALSE}
-zip <- import("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/socmob_zcta.csv") %>%
+zip <- import("Data/Reference Geographies/socmob_zcta.csv") %>%
   select(ZIP) %>%
   rename(GEOID = ZIP) %>%
   mutate(GEOID = as.character(GEOID))
@@ -185,18 +240,28 @@ rm(cpal_zip_new)
 rm(cpal_zip_old)
 
 untd_zip_long <- cpal_zip %>%
-  mutate(bp_per = pop_bpE/tot_popE,
+  mutate(pop_18t24E = popm_18t24E+popf_18t24E,
+         wh_per = wh_popE/tot_popE,
+         bl_per = bl_popE/tot_popE,
+         as_per = as_popE/tot_popE,
+         his_per = his_popE/tot_popE,
+         emp_r = ((emp_r25t29E+emp_r30t34E+emp_r35t44E+emp_r45t54E)/4)/100,
+         hs_18t24_per = (hsm_18t24E+hsm_18t24E)/pop_18t24E,
+         es_3t4_per = es_3t4E/pop_3t4E,
+         emp_pubtr_per = emp_pubtrE/empE,
+         bp_per = pop_bpE/tot_popE,
          cbp_per = bp_u18E/pop_u18E,
+         rohh_per = rohhE/thhE,
          type = "Zip") %>%
   select(-ends_with("M"))
 
 untd_zip_wide <- untd_zip_long %>%
   pivot_wider(names_from = "year", 
-              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per, rohh_per, emp_pubtr_per, es_3t4_per, hs_18t24_per, emp_r, his_per, as_per, bl_per, wh_per, pop_18t24E))
 ```
 
 ```{r pull variables from tidycensus, include = FALSE, echo = FALSE}
-place <- import("C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/Reference Geographies/socmob_place.csv") %>%
+place <- import("Data/Reference Geographies/socmob_place.csv") %>%
   select(GEOID) %>%
   mutate(GEOID = as.character(GEOID))
 
@@ -233,15 +298,25 @@ rm(cpal_place_new)
 rm(cpal_place_old)
 
 untd_place_long <- cpal_place %>%
-  mutate(bp_per = pop_bpE/tot_popE,
+  mutate(pop_18t24E = popm_18t24E+popf_18t24E,
+         wh_per = wh_popE/tot_popE,
+         bl_per = bl_popE/tot_popE,
+         as_per = as_popE/tot_popE,
+         his_per = his_popE/tot_popE,
+         emp_r = ((emp_r25t29E+emp_r30t34E+emp_r35t44E+emp_r45t54E)/4)/100,
+         hs_18t24_per = (hsm_18t24E+hsm_18t24E)/pop_18t24E,
+         es_3t4_per = es_3t4E/pop_3t4E,
+         emp_pubtr_per = emp_pubtrE/empE,
+         bp_per = pop_bpE/tot_popE,
          cbp_per = bp_u18E/pop_u18E,
+         rohh_per = rohhE/thhE,
          type = "Place") %>%
   select(-ends_with("M"))
 names(untd_place_long)
 
 untd_place_wide <- untd_place_long %>%
   pivot_wider(names_from = "year", 
-              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per, rohh_per, emp_pubtr_per, es_3t4_per, hs_18t24_per, emp_r, his_per, as_per, bl_per, wh_per, pop_18t24E))
 ```
 
 ```{r pull variables from tidycensus, include = FALSE, echo = FALSE}
@@ -288,14 +363,24 @@ rm(cpal_county_new)
 rm(cpal_county_old)
 
 untd_county_long <- cpal_county %>%
-  mutate(bp_per = pop_bpE/tot_popE,
+  mutate(pop_18t24E = popm_18t24E+popf_18t24E,
+         wh_per = wh_popE/tot_popE,
+         bl_per = bl_popE/tot_popE,
+         as_per = as_popE/tot_popE,
+         his_per = his_popE/tot_popE,
+         emp_r = ((emp_r25t29E+emp_r30t34E+emp_r35t44E+emp_r45t54E)/4)/100,
+         hs_18t24_per = (hsm_18t24E+hsm_18t24E)/pop_18t24E,
+         es_3t4_per = es_3t4E/pop_3t4E,
+         emp_pubtr_per = emp_pubtrE/empE,
+         bp_per = pop_bpE/tot_popE,
          cbp_per = bp_u18E/pop_u18E,
+         rohh_per = rohhE/thhE,
          type = "County") %>%
   select(-ends_with("M"))
 
 untd_county_wide <- untd_county_long %>%
   pivot_wider(names_from = "year", 
-              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per))
+              values_from = c(tot_popE, med_incE, giniE, pop_u18E, pop_bpE, bp_u18E, bp_per, cbp_per, rohh_per, emp_pubtr_per, es_3t4_per, hs_18t24_per, emp_r, his_per, as_per, bl_per, wh_per, pop_18t24E))
 ```
 
 ```{r}
@@ -306,18 +391,18 @@ untd_long <- full_join(full_join(full_join(untd_tract_long, untd_zip_long), untd
 
 
 ```{r}
-export(untd_tract_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyTract_Wide.csv")
-export(untd_tract_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyTract_Long.csv")
+export(untd_tract_wide, "Data/ACS/TimeSeriesbyTract_Wide.csv")
+export(untd_tract_long, "Data/ACS/TimeSeriesbyTract_Long.csv")
 
-export(untd_zip_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyZip_Wide.csv")
-export(untd_zip_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyZip_Long.csv")
+export(untd_zip_wide, "Data/ACS/TimeSeriesbyZip_Wide.csv")
+export(untd_zip_long, "Data/ACS/TimeSeriesbyZip_Long.csv")
 
-export(untd_place_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyPlace_Wide.csv")
-export(untd_place_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyPlace_Long.csv")
+export(untd_place_wide, "Data/ACS/TimeSeriesbyPlace_Wide.csv")
+export(untd_place_long, "Data/ACS/TimeSeriesbyPlace_Long.csv")
 
-export(untd_county_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyCounty_Wide.csv")
-export(untd_county_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesbyCounty_Long.csv")
+export(untd_county_wide, "Data/ACS/TimeSeriesbyCounty_Wide.csv")
+export(untd_county_long, "Data/ACS/TimeSeriesbyCounty_Long.csv")
 
-export(untd_wide, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesAllGeographies_Wide.csv")
-export(untd_long, "C:/Users/Michael Lopez/Documents/GitHub/Social-Mobility/Data/ACS/TimeSeriesAllGeographies_Long.csv")
+export(untd_wide, "Data/ACS/TimeSeriesAllGeographies_Wide.csv")
+export(untd_long, "Data/ACS/TimeSeriesAllGeographies_Long.csv")
 ```
